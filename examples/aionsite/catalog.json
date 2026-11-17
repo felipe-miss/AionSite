@@ -334,6 +334,58 @@
         }
       ],
       "viewPath": "/estilos/propuesta-7/"
+    },
+    {
+      "id": "propuesta-8",
+      "number": 8,
+      "revision": 1,
+      "title": "Colegio en vuelo",
+      "description": "Para colegios de maternal a primaria: fotos con forma de ala, una tarjeta por nivel, requisitos claros y visita por WhatsApp.",
+      "tags": [
+        "Colegio",
+        "Niveles",
+        "Inscripciones",
+        "Visita"
+      ],
+      "approvedDirection": true,
+      "entry": "collections/aionsite-colegios-2026-11-17/propuesta-8/proposal.html",
+      "thumbnail": "thumbnails/propuesta-8.png",
+      "sections": [
+        {
+          "family": "wing-hero",
+          "id": null,
+          "class": "hero"
+        },
+        {
+          "family": "level-cards",
+          "id": "niveles",
+          "class": "levels"
+        },
+        {
+          "family": "service-chips",
+          "id": null,
+          "class": "serv"
+        },
+        {
+          "family": "message-and-requirements",
+          "id": "inscripciones",
+          "class": "story"
+        },
+        {
+          "family": "visit-map-cta",
+          "id": "visita",
+          "class": "visit"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-8/",
+      "palette": {
+        "name": "Vuelo",
+        "colors": [
+          "#1593d6",
+          "#102a63",
+          "#ffe45c"
+        ]
+      }
     }
   ]
 }

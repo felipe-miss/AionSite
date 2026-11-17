@@ -20,6 +20,7 @@ const proposalSections: Record<number, string> = {
   5: "Portada cinematográfica, índice de servicios, portafolio Creative, imagen con acordeón y CTA.",
   6: "Hero editorial, galería escalonada de proyectos, selector de contenido, banner comercial, proceso y cierre tipográfico.",
   7: "Hero arquitectónico vectorial, capítulos interactivos, proyecto asimétrico, proceso lineal y CTA.",
+  8: "Para colegios: hero con fotos en forma de ala, tarjetas por nivel (maternal, preescolar, primaria), servicios, mensaje de la dirección con requisitos de inscripción y cierre de visita con mapa y WhatsApp.",
 };
 
 export function getStylePrompts() {
