@@ -330,7 +330,7 @@ export const defaultCmsContent: CmsContent = {
         {
           question: "¿Incluyen soporte, mantenimiento y SEO después del lanzamiento?",
           answer:
-            "Sí. Contamos con planes de mantenimiento mensual que incluyen soporte técnico, mejoras continuas, optimización de rendimiento y acompañamiento SEO.",
+            "Sí. El mantenimiento mensual incluye soporte técnico, mejoras continuas, optimización de rendimiento y acompañamiento SEO. Cuesta $600 al mes si tu sitio lo hizo AionSite; si viene de otro proveedor, el primer mes cuesta $1,300 porque incluye conocer tu sistema y después $600 al mes.",
         },
       ],
     },

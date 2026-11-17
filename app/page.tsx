@@ -105,7 +105,7 @@ const faqs = [
   },
   {
     q: "¿Qué pasa después del lanzamiento?",
-    a: "Hay planes de mantenimiento mensual con soporte técnico, mejoras continuas, optimización de velocidad y seguimiento SEO.",
+    a: "Puedes contratar mantenimiento mensual: actualizaciones, respaldos, seguridad, soporte y mejoras. Cuesta $600 al mes si tu sitio lo hice yo. Si tu sitio viene de otro proveedor o plataforma, el primer mes cuesta $1,300 porque incluye conocer tu sistema; después, $600 al mes.",
   },
 ];
 
@@ -254,8 +254,8 @@ export default function Home() {
               Precios claros desde el inicio
             </h2>
             <p data-reveal="rise" style={{ ["--d" as string]: "100ms" }}>
-              Precios base en pesos mexicanos. Cada página extra cuesta $500. Si tu proyecto no encaja aquí,
-              lo cotizo a medida.
+              Precios base en pesos mexicanos. Cada página extra cuesta $500. Mantenimiento desde $600 al mes.
+              Si tu proyecto no encaja aquí, lo cotizo a medida.
             </p>
           </div>
           <ul className="h3-plans" data-reveal="plans">
