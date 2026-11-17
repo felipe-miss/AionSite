@@ -5,7 +5,7 @@
     {
       "id": "propuesta-1",
       "number": 1,
-      "revision": 1,
+      "revision": 2,
       "title": "Demo animada",
       "description": "Portada con transiciones y portafolio en perspectiva.",
       "tags": [
@@ -44,12 +44,20 @@
           "class": "closing"
         }
       ],
-      "viewPath": "/estilos/propuesta-1/"
+      "viewPath": "/estilos/propuesta-1/",
+      "palette": {
+        "name": "Future",
+        "colors": [
+          "#1958ed",
+          "#08111f",
+          "#edf0f3"
+        ]
+      }
     },
     {
       "id": "propuesta-2",
       "number": 2,
-      "revision": 1,
+      "revision": 2,
       "title": "Comercial y editorial",
       "description": "Banners, imágenes y soluciones que se expanden.",
       "tags": [
@@ -98,12 +106,20 @@
           "class": "contact-section"
         }
       ],
-      "viewPath": "/estilos/propuesta-2/"
+      "viewPath": "/estilos/propuesta-2/",
+      "palette": {
+        "name": "KV / Luma",
+        "colors": [
+          "#c97854",
+          "#191716",
+          "#fffaf5"
+        ]
+      }
     },
     {
       "id": "propuesta-3",
       "number": 3,
-      "revision": 2,
+      "revision": 3,
       "title": "Recorrido y movimiento",
       "description": "Tarjetas, recorrido por scroll e imagen con llamadas a cotizar.",
       "tags": [
@@ -147,12 +163,20 @@
           "class": "closing"
         }
       ],
-      "viewPath": "/estilos/propuesta-3/"
+      "viewPath": "/estilos/propuesta-3/",
+      "palette": {
+        "name": "Spatial UI",
+        "colors": [
+          "#7c3aed",
+          "#111827",
+          "#dbeafe"
+        ]
+      }
     },
     {
       "id": "propuesta-4",
       "number": 4,
-      "revision": 3,
+      "revision": 4,
       "title": "Composición escultórica",
       "description": "Alcance en capas, exposición asimétrica y proceso editorial.",
       "tags": [
@@ -196,12 +220,20 @@
           "class": "quote-ending wrap"
         }
       ],
-      "viewPath": "/estilos/propuesta-4/"
+      "viewPath": "/estilos/propuesta-4/",
+      "palette": {
+        "name": "Claymorphism",
+        "colors": [
+          "#f4a261",
+          "#264653",
+          "#fff3e8"
+        ]
+      }
     },
     {
       "id": "propuesta-5",
       "number": 5,
-      "revision": 3,
+      "revision": 4,
       "title": "Portada cinematográfica",
       "description": "Imagen a todo ancho, servicios y portafolio interactivo.",
       "tags": [
@@ -240,12 +272,20 @@
           "class": "contact-strip"
         }
       ],
-      "viewPath": "/estilos/propuesta-5/"
+      "viewPath": "/estilos/propuesta-5/",
+      "palette": {
+        "name": "Arkkhe",
+        "colors": [
+          "#d8ff3e",
+          "#171717",
+          "#f5f0e8"
+        ]
+      }
     },
     {
       "id": "propuesta-6",
       "number": 6,
-      "revision": 1,
+      "revision": 2,
       "title": "Galería editorial",
       "description": "Proyectos escalonados, selector de contenido y cierre tipográfico.",
       "tags": [
@@ -289,12 +329,20 @@
           "class": "closing wrap"
         }
       ],
-      "viewPath": "/estilos/propuesta-6/"
+      "viewPath": "/estilos/propuesta-6/",
+      "palette": {
+        "name": "Skeuomorphism",
+        "colors": [
+          "#b9f227",
+          "#121212",
+          "#f1f1ed"
+        ]
+      }
     },
     {
       "id": "propuesta-7",
       "number": 7,
-      "revision": 1,
+      "revision": 2,
       "title": "Dirección arquitectónica",
       "description": "Estructura vectorial, capítulos interactivos y evidencia visual.",
       "tags": [
@@ -333,7 +381,15 @@
           "class": "quote"
         }
       ],
-      "viewPath": "/estilos/propuesta-7/"
+      "viewPath": "/estilos/propuesta-7/",
+      "palette": {
+        "name": "Special UI",
+        "colors": [
+          "#d9ff5f",
+          "#11120f",
+          "#eee9df"
+        ]
+      }
     },
     {
       "id": "propuesta-8",

@@ -20,6 +20,14 @@ La galería `/estilos/` reúne los siete estilos existentes y las siete propuest
 
 En `/estilos/`, cada estilo y propuesta muestra «Ver prompt» siempre; su contenido requiere sesión de administrador. Sin sesión, el popup enlaza al inicio de sesión y vuelve a Estilos. Con sesión, permite editar y copiar una instrucción de `$aionsite-demo` adaptada a esa base. La lectura está protegida por la autenticación existente en `/api/admin/style-prompts`; el texto de los prompts no se incluye en el HTML público. Definiciones de estilos: `src/data/style-directions.ts`; composición de prompts: `src/lib/style-prompts.ts`. Requiere servidor y sesión; una exportación estática sin API no ofrece esta función interna. No ejecuta Codex ni publica sitios.
 
+## Paletas
+
+Cada propuesta usa una paleta de referencia tomada de los estilos que había en `/estilos/` (campo `palette` en `catalog.json`; hoy solo quedan Future, Arkkhe y Calma/Claymorphism como páginas): 1 Future, 2 KV / Luma, 3 Spatial UI, 4 Claymorphism, 5 Arkkhe, 6 Skeuomorphism, 7 Special UI. Los colores se aplican con `node scripts/recolor-proposals.mjs`, que parte siempre del archivo confirmado en git (puede volver a ejecutarse) y actualiza la copia editable y la de `public/style-examples/`. Spatial UI usa `#7c3aed` (un tono más profundo que `#8b5cf6`) para que el texto blanco cumpla contraste AA. Las imágenes no se recolorean.
+
+### Pulido después de la crítica
+
+El CSS escrito a mano vive en `scripts/proposal-overrides/` (`shared.css` para las siete y `propuesta-N.css` por layout) y el script lo añade al final de cada `style.css`; edita ahí, no en el `style.css` generado. El script también sube a 11px cualquier texto más pequeño. El HTML y el JS ya no se regeneran: botón único "Cotizar mi sitio" hacia `/solicitar-sitio/`, títulos y meta descriptions propias, barra de vista previa única y Swiper más ágil (flip → fade en la 4; pestañas de la 6 por clic o foco).
+
 ## Propuesta 8 · Colegio en vuelo
 
 Diseño para colegios de maternal a primaria (`collections/aionsite-colegios-2026-11-17/`), con paleta propia "Vuelo": marino `#102A63`, cielo `#1593D6` y sol `#FFE45C`. Sale de la propuesta de Xillpayats, sin datos del colegio. Si cambias su `style.css`, copia el cambio a `public/style-examples/propuesta-8/`.

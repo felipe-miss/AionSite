@@ -19,7 +19,7 @@ test('old quote link redirects and renamed routes preserve children, search and 
 
 test('nested styles preserve child ownership, redirect old URLs and rewrite canonical URLs', () => {
   assert.equal(normalizePagePath('/estilos/mi-estilo'), '/estilos/mi-estilo/');
-  for (const id of ['arkkhe','claymorphism','future','luma','skeuomorphism','spatial-ui','specialui']) {
+  for (const id of ['arkkhe','claymorphism','future']) {
     assert.equal(resolvePageHref(`/${id}/?ref=lab#inicio`), `/estilos/${id}/?ref=lab#inicio`);
     assert.deepEqual(managedRoute(`/${id}/`), { action: 'redirect', path: `/estilos/${id}/` });
     assert.deepEqual(managedRoute(`/estilos/${id}/`), { action: 'rewrite', path: `/${id}/` });

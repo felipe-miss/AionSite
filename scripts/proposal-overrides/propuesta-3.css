@@ -1,0 +1,14 @@
+/* Propuesta 3 · Spatial UI */
+/* AA text on the light panels and on violet. */
+.hero-card-caption span,.typographic-plan span,.panel-two p{color:#4a5468}
+.panel-three :is(p,.eyebrow),.closing .eyebrow,.closing-bottom span{color:#fff}
+/* Depth: layered cards that sit above the page instead of flat paper. */
+.hero-cards .swiper-slide{border-radius:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 18px 40px -16px rgba(17,24,39,.75),0 50px 100px -40px rgba(124,58,237,.55)}
+.journey-panel .panel-layout>div:last-child,.contact-example{box-shadow:0 30px 70px -30px rgba(17,24,39,.55)}
+/* Horizontal journey: a shorter run of scroll for three panels. */
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){.horizontal-stage{height:200vh}}
+@media(max-width:900px){.horizontal-track{scrollbar-width:none}.horizontal-track::-webkit-scrollbar{display:none}}
+/* Magnetic CTA follows the pointer smoothly instead of snapping. */
+.magnet-disc{transition:transform .3s cubic-bezier(.23,1,.32,1)!important}
+/* The card stack and journey track never widen the page. */
+html,body{overflow-x:clip}

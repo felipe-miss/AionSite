@@ -31,8 +31,8 @@ test('all proposals retain editable originals and public preview assets', () => 
 test('each direction has a distinct internal prompt and a safe workflow', () => {
   const prompts = getStylePrompts();
   assert.equal(prompts.length, styleDirections.length + catalog.proposals.length);
-  assert.equal(new Set(prompts.map((item) => item.id)).size, prompts.length);
-  assert.equal(new Set(prompts.map((item) => item.prompt)).size, prompts.length);
+  assert.equal(new Set(prompts.map((item) => item.id)).size, styleDirections.length + catalog.proposals.length);
+  assert.equal(new Set(prompts.map((item) => item.prompt)).size, styleDirections.length + catalog.proposals.length);
   for (const item of prompts) {
     assert.ok(item.prompt.startsWith('$aionsite-demo'));
     assert.ok(!item.prompt.includes('undefined'));

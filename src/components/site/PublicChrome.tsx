@@ -25,8 +25,13 @@ export function hasSiteChrome(pathname: string) {
   return !ownChromePrefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
 
-/** Renders the site header or footer only on public pages that use the shared chrome. */
-export function PublicChrome({ children }: { children: ReactNode }) {
+/**
+ * Renders the site header or footer only on public pages that use the shared chrome.
+ * `alsoOn` lists exact routes that otherwise keep their own chrome but still get this piece
+ * (the /estilos gallery uses the site header; its demos and proposals keep their own).
+ */
+export function PublicChrome({ children, alsoOn = [] }: { children: ReactNode; alsoOn?: string[] }) {
   const pathname = usePathname() || "/";
-  return hasSiteChrome(pathname) ? <>{children}</> : null;
+  const path = pathname.replace(/\/$/, "") || "/";
+  return hasSiteChrome(pathname) || alsoOn.includes(path) ? <>{children}</> : null;
 }

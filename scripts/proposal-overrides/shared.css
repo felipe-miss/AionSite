@@ -1,0 +1,17 @@
+/* Shared polish for the seven proposals (appended by scripts/recolor-proposals.mjs). */
+
+/* Browser surfaces carry the palette. */
+::selection{background:{{accent}};color:{{onAccent}}}
+html{scrollbar-color:var(--line) var(--ink)}
+
+/* Two-tone focus ring: the ink outline reads on light and accent surfaces,
+   the paper halo reads on dark ones. */
+:focus-visible{outline:3px solid var(--ink)!important;outline-offset:4px!important;box-shadow:0 0 0 7px var(--paper,var(--light))!important}
+
+/* One curve for every UI transition and slide: a strong ease-out. */
+:root{--swiper-wrapper-transition-timing-function:cubic-bezier(.23,1,.32,1)}
+:is(a,button,summary) :is(span,b,i),
+:is(.button,.text-cta,.text-link,.quote-pill,.quote-link,.circle-cta,.contact-circle,.round-contact,.closing-link,.mega-cta,.magnet,.nav-quote,.header-cta)>*{transition-timing-function:cubic-bezier(.23,1,.32,1)!important;transition-duration:.25s!important}
+
+/* Logo: a knockout version on palettes that are not the brand blue. */
+header img[src*="logo"],footer img[src*="logo"]{filter:{{logoFilter}}}

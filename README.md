@@ -32,7 +32,7 @@ Revisión del código local: 5 de noviembre de 2026. El inventario contrasta pá
 
 - `/home1/`: versión con `PublicSite`, registro de secciones, orden y visibilidad del CMS, más ventana de newsletter.
 - `/home2/`: reutiliza el inicio actual. `/future/`: composición visual animada. `/home-b/`: redirige a `/future`, no es otra portada activa.
-- `/estilos/` y `/estilos/botones/`: galería y exploración de controles; `/luma/`, `/arkkhe/`, `/specialui/`, `/spatial-ui/`, `/claymorphism/` y `/skeuomorphism/`: propuestas visuales. Aunque la galería se describe como privada, estas rutas no tienen la protección administrativa del middleware.
+- `/estilos/` y `/estilos/botones/`: galería y exploración de controles; `/future/`, `/arkkhe/` y `/claymorphism/` (Calma): propuestas visuales. Aunque la galería se describe como privada, estas rutas no tienen la protección administrativa del middleware.
 - `/about/` redirige a Conóceme; `/contact/` al contacto del inicio; `/productos/` a cotización.
 - `src/data/site-pages.json` registra las rutas administrables. No todas las rutas experimentales se convierten automáticamente en páginas gestionadas por ese registro.
 

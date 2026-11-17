@@ -3,7 +3,7 @@ let paused=media.matches;
 const sliders=[];
 function access(sw){sw.slides.forEach((slide,i)=>{slide.setAttribute('aria-hidden',String(i!==sw.activeIndex));slide.querySelectorAll('a,button').forEach(el=>el.tabIndex=i===sw.activeIndex?0:-1)})}
 const a11y={enabled:true,prevSlideMessage:'Anterior',nextSlideMessage:'Siguiente',firstSlideMessage:'Primera diapositiva',lastSlideMessage:'Última diapositiva',slideLabelMessage:'{{index}} de {{slidesLength}}'};
-const base={speed:paused?0:800,grabCursor:true,a11y};
+const base={speed:paused?0:500,grabCursor:true,a11y};
 function counter(selector,sw){document.querySelector(selector).textContent=`${String(sw.activeIndex+1).padStart(2,'0')} / 03`;access(sw)}
 const hero=new Swiper('.hero-cards',{...base,effect:'cards',cardsEffect:{perSlideOffset:8,perSlideRotate:4,slideShadows:true},navigation:{nextEl:'.hero-next',prevEl:'.hero-prev'},on:{init(sw){counter('.hero-count',sw)},slideChange(sw){counter('.hero-count',sw)}}});sliders.push(hero);
 // Keyboard control is scoped to the focused module, so adjacent sliders do not move together.

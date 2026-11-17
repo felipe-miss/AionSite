@@ -1,0 +1,6 @@
+/* Propuesta 7 · Special UI */
+.section-heading .label,#chapter-label,.chapter-tabs button,.chapter-tabs button>span{color:#55534d}
+/* Diagram lines in ink, so they read on the light panel. */
+.diagram-line{background:rgba(17,18,15,.35)}
+.diagram-block{border-color:rgba(17,18,15,.55);transition-duration:.4s!important;transition-timing-function:cubic-bezier(.23,1,.32,1)!important}
+.chapter-tabs button[aria-selected=true]{border-color:var(--ink)}

@@ -13,9 +13,6 @@ import { GlobalFooter } from "@/src/components/site/GlobalFooter";
 import { PublicChrome } from "@/src/components/site/PublicChrome";
 import "./globals.css";
 import "./claymorphism/claymorphism.css";
-import "./specialui/specialui.css";
-import "./skeuomorphism/skeuomorphism.css";
-import "./spatial-ui/spatial-ui.css";
 import "./style-page-chrome.css";
 import "@/src/components/site/site-chrome.css";
 
@@ -75,7 +72,7 @@ export default function RootLayout({
       <body className="font-sans bg-slate-950 text-slate-200 antialiased">
         <SchemaMarkup />
         <PublicAnalytics><GoogleTagManager /><MetaPixel /></PublicAnalytics>
-        <PublicChrome>
+        <PublicChrome alsoOn={["/estilos"]}>
           <GlobalHeader />
         </PublicChrome>
         {children}

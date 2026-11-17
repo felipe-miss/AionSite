@@ -140,18 +140,6 @@
     "parentId": "home"
   },
   {
-    "id": "luma",
-    "name": "luma",
-    "displayName": "luma",
-    "title": "",
-    "sourcePath": "/luma/",
-    "path": "/estilos/luma/",
-    "aliases": [
-      "/luma/"
-    ],
-    "parentId": "estilos"
-  },
-  {
     "id": "privacidad",
     "name": "Privacidad",
     "displayName": "Privacidad",
@@ -192,18 +180,6 @@
     "parentId": "home"
   },
   {
-    "id": "skeuomorphism",
-    "name": "skeuomorphism",
-    "displayName": "skeuomorphism",
-    "title": "",
-    "sourcePath": "/skeuomorphism/",
-    "path": "/estilos/skeuomorphism/",
-    "aliases": [
-      "/skeuomorphism/"
-    ],
-    "parentId": "estilos"
-  },
-  {
     "id": "solicitar-sitio",
     "name": "Solicitar mi sitio",
     "displayName": "Solicitar mi sitio",
@@ -212,30 +188,6 @@
     "path": "/solicitar-sitio/",
     "aliases": [],
     "parentId": "quote"
-  },
-  {
-    "id": "spatial-ui",
-    "name": "spatial-ui",
-    "displayName": "spatial-ui",
-    "title": "",
-    "sourcePath": "/spatial-ui/",
-    "path": "/estilos/spatial-ui/",
-    "aliases": [
-      "/spatial-ui/"
-    ],
-    "parentId": "estilos"
-  },
-  {
-    "id": "specialui",
-    "name": "specialui",
-    "displayName": "specialui",
-    "title": "",
-    "sourcePath": "/specialui/",
-    "path": "/estilos/specialui/",
-    "aliases": [
-      "/specialui/"
-    ],
-    "parentId": "estilos"
   },
   {
     "id": "terminos",

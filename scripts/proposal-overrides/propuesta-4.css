@@ -1,0 +1,11 @@
+/* Propuesta 4 · Claymorphism */
+/* Orbit labels clear of the headline. */
+.orbit-label-a{left:6px}
+@media(max-width:1500px){.orbit-label{display:none}}
+/* Keep the start of the screenshot's headline in frame. */
+.exhibit-main img{object-position:left top}
+/* Clay: soft extruded surfaces with a top light and a lifted shadow. */
+.button,.example-action{border-radius:20px;box-shadow:inset 0 2px 0 rgba(255,255,255,.45),inset 0 -5px 10px rgba(120,60,20,.22),0 14px 26px -12px rgba(10,30,36,.6)}
+.button:active{transform:translateY(1px);box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -2px 6px rgba(120,60,20,.25),0 6px 12px -8px rgba(10,30,36,.6)}
+.scope-flip .swiper-slide{border-radius:32px;box-shadow:inset 0 3px 0 rgba(255,255,255,.4),inset 0 -12px 24px rgba(120,60,20,.18),0 30px 50px -24px rgba(10,30,36,.7)}
+.stage-device{transition-duration:.45s!important;transition-timing-function:cubic-bezier(.23,1,.32,1)!important}

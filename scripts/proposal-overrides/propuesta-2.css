@@ -1,0 +1,19 @@
+/* Propuesta 2 · KV / Luma */
+.button .button-arrow{color:var(--ink)!important}
+/* Accordion panels: shorter, strong ease-out. */
+.route-panel{transition-duration:.35s!important;transition-timing-function:cubic-bezier(.23,1,.32,1)!important}
+.case-background{transition-duration:.6s!important}
+/* The ghost word becomes a deliberate outline, clear of the next block. */
+.process-media>span{color:transparent;-webkit-text-stroke:1px var(--blue);bottom:28px}
+/* Antes de publicar: one step open at a time, each with its own image (crossfade). */
+.process-image-frame{display:grid;grid-template-columns:minmax(0,1fr)}
+.process-image-frame img{min-width:0;object-position:left top}
+.process-image-frame img{grid-area:1/1;opacity:0;transition:opacity .45s cubic-bezier(.23,1,.32,1)}
+.process-image-frame img.is-active{opacity:1}
+.process-steps summary{cursor:pointer;min-height:44px}
+.process-steps details[open] summary{color:var(--ink)}
+.process-steps details:not([open]) summary:hover>b{transform:rotate(90deg)}
+.process-steps details[open] p{animation:step-in .35s cubic-bezier(.23,1,.32,1)}
+@keyframes step-in{from{opacity:0;transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.process-image-frame img{transition:none}.process-steps details[open] p{animation:none}}
+.motion-paused .process-image-frame img{transition:none}.motion-paused .process-steps details[open] p{animation:none}

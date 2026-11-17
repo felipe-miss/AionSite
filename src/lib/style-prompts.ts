@@ -4,12 +4,8 @@ import { resolvePageHref, sitePages } from "./site-pages";
 
 const treatments: Record<string, { composition: string; sections: string }> = {
   future: { composition: "Composición centrada, tipografía expresiva, contraste oscuro y movimiento selectivo para guiar la lectura.", sections: "Hero con jerarquía tipográfica; servicios; proyectos; proceso; CTA de cotización." },
-  luma: { composition: "Composición editorial cálida, serif expresiva, grandes imágenes y espacios amplios. Adapta la paleta a la marca; no copies el negocio de maquillaje del ejemplo.", sections: "Hero con imagen dominante; propuesta comercial; imagen y texto; evidencia; cierre de contacto." },
   arkkhe: { composition: "Titulares de gran escala, alineaciones asimétricas, contraste marcado y ritmo cinematográfico con pausas de lectura.", sections: "Hero tipográfico; banner comercial; servicios; proyecto destacado; proceso y CTA." },
-  specialui: { composition: "Lenguaje técnico oscuro, retícula precisa, etiquetas breves y acentos de color. No inventes indicadores, métricas ni dashboards.", sections: "Hero; índice de soluciones; evidencia real; explicación del proceso; contacto." },
-  "spatial-ui": { composition: "Profundidad moderada, perspectiva y capas con jerarquía clara. No simules modelos 3D inexistentes ni ocultes información tras efectos.", sections: "Hero espacial; presentación de oferta; imagen con detalle; proyectos; CTA." },
   claymorphism: { composition: "Volúmenes suaves, radios generosos, sombras táctiles y controles legibles; una identidad amigable adaptada al negocio.", sections: "Hero; oferta concreta; servicios; evidencia; proceso; CTA de contacto." },
-  skeuomorphism: { composition: "Detalles táctiles, materiales y controles inspirados en objetos físicos, con estados y acciones claramente reconocibles.", sections: "Hero; soluciones; demostración visual; proyectos; proceso y cierre comercial." },
 };
 
 const proposalSections: Record<number, string> = {
@@ -34,7 +30,7 @@ export function getStylePrompts() {
   const proposals = examples.proposals.map((item) => ({
     id: item.id, name: `Propuesta ${item.number} · ${item.title}`, route: resolvePageHref(item.viewPath),
     source: `Código original: examples/aionsite/${item.entry}. Revisión ${item.revision}. Consulta examples/aionsite/catalog.json.`,
-    composition: item.description, sections: proposalSections[item.number] ?? item.tags.join(", "),
+    composition: `${item.description} Paleta de referencia ${item.palette.name} (${item.palette.colors.join(", ")}); sustitúyela por la de la marca del cliente.`, sections: proposalSections[item.number] ?? item.tags.join(", "),
   }));
   return [...styles, ...proposals].map((item) => ({ id: item.id, name: item.name, prompt: `$aionsite-demo
 
