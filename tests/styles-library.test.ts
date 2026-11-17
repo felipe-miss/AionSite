@@ -19,8 +19,8 @@ test('style URLs retain old redirects and use the most specific nested route', (
   assert.equal(resolvePageHref('/estilos/arkkhe-extra/'), '/estilos/arkkhe-extra/');
 });
 
-test('all eight proposals retain editable originals and public preview assets', () => {
-  assert.equal(catalog.proposals.length, 8);
+test('all proposals retain editable originals and public preview assets', () => {
+  assert.ok(catalog.proposals.length >= 9);
   for (const item of catalog.proposals) {
     assert.ok(existsSync(path.join('examples/aionsite', item.entry)));
     assert.ok(existsSync(path.join('public/style-examples', item.id, 'proposal.html')));
@@ -28,11 +28,11 @@ test('all eight proposals retain editable originals and public preview assets', 
   }
 });
 
-test('each of the fifteen directions has a distinct internal prompt and a safe workflow', () => {
+test('each direction has a distinct internal prompt and a safe workflow', () => {
   const prompts = getStylePrompts();
   assert.equal(prompts.length, styleDirections.length + catalog.proposals.length);
-  assert.equal(new Set(prompts.map((item) => item.id)).size, 15);
-  assert.equal(new Set(prompts.map((item) => item.prompt)).size, 15);
+  assert.equal(new Set(prompts.map((item) => item.id)).size, prompts.length);
+  assert.equal(new Set(prompts.map((item) => item.prompt)).size, prompts.length);
   for (const item of prompts) {
     assert.ok(item.prompt.startsWith('$aionsite-demo'));
     assert.ok(!item.prompt.includes('undefined'));

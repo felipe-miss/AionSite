@@ -386,6 +386,130 @@
           "#ffe45c"
         ]
       }
+    },
+    {
+      "id": "propuesta-9",
+      "number": 9,
+      "revision": 1,
+      "title": "Colegio: logros y niveles",
+      "description": "Barra de datos, hero con collage, logros en cifras, niveles, comunidad y visita por WhatsApp.",
+      "tags": [
+        "Colegio",
+        "Logros",
+        "Niveles",
+        "CTA"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-colegios-modulos-2026-11-17/propuesta-9/proposal.html",
+      "thumbnail": "thumbnails/propuesta-9.png",
+      "sections": [
+        {
+          "family": "barra-contacto",
+          "id": null,
+          "class": "barra"
+        },
+        {
+          "family": "hero-collage",
+          "id": "inicio",
+          "class": "hero"
+        },
+        {
+          "family": "logros-cifras",
+          "id": "logros",
+          "class": "logros"
+        },
+        {
+          "family": "niveles",
+          "id": "niveles",
+          "class": "niveles"
+        },
+        {
+          "family": "comunidad",
+          "id": "comunidad",
+          "class": "comunidad"
+        },
+        {
+          "family": "visita-contacto",
+          "id": "visita",
+          "class": "visita"
+        },
+        {
+          "family": "pie-institucional",
+          "id": null,
+          "class": "pie"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-9/",
+      "palette": {
+        "name": "Colegio verde",
+        "colors": [
+          "#14532A",
+          "#E02028",
+          "#F3F1EC"
+        ]
+      }
+    },
+    {
+      "id": "propuesta-10",
+      "number": 10,
+      "revision": 1,
+      "title": "Colegio: etapas y validez",
+      "description": "Hero con arco, validez oficial, etapas en secuencia por scroll, slider de vida escolar y solicitud de visita.",
+      "tags": [
+        "Colegio",
+        "Etapas",
+        "Slider",
+        "CTA"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-colegios-modulos-2026-11-17/propuesta-10/proposal.html",
+      "thumbnail": "thumbnails/propuesta-10.png",
+      "sections": [
+        {
+          "family": "hero-arco",
+          "id": "contenido",
+          "class": "hero"
+        },
+        {
+          "family": "nosotros-forma",
+          "id": "nosotros",
+          "class": "about"
+        },
+        {
+          "family": "validez-cambridge",
+          "id": "validez",
+          "class": "validity"
+        },
+        {
+          "family": "etapas-secuencia",
+          "id": "oferta",
+          "class": "offer"
+        },
+        {
+          "family": "vida-slider",
+          "id": null,
+          "class": "life"
+        },
+        {
+          "family": "visita-formulario",
+          "id": "visita",
+          "class": "visit"
+        },
+        {
+          "family": "pie-columnas",
+          "id": "contacto",
+          "class": "footer"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-10/",
+      "palette": {
+        "name": "Colegio guinda",
+        "colors": [
+          "#77183D",
+          "#182234",
+          "#F4F2EC"
+        ]
+      }
     }
   ]
 }

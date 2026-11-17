@@ -3,7 +3,7 @@
 Biblioteca principal de referencia de `$aionsite-demo` en este proyecto.
 
 - Panel local: `/admin/ejemplos` (sesión de administrador).
-- `catalog.json`: propuestas 1–8, revisiones, rutas, familias y dirección aprobada.
+- `catalog.json`: propuestas 1–10, revisiones, rutas, familias y dirección aprobada.
 - `collections/`: archivos editables autocontenidos. Conserva las dos colecciones y sus revisiones; copia a una ejecución nueva para adaptar.
 - `thumbnails/`: capturas de las propuestas para el panel.
 - `collections/*/reference-map.json`, mapas individuales y verificaciones: evidencia disponible de cada estudio; no prueban otra implementación.
@@ -14,7 +14,7 @@ Para combinar, registra los módulos en `data/composition-plan.json` de la ejecu
 
 ## Apartado Estilos
 
-La galería `/estilos/` reúne los siete estilos existentes y las siete propuestas. Los estilos usan `/estilos/tipo-estilo/`, con redirecciones desde sus URLs anteriores. Las propuestas tienen `/estilos/propuesta-1/` a `/estilos/propuesta-8/`; las copias de visualización están en `public/style-examples/`. La biblioteca editable principal sigue aquí y conserva originales. El panel admin abre las URLs del apartado Estilos. Preparado localmente, sin despliegue.
+La galería `/estilos/` reúne los siete estilos existentes y las siete propuestas. Los estilos usan `/estilos/tipo-estilo/`, con redirecciones desde sus URLs anteriores. Las propuestas tienen `/estilos/propuesta-1/` a `/estilos/propuesta-10/`; las copias de visualización están en `public/style-examples/`. La biblioteca editable principal sigue aquí y conserva originales. El panel admin abre las URLs del apartado Estilos. Preparado localmente, sin despliegue.
 
 ## Prompts internos por tarjeta
 
@@ -23,3 +23,12 @@ En `/estilos/`, cada estilo y propuesta muestra «Ver prompt» siempre; su conte
 ## Propuesta 8 · Colegio en vuelo
 
 Diseño para colegios de maternal a primaria (`collections/aionsite-colegios-2026-11-17/`), con paleta propia "Vuelo": marino `#102A63`, cielo `#1593D6` y sol `#FFE45C`. Sale de la propuesta de Xillpayats, sin datos del colegio. Si cambias su `style.css`, copia el cambio a `public/style-examples/propuesta-8/`.
+
+## Módulos de colegio (propuestas 9 y 10)
+
+Salen de los primeros v1 de dos colegios reales, pero son versiones genéricas para reutilizar secciones: «Colegio Ejemplo», teléfono, correo y dirección ficticios, fotos y logos neutros (SVG) y sin nombres de alumnos, logros ni claves reales. Editables en `collections/aionsite-colegios-modulos-2026-11-17/`; copia de visualización en `public/style-examples/propuesta-9/` y `propuesta-10/`.
+
+- **Propuesta 9 · Colegio: logros y niveles** (paleta verde y rojo): barra de contacto, hero con collage, logros en cifras con casos, niveles, comunidad, visita por WhatsApp y pie sin datos repetidos.
+- **Propuesta 10 · Colegio: etapas y validez** (paleta guinda y marino, sin amarillo fuerte): hero con arco, validez oficial sin repetir la oferta, etapas en secuencia centrada por scroll con clave oficial por confirmar, slider de vida escolar, solicitud de visita y pie en columnas. La 10 es una exportación estática (Next) con ruta base `/style-examples/propuesta-10`; para cambiarla hay que regenerarla desde su fuente.
+
+Reglas al reutilizarlas: no copies nombres, cifras ni fotos de otro cliente; datos que falten van como espacio reservado «por confirmar»; fotografías de menores solo con autorización de las familias; la clave oficial de cada nivel y las certificaciones se piden al colegio. Aviso: el footer no repite lo que ya está en la sección de visita (dirección, horario, teléfono, correo).

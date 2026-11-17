@@ -21,6 +21,8 @@ const proposalSections: Record<number, string> = {
   6: "Hero editorial, galería escalonada de proyectos, selector de contenido, banner comercial, proceso y cierre tipográfico.",
   7: "Hero arquitectónico vectorial, capítulos interactivos, proyecto asimétrico, proceso lineal y CTA.",
   8: "Para colegios: hero con fotos en forma de ala, tarjetas por nivel (maternal, preescolar, primaria), servicios, mensaje de la dirección con requisitos de inscripción y cierre de visita con mapa y WhatsApp.",
+  9: "Módulos de colegio: barra de contacto, hero con collage de fotos, logros en cifras con casos, niveles (preescolar y primaria), comunidad, visita por WhatsApp y pie institucional sin datos repetidos. Usa solo los que respondan al objetivo; fotos de menores solo con autorización.",
+  10: "Módulos de colegio: hero con arco y foto, nosotros, validez oficial y certificaciones sin repetir la oferta, etapas en secuencia centrada por scroll (clave oficial por nivel como dato por confirmar), slider de vida escolar, solicitud de visita y pie en columnas.",
 };
 
 export function getStylePrompts() {
