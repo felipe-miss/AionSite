@@ -1,0 +1,12 @@
+import sharp from "sharp";
+import path from "node:path";
+const root=process.cwd(), out=path.join(root,"public/social/tu-web-guia-la-decision-story.png");
+const shot=path.join(root,"public/portfolio/atmedica.png");
+const logo="C:/Users/mizo_/OneDrive/AionSite/Web/logo-aionsite.png";
+const bg=Buffer.from(`<svg width="1080" height="1920" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#020611"/><stop offset=".55" stop-color="#071A3C"/><stop offset="1" stop-color="#1B1042"/></linearGradient><filter id="s"><feDropShadow dy="30" stdDeviation="35" flood-opacity=".65"/></filter></defs><rect width="1080" height="1920" fill="url(#b)"/><circle cx="930" cy="420" r="430" fill="#1677FF" opacity=".18"/><circle cx="120" cy="1510" r="390" fill="#8065FF" opacity=".15"/><rect x="120" y="290" width="840" height="790" rx="52" fill="#061127" stroke="#65B8FF" stroke-opacity=".35" filter="url(#s)"/><rect x="120" y="1160" width="280" height="60" rx="30" fill="#238BFF" fill-opacity=".2"/><text x="260" y="1198" text-anchor="middle" font-family="Arial" font-size="18" font-weight="800" letter-spacing="2" fill="#70C4FF">DEMOSTRACIÓN</text><text x="120" y="1325" font-family="Arial" font-size="72" font-weight="900" fill="#fff"><tspan x="120">TU WEB GUÍA</tspan><tspan x="120" dy="82" fill="#9680FF">LA DECISIÓN</tspan></text><text x="120" y="1515" font-family="Arial" font-size="30" fill="#D8E8FF"><tspan x="120">Una estructura clara muestra valor</tspan><tspan x="120" dy="46">y acerca el siguiente contacto.</tspan></text><rect x="120" y="1630" width="420" height="100" rx="34" fill="#238BFF"/><text x="330" y="1692" text-anchor="middle" font-family="Arial" font-size="27" font-weight="900" fill="#fff">CONOCE AIONSITE</text><text x="120" y="1800" font-family="Arial" font-size="23" fill="#BFD5F7">aionsite.com.mx</text></svg>`);
+const image=await sharp(shot).resize(760,710,{fit:"cover",position:"top"}).png().toBuffer();
+const mask=Buffer.from(`<svg width="760" height="710"><rect width="760" height="710" rx="34" fill="white"/></svg>`);
+const rounded=await sharp(image).composite([{input:mask,blend:"dest-in"}]).png().toBuffer();
+const brand=await sharp(logo).resize({width:240}).png().toBuffer();
+await sharp(bg).composite([{input:rounded,left:160,top:330},{input:brand,left:120,top:115}]).png().toFile(out);
+console.log(out);
