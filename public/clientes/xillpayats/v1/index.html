@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colegio Xillpayats · Maternal a Primaria</title>
+<meta name="description" content="Colegio Xillpayats en Ciudad del Carmen: maternal, preescolar y primaria con inglés diario, aulas climatizadas y apoyo psicopedagógico desde 2006.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#102a63; --navy-2:#1d3f8a; --cielo:#1593d6; --cielo-2:#d9f0fb;
+  --sol:#ffe45c; --sol-2:#fff6c7; --crema:#fffbef; --tinta:#1b2340; --gris:#5a6380;
+  --coral:#ff7a59;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Nunito,system-ui,sans-serif;color:var(--tinta);background:var(--crema);font-size:18px;line-height:1.6}
+h1,h2,h3{font-family:"Baloo 2",Nunito,sans-serif;line-height:1.05;color:var(--navy)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;font-weight:800;font-size:17px}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-line{border:2px solid var(--navy);color:var(--navy)}
+.pc{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:#fff;border:1.5px dashed var(--coral);color:#c2410c;border-radius:999px;padding:2px 10px;vertical-align:middle}
+
+/* NAV */
+.top{background:var(--navy);color:#dbe6ff;font-size:14px}
+.top .wrap{display:flex;justify-content:space-between;height:40px;align-items:center}
+.top b{color:var(--sol)}
+nav.main{background:#fff;box-shadow:0 1px 0 #ece6cf}
+nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+.logo img{height:68px;display:block}
+.links{display:flex;gap:34px;font-weight:700;color:var(--navy)}
+.links a.on{position:relative}
+.links a.on:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:5px;border-radius:9px;background:var(--sol)}
+.burger{display:none}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:72px 0 110px}
+.hero:before{content:"";position:absolute;right:-180px;top:-160px;width:760px;height:760px;border-radius:50%;background:var(--sol-2)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#fff;border-radius:999px;padding:6px 16px 6px 8px;font-weight:800;font-size:15px;color:var(--navy);box-shadow:0 2px 0 #efe4b5}
+.eyebrow span{background:var(--sol);border-radius:999px;padding:2px 10px}
+.hero h1{font-size:76px;margin:22px 0 20px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--cielo);position:relative;white-space:nowrap}
+.hero h1 em:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14px;background:var(--sol);z-index:-1;border-radius:6px}
+.hero p.lead{font-size:20px;color:var(--gris);max-width:520px}
+.cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.trust{display:flex;gap:30px;margin-top:40px}
+.trust div{font-size:14px;color:var(--gris);font-weight:600}
+.trust b{display:block;font-family:"Baloo 2";font-size:34px;color:var(--navy);line-height:1}
+/* wing photo: two rounded lobes like the butterfly */
+.wings{position:relative;height:540px}
+.wing{position:absolute;overflow:hidden;background:var(--cielo-2)}
+.wing img{width:100%;height:100%;object-fit:cover}
+.w1{left:0;top:0;width:76%;height:72%;border-radius:58% 42% 46% 54%/56% 48% 52% 44%;border:10px solid #fff;box-shadow:0 18px 40px -18px rgba(16,42,99,.35)}
+.w2{right:0;bottom:0;width:52%;height:48%;border-radius:46% 54% 40% 60%/50% 46% 54% 50%;border:10px solid #fff;background:var(--cielo);display:grid;place-items:center;text-align:center;color:#fff;padding:24px;box-shadow:0 18px 40px -18px rgba(16,42,99,.35)}
+.w2 b{font-family:"Baloo 2";font-size:44px;line-height:1;display:block;color:var(--sol)}
+.w2 span{font-weight:700;font-size:16px}
+.dot{position:absolute;border-radius:50%}
+.d1{width:26px;height:26px;background:var(--coral);left:72%;top:6%}
+.d2{width:16px;height:16px;background:var(--navy);left:4%;bottom:14%}
+.d3{width:46px;height:46px;background:var(--sol);right:6%;top:24%}
+.logo img{height:80px}
+.photo-tag{position:absolute;left:8px;bottom:6px;box-shadow:0 2px 0 #efe4b5;background:rgba(255,255,255,.92);border-radius:999px;font-size:12px;font-weight:800;padding:4px 12px;color:var(--navy)}
+
+/* NIVELES */
+.levels{padding:96px 0;background:#fff;border-radius:64px 64px 0 0;margin-top:-40px;position:relative}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:48px}
+.sec-head h2{font-size:54px;max-width:640px}
+.sec-head p{max-width:420px;color:var(--gris)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{border-radius:40px;padding:34px 32px 30px;position:relative;overflow:hidden;min-height:360px;display:flex;flex-direction:column}
+.card .age{font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.card h3{font-size:44px;margin:6px 0 12px;color:inherit}
+.card p{font-size:17px}
+.card ul{list-style:none;margin:18px 0 0;display:grid;gap:8px;font-weight:700;font-size:16px}
+.card li:before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:10px;background:currentColor;opacity:.6}
+.card .more{margin-top:auto;padding-top:22px;font-weight:800}
+.card .blob{position:absolute;right:-50px;top:-50px;width:170px;height:170px;border-radius:50%;opacity:.35}
+.c1{background:var(--sol);color:var(--navy)} .c1 .blob{background:#fff}
+.c2{background:var(--cielo);color:#fff} .c2 .blob{background:var(--sol)}
+.c3{background:var(--navy);color:#fff} .c3 .blob{background:var(--cielo)}
+
+/* SERVICIOS */
+.serv{padding:96px 0;background:var(--cielo-2)}
+.serv .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.chip{background:#fff;border-radius:28px;padding:26px 20px;text-align:center;font-weight:800;color:var(--navy);font-size:16px}
+.chip i{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 14px;border-radius:50%;background:var(--sol);font-style:normal;font-size:26px}
+
+/* HISTORIA + REQUISITOS */
+.story{padding:100px 0}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.quote{background:var(--navy);color:#fff;border-radius:48px;padding:52px 50px;position:relative}
+.quote .big{font-family:"Baloo 2";font-size:120px;line-height:.8;color:var(--sol)}
+.quote h2{color:#fff;font-size:42px;margin:10px 0 16px}
+.quote p{color:#c9d6f5}
+.quote .sig{margin-top:26px;font-weight:800;color:#fff}
+.quote .sig small{display:block;font-weight:600;color:#9fb3e6}
+.req{background:#fff;border-radius:48px;padding:48px 46px;border:3px solid var(--sol)}
+.req h2{font-size:40px;margin-bottom:6px}
+.req ol{list-style:none;counter-reset:r;margin:22px 0 26px;display:grid;gap:12px}
+.req li{counter-increment:r;display:flex;gap:14px;align-items:center;font-weight:700}
+.req li:before{content:counter(r);display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--cielo-2);color:var(--navy);font-weight:800;font-size:15px}
+
+/* VISITA */
+.visit{padding:0 0 100px}
+.visit .box{background:var(--sol);border-radius:56px;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.visit .txt{padding:60px 56px}
+.visit h2{font-size:56px;margin-bottom:14px}
+.visit dl{margin:26px 0 30px;display:grid;gap:12px;font-weight:700;color:var(--navy)}
+.visit dt{font-size:13px;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+.map{background:repeating-linear-gradient(45deg,#e9f6fd 0 18px,#d9f0fb 18px 36px);display:grid;place-items:center;position:relative}
+.pin{background:#fff;border-radius:24px;padding:18px 24px;font-weight:800;color:var(--navy);box-shadow:0 18px 30px -16px rgba(16,42,99,.4);text-align:center}
+.pin small{display:block;font-weight:600;color:var(--gris)}
+
+footer{background:var(--navy);color:#c9d6f5;padding:48px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px}
+footer .fl{display:flex;gap:16px;align-items:center}
+footer .fl img{height:52px;background:#fff;border-radius:16px;padding:6px 10px}
+.wa{position:fixed;right:28px;bottom:28px;width:64px;height:64px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+.wa svg{width:32px;height:32px;fill:#fff}
+
+/* TABLET 1100 */
+@media (max-width:1100px) and (min-width:681px){
+  .hero h1{font-size:60px}
+  .wings{height:460px}
+  .w2{width:58%;height:44%}
+  .w2 b{font-size:32px}
+  .w2 span{font-size:14px}
+  .photo-tag{bottom:-30px}
+  .links{gap:22px}
+  .trust{gap:20px}
+  .trust b{font-size:26px;white-space:nowrap}
+}
+/* MOBILE 680 */
+@media (max-width:680px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .top{display:none}
+  nav.main .wrap{height:72px}
+  .logo img{height:50px}
+  .links,nav.main .btn{display:none}
+  .logo img{height:56px}
+  .burger{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--sol)}
+  .burger span{display:block;width:20px;height:3px;background:var(--navy);border-radius:3px;box-shadow:0 -7px 0 var(--navy),0 7px 0 var(--navy)}
+  .hero{padding:34px 0 80px}
+  .hero:before{width:420px;height:420px;right:-160px;top:-120px}
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .hero h1{font-size:46px}
+  .hero p.lead{font-size:17px}
+  .cta .btn{width:100%;justify-content:center}
+  .trust{gap:18px}
+  .trust b{font-size:28px}
+  .wings{height:330px}
+  .w2 b{font-size:30px}.w2 span{font-size:13px}
+  .levels{padding:60px 0;border-radius:40px 40px 0 0}
+  .sec-head{display:block;margin-bottom:28px}
+  .sec-head h2{font-size:36px;margin-bottom:10px}
+  .cards{grid-template-columns:1fr;gap:16px}
+  .card{min-height:0;border-radius:32px}
+  .card h3{font-size:36px}
+  .serv,.story{padding:60px 0}
+  .serv .grid{grid-template-columns:repeat(2,1fr)}
+  .story .wrap{grid-template-columns:1fr}
+  .quote,.req{padding:34px 26px;border-radius:36px}
+  .visit .box{grid-template-columns:1fr;border-radius:36px}
+  .visit .txt{padding:36px 26px}
+  .visit h2{font-size:38px}
+  .map{min-height:200px}
+  footer .wrap{flex-direction:column;align-items:flex-start}
+  .wa{right:16px;bottom:16px;width:56px;height:56px}
+}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>Av. de las Américas #18, Col. Francisco I. Madero · Cd. del Carmen, Camp.</span><span>Inscripciones abiertas <b>ciclo 2027–2028</b> <span class="pc">por confirmar</span></span></div></div>
+<nav class="main"><div class="wrap">
+  <a class="logo" href="#"><img src="assets/logo.png" alt="Colegio Xillpayats"></a>
+  <div class="links"><a class="on" href="#">Inicio</a><a href="#">Nosotros</a><a href="#">Niveles</a><a href="#">Inscripciones</a><a href="#">Galería</a><a href="#">Contacto</a></div>
+  <a class="btn btn-navy" href="#" style="min-height:48px">Agendar visita</a>
+  <span class="burger" aria-hidden="true"><span></span></span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow"><span>Desde 2006</span> Maternal · Preescolar · Primaria</span>
+    <h1>Niños felices, niños capaces, <em>niños Xillpayats.</em></h1>
+    <p class="lead">Acompañamos a tu hijo desde sus primeros pasos en maternal hasta terminar la primaria, con valores, inglés diario y un equipo que lo conoce por su nombre.</p>
+    <div class="cta"><a class="btn btn-navy" href="#">Agendar una visita →</a><a class="btn btn-line" href="#">Ver requisitos</a></div>
+    <div class="trust"><div><b>20 años</b>en Ciudad del Carmen</div><div><b>3 niveles</b>en un mismo plantel</div><div><b>2 maestras</b>por grupo en preescolar</div></div>
+  </div>
+  <div class="wings">
+    <div class="wing w1"><img src="assets/aula.jpg" alt=""></div><span class="photo-tag">Foto de referencia · se reemplaza con fotos del plantel</span>
+    <div class="wing w2"><div><b>Inglés diario</b><span>y computación desde preescolar</span></div></div>
+    <i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i>
+  </div>
+</div></header>
+
+<section class="levels"><div class="wrap">
+  <div class="sec-head"><h2>Tres etapas, un mismo vuelo.</h2><p>Tu hijo crece en el mismo colegio, con el mismo equipo y los mismos valores, de maternal a sexto de primaria.</p></div>
+  <div class="cards">
+    <article class="card c1"><i class="blob"></i><span class="age">Edad <span class="pc">por confirmar</span></span><h3>Maternal</h3><p>Sus primeros pasos fuera de casa, con cuidado cercano y rutinas que les dan seguridad.</p><ul><li>Estimulación temprana</li><li>Aulas climatizadas</li><li>Servicio de comedor</li></ul><span class="more">Conocer maternal →</span></article>
+    <article class="card c2"><i class="blob"></i><span class="age">3 a 5 años</span><h3>Preescolar</h3><p>Programa SEP más materias propias del colegio, con dos personas al pendiente de cada grupo.</p><ul><li>Inglés diario</li><li>Computación</li><li>Depto. psicopedagógico</li></ul><span class="more">Conocer preescolar →</span></article>
+    <article class="card c3"><i class="blob"></i><span class="age">1° a 6°</span><h3>Primaria</h3><p>Todos los grados de primaria, con formación académica y en valores para la vida.</p><ul><li>Inglés y computación</li><li>Áreas recreativas</li><li>Acompañamiento a familias</li></ul><span class="more">Conocer primaria →</span></article>
+  </div>
+</div></section>
+
+<section class="serv"><div class="wrap">
+  <div class="sec-head"><h2>Lo que tu hijo vive cada día.</h2><p>Servicios incluidos en todos los niveles.</p></div>
+  <div class="grid">
+    <div class="chip"><i>🗣️</i>Inglés diario</div>
+    <div class="chip"><i>💻</i>Computación</div>
+    <div class="chip"><i>❄️</i>Aulas climatizadas</div>
+    <div class="chip"><i>🛝</i>Áreas recreativas</div>
+    <div class="chip"><i>🧠</i>Psicopedagogía</div>
+    <div class="chip"><i>🍎</i>Comedor</div>
+  </div>
+</div></section>
+
+<section class="story"><div class="wrap">
+  <div class="quote"><div class="big">“</div><h2>Entendemos nuestra misión como la educación del corazón.</h2><p>Transmitir conocimientos es poca cosa si no tocamos lo más íntimo del ser humano. Es un honor que nos confíen la tarea de guiar a sus hijos.</p><div class="sig">Lic. Alejandra Mora<small>Directora · Colegio Xillpayats</small></div></div>
+  <div class="req"><h2>Inscribirlo es sencillo.</h2><p style="color:var(--gris)">Trae estos documentos a la dirección:</p>
+    <ol><li>Solicitud de inscripción (te la damos aquí)</li><li>Acta de nacimiento, original y copia</li><li>CURP y cartilla de vacunación</li><li>Comprobante de domicilio</li><li>6 fotos infantiles a color del niño</li><li>3 fotos de quienes lo recogerán</li></ol>
+    <a class="btn btn-navy" href="#">Pedir informes por WhatsApp</a></div>
+</div></section>
+
+<section class="visit"><div class="wrap"><div class="box">
+  <div class="txt"><h2>Ven a conocernos.</h2><p>Agenda un recorrido por el plantel y resolvemos tus dudas sobre cuotas, horarios y cupo.</p>
+    <dl><div><dt>Dirección</dt><dd>Av. de las Américas #18, Col. Francisco I. Madero, C.P. 24190, Cd. del Carmen, Camp.</dd></div><div><dt>Teléfono</dt><dd>938 111 0101 <span class="pc">por confirmar</span></dd></div><div><dt>Horario de atención</dt><dd><span class="pc">por confirmar</span></dd></div></dl>
+    <a class="btn btn-navy" href="#">Agendar visita →</a></div>
+  <div class="map"><div class="pin">📍 Colegio Xillpayats<small>Mapa de Google · se integra al publicar</small></div></div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <div class="fl"><img src="assets/logo.png" alt="Xillpayats"><span>Colegio Xillpayats · Centro Educativo<br>Maternal, Preescolar y Primaria</span></div>
+  <span>Facebook · Aviso de privacidad <span class="pc">por confirmar</span></span>
+  <span>© 2026 Colegio Xillpayats</span>
+</div></footer>
+<a class="wa" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+</body>
+</html>
