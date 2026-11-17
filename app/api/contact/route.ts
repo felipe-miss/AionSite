@@ -45,6 +45,28 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+async function readBoundedBody(request: Request): Promise<string> {
+  const reader = request.body?.getReader();
+  if (!reader) return "";
+  const chunks: Uint8Array[] = [];
+  let bytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      bytes += value.byteLength;
+      if (bytes > MAX_BODY_BYTES) {
+        await reader.cancel().catch(() => undefined);
+        throw new RangeError("Contact body too large");
+      }
+      chunks.push(value);
+    }
+    return new TextDecoder().decode(Buffer.concat(chunks));
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 export async function POST(request: Request) {
   const ip =
     request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
@@ -60,7 +82,16 @@ export async function POST(request: Request) {
     );
   }
 
-  const body = await request.json().catch(() => null);
+  let body;
+  try {
+    body = JSON.parse(await readBoundedBody(request));
+  } catch (error) {
+    const tooLarge = error instanceof RangeError;
+    return NextResponse.json(
+      { error: tooLarge ? "Cuerpo demasiado grande." : "Cuerpo inválido." },
+      { status: tooLarge ? 413 : 400 },
+    );
+  }
   if (!body) {
     return NextResponse.json({ error: "Cuerpo inválido." }, { status: 400 });
   }
@@ -87,31 +118,38 @@ export async function POST(request: Request) {
   const safeEmail = escapeHtml(email);
   const safeMessage = escapeHtml(message);
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT ?? 587),
-    secure: process.env.SMTP_SECURE === "true",
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT ?? 587),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-  await transporter.sendMail({
-    from: `"AionSite Blog" <${process.env.SMTP_USER}>`,
-    to: "contacto@aionsite.com.mx",
-    replyTo: email,
-    subject: `Nuevo mensaje de ${safeName} desde el blog`,
-    html: `
-      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #1e40af;">Nuevo mensaje desde el blog</h2>
-        <p><strong>Nombre:</strong> ${safeName}</p>
-        <p><strong>Correo:</strong> ${safeEmail}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p style="background: #f1f5f9; padding: 16px; border-radius: 8px; white-space: pre-wrap;">${safeMessage}</p>
-      </div>
-    `,
-  });
+    await transporter.sendMail({
+      from: `"AionSite Blog" <${process.env.SMTP_USER}>`,
+      to: "contacto@aionsite.com.mx",
+      replyTo: email,
+      subject: `Nuevo mensaje de ${safeName} desde el blog`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #1e40af;">Nuevo mensaje desde el blog</h2>
+          <p><strong>Nombre:</strong> ${safeName}</p>
+          <p><strong>Correo:</strong> ${safeEmail}</p>
+          <p><strong>Mensaje:</strong></p>
+          <p style="background: #f1f5f9; padding: 16px; border-radius: 8px; white-space: pre-wrap;">${safeMessage}</p>
+        </div>
+      `,
+    });
+  } catch {
+    return NextResponse.json(
+      { error: "No pudimos enviar el mensaje. Intenta de nuevo o contacta por WhatsApp." },
+      { status: 503 },
+    );
+  }
 
   try {
     await recordContactFormLead({ name, email, message });

@@ -25,7 +25,22 @@ const submit = body => POST(new Request('http://localhost/api/contact', {
   body: JSON.stringify(body),
 }));
 
+test('enforces body byte limit without trusting Content-Length', async () => {
+  effects.mail.length = effects.leads.length = 0;
+  for (const length of [undefined, '1']) {
+    const headers = { 'Content-Type': 'application/json', 'x-real-ip': `local-test-${++requestId}` };
+    if (length) headers['Content-Length'] = length;
+    const response = await POST(new Request('http://localhost/api/contact', {
+      method: 'POST', headers, body: JSON.stringify({ ...valid, padding: 'x'.repeat(12000) }),
+    }));
+    assert.equal(response.status, 413);
+  }
+  assert.equal(effects.mail.length, 0);
+  assert.equal(effects.leads.length, 0);
+});
+
 test('rejects blank names/messages before mail or storage', async () => {
+  effects.mail.length = effects.leads.length = 0;
   for (const field of ['name', 'message']) {
     for (const value of ['', '   ', '\t\r\n', '\u00a0']) {
       assert.equal((await submit({ ...valid, [field]: value })).status, 400, `${field}: ${JSON.stringify(value)}`);
@@ -33,6 +48,31 @@ test('rejects blank names/messages before mail or storage', async () => {
   }
   assert.equal(effects.mail.length, 0);
   assert.equal(effects.leads.length, 0);
+});
+
+test('counts UTF-8 bytes and accepts a body exactly at the limit', async () => {
+  const baseline = JSON.stringify({ ...valid, padding: '' });
+  const paddingLength = 12000 - Buffer.byteLength(baseline);
+  assert.equal((await submit({ ...valid, padding: 'x'.repeat(paddingLength) })).status, 200);
+  assert.equal((await submit({ ...valid, padding: 'x'.repeat(paddingLength + 1) })).status, 413);
+  assert.equal((await submit({ ...valid, padding: 'é'.repeat(paddingLength) })).status, 413);
+});
+
+test('cancels an oversized chunked stream and rejects malformed JSON', async () => {
+  let cancelled = false;
+  const stream = new ReadableStream({
+    pull(controller) { controller.enqueue(new Uint8Array(7000).fill(32)); },
+    cancel() { cancelled = true; },
+  });
+  const request = new Request('http://localhost/api/contact', {
+    method: 'POST', body: stream, duplex: 'half',
+    headers: { 'x-real-ip': `local-test-${++requestId}` },
+  });
+  assert.equal((await POST(request)).status, 413);
+  assert.equal(cancelled, true);
+  assert.equal((await POST(new Request('http://localhost/api/contact', {
+    method: 'POST', body: '{', headers: { 'x-real-ip': `local-test-${++requestId}` },
+  }))).status, 400);
 });
 
 test('preserves valid form submission and HTML escaping', async () => {
@@ -82,10 +122,18 @@ test('never claims success or records audit when mail itself fails', async () =>
   effects.mail.length = effects.leads.length = 0;
   effects.failMail = true;
   try {
-    await assert.rejects(() => submit(valid), /simulated-mail-failure/);
+    const response = await submit(valid);
+    assert.equal(response.status, 503);
+    const body = await response.json();
+    assert.equal(typeof body.error, 'string');
+    assert.equal(JSON.stringify(body).includes('simulated-mail-failure'), false);
+    assert.equal(body.ok, undefined);
     assert.equal(effects.mail.length, 0);
     assert.equal(effects.leads.length, 0);
   } finally {
     effects.failMail = false;
   }
+  assert.equal((await submit(valid)).status, 200);
+  assert.equal(effects.mail.length, 1);
+  assert.equal(effects.leads.length, 1);
 });
