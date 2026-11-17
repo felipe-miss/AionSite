@@ -1,0 +1,23 @@
+/* Colegio Xillpayats: paleta y tipografía compartidas (ver DESIGN.md) */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap");
+
+:root {
+  --navy: #102a63;
+  --navy-2: #1d3f8a;
+  --cielo: #1593d6;
+  --cielo-2: #d9f0fb;
+  --sol: #ffe45c;
+  --sol-2: #fff6c7;
+  --crema: #fffbef;
+  --tinta: #1b2340;
+  --gris: #5a6380;
+  --coral: #ff7a59;
+  --whatsapp: #25d366;
+
+  --font-display: "Baloo 2", Nunito, sans-serif;
+  --font-body: Nunito, system-ui, sans-serif;
+
+  --radius-pill: 999px;
+  --radius-card: 40px;
+  --radius-block: 56px;
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta web · Colegio Xillpayats</title>
+<meta name="description" content="Propuesta de AionSite para el mantenimiento y el rediseño del sitio web del Colegio Xillpayats en Ciudad del Carmen.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:Letter;margin:0}
+:root{--navy:#0f172a;--azul:#2563eb;--violeta:#7c3aed;--tinta:#1e293b;--gris:#64748b;--linea:#e2e8f0;--suave:#f1f5f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Epilogue,sans-serif;color:var(--tinta);background:#fff;font-size:12.5px;line-height:1.5}
+.page{width:8.5in;height:11in;overflow:hidden;padding:.45in .6in;position:relative;page-break-after:always}
+.page:last-child{page-break-after:auto}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;color:var(--navy);line-height:1.1}
+.cover{background:var(--navy);color:#cbd5e1;border-radius:22px;padding:18px 26px;margin-bottom:10px;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.cover img{height:28px}
+.cover h1{color:#fff;font-size:26px;margin:8px 0 4px}
+.cover h1 span{color:#93c5fd}
+.cover .meta{text-align:right;font-size:12px;color:#94a3b8;white-space:nowrap}
+h2{font-size:18px;margin:14px 0 6px}
+p{margin-bottom:8px}
+.found{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px 10px;margin:10px 0 6px}
+.found div{background:var(--suave);border-radius:12px;padding:7px 10px;font-size:11px;line-height:1.35}
+.found b{display:block;color:var(--navy)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.opt{border:1.5px solid var(--linea);border-radius:18px;padding:16px 18px 14px;display:flex;flex-direction:column}
+.opt.rec{border-color:var(--azul);box-shadow:0 0 0 3px #dbeafe}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--azul);background:#dbeafe;border-radius:99px;padding:3px 10px;margin-bottom:8px}
+.opt h3{font-size:19px}
+.price{font-family:"Bricolage Grotesque";font-size:26px;font-weight:800;color:var(--navy);margin:6px 0 0}
+.price small{font-family:Epilogue;font-size:13px;font-weight:600;color:var(--gris)}
+.sub{font-size:12px;color:var(--gris);margin-bottom:10px}
+ul.chk{list-style:none;display:grid;gap:3px;font-size:12px}
+ul.chk li{padding-left:20px;position:relative}
+ul.chk li:before{content:"✓";position:absolute;left:0;color:var(--azul);font-weight:700}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:12.5px}
+td,th{padding:6px 10px;border-bottom:1px solid var(--linea);text-align:left;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gris);font-weight:600}
+td.n{text-align:right;white-space:nowrap;font-weight:600}
+tr.tot td{font-weight:800;color:var(--navy);border-bottom:2px solid var(--navy)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.steps div{background:var(--suave);border-radius:14px;padding:12px;font-size:12px}
+.steps b{display:block;font-family:"Bricolage Grotesque";font-size:15px;color:var(--navy)}
+.note{font-size:11.5px;color:var(--gris);margin-top:8px}
+.shot{width:78%;display:block;margin-left:auto!important;margin-right:auto!important;border-radius:14px;border:1px solid var(--linea);margin:8px 0}
+.foot{position:absolute;left:.6in;right:.6in;bottom:.3in;display:flex;justify-content:space-between;font-size:11px;color:var(--gris);border-top:1px solid var(--linea);padding-top:8px}
+.cta{background:var(--azul);color:#fff;border-radius:16px;padding:14px 20px;margin-top:12px}
+.cta h3{color:#fff;font-size:18px;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="cover">
+    <div>
+      <img src="https://aionsite.com.mx/logo-aionsite.webp" alt="AionSite">
+      <h1>Colegio Xillpayats<br><span>propuesta para su sitio web</span></h1>
+      <p>Mantener su página al día y, si lo desean, renovarla por completo.</p>
+    </div>
+    <div class="meta">Cd. del Carmen, Camp.<br>Noviembre 2026<br>Vigencia: 30 días</div>
+  </div>
+
+  <h2>Lo que encontramos en su página actual</h2>
+  <p>El colegio tiene mucho que contar (20 años, tres niveles, inglés diario), pero hoy su página no lo muestra bien:</p>
+  <div class="found">
+    <div><b>Dirección y anuncio de Wix</b>La página está en una dirección gratuita de Wix y muestra su anuncio arriba de todo.</div>
+    <div><b>La galería está vacía</b>Es una de las páginas que más visitan los papás cuando comparan colegios.</div>
+    <div><b>Datos viejos</b>Dice © 2017, muestra el logo de gobierno 2015–2021 y el teléfono con el prefijo 01.</div>
+    <div><b>Difícil de encontrar en Google</b>Las páginas no tienen la descripción que muestra Google cuando buscan "colegio en Ciudad del Carmen".</div>
+    <div><b>Menú confuso</b>"Planes educativos" muestra el mensaje de la directora y no los planes.</div>
+    <div><b>Sin forma rápida de contacto</b>No hay WhatsApp, mapa ni horario. El enlace de Facebook no lleva a su página.</div>
+  </div>
+
+  <h2>Dos opciones</h2>
+  <div class="opts">
+    <div class="opt rec">
+      <span class="tag">Para empezar ya</span>
+      <h3>1 · Mantenimiento</h3>
+      <p class="sub">Arreglamos su página actual de Wix y la mantenemos al día cada mes.</p>
+      <div class="price">$1,300 <small>el primer mes</small></div>
+      <div class="price" style="margin-top:0">después $600 <small>al mes</small></div>
+      <p class="sub">El primer mes incluye conocer su página y dejarla al día.</p>
+      <ul class="chk">
+        <li>Corregimos todos los puntos de arriba</li>
+        <li>Llenamos la galería con las fotos que nos envíen</li>
+        <li>Agregamos WhatsApp, mapa y horario</li>
+        <li>Cada mes: avisos, calendario, fechas de inscripción y fotos de eventos</li>
+        <li>Revisamos que el formulario y los enlaces funcionen</li>
+        <li>Les mandamos un reporte breve de visitas y mensajes recibidos</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <span class="tag" style="background:#ede9fe;color:var(--violeta)">Imagen nueva</span>
+      <h3>2 · Rediseño completo</h3>
+      <p class="sub">Un sitio nuevo con su mariposa, sus colores y su dominio propio, pensado para el celular de los papás.</p>
+      <div class="price">$6,800 <small>una sola vez</small></div>
+      <div class="price" style="margin-top:0">+ $600 <small>al mes de mantenimiento</small></div>
+      <p class="sub">Incluye el alojamiento del sitio. Dejan de depender de Wix.</p>
+      <ul class="chk">
+        <li>8 secciones: Inicio, Nosotros, Maternal, Preescolar, Primaria, Inscripciones, Galería y Contacto</li>
+        <li>Botones de "Agendar visita" y de WhatsApp siempre a la mano</li>
+        <li>Requisitos de inscripción claros y fáciles de leer</li>
+        <li>Les redactamos y corregimos los textos</li>
+        <li>Preparado para aparecer en Google</li>
+        <li>Se ve bien en celular, tableta y computadora</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Precios en pesos mexicanos. Si contratan el mantenimiento y en los siguientes 2 meses deciden hacer el rediseño, les descontamos $700 del primer mes.</p>
+
+  <div class="foot"><span>AionSite · aionsite.com.mx</span><span>1 / 3</span></div>
+</section>
+
+<section class="page">
+  <h2 style="margin-top:0">Así se vería el sitio nuevo (opción 2)</h2>
+  <img class="shot" src="../propuesta-xillpayats.png" alt="Vista previa del rediseño en computadora y celular">
+  <p class="note">Es una vista previa para mostrar la idea, no el sitio terminado. Para el sitio final usaremos fotos de su plantel.</p>
+
+  <h2>Detalle del rediseño</h2>
+  <table>
+    <tr><th>Concepto</th><th style="text-align:right">Costo</th></tr>
+    <tr><td>Sitio completo (incluye 4 secciones, diseño adaptable, formulario de contacto y SEO básico)</td><td class="n">$4,000</td></tr>
+    <tr><td>4 secciones adicionales (Maternal, Preescolar, Primaria y Galería)</td><td class="n">$2,000</td></tr>
+    <tr><td>Redacción y corrección de textos (8 secciones)</td><td class="n">$400</td></tr>
+    <tr><td>Optimización para Google (8 secciones)</td><td class="n">$400</td></tr>
+    <tr class="tot"><td>Total del rediseño</td><td class="n">$6,800</td></tr>
+  </table>
+
+  <div class="foot"><span>AionSite · aionsite.com.mx</span><span>2 / 3</span></div>
+</section>
+
+<section class="page">
+  <h2 style="margin-top:0">¿Cómo trabajamos?</h2>
+  <div class="steps">
+    <div><b>1. Nos dicen que sí</b>Se paga el 50 % para empezar.</div>
+    <div><b>2. Nos envían material</b>Fotos del plantel, teléfono, horario y fechas de inscripción.</div>
+    <div><b>3. Revisan</b>Les mostramos el sitio y hacemos los cambios que nos pidan.</div>
+    <div><b>4. Publicamos</b>Se paga el otro 50 % y el sitio sale en línea.</div>
+  </div>
+  <p class="note">El mantenimiento queda listo en una semana y el rediseño en unas tres semanas, contadas desde que recibimos el material.</p>
+
+  <h2>Lo que necesitamos de ustedes</h2>
+  <ul class="chk" style="grid-template-columns:1fr 1fr">
+    <li>Fotos recientes del plantel y de sus eventos</li>
+    <li>Permiso por escrito para mostrar fotos de alumnos</li>
+    <li>Teléfono, WhatsApp, correo y horario de atención</li>
+    <li>Fechas de inscripción del ciclo 2027–2028</li>
+    <li>El logo en buena calidad, si lo tienen</li>
+    <li>Acceso a su cuenta de Wix (solo para la opción 1)</li>
+  </ul>
+  <p class="note">El dominio propio (por ejemplo, xillpayats.com.mx) y el plan de Wix que se necesita para quitar el anuncio en la opción 1 se pagan aparte, directamente al proveedor. Nosotros nos encargamos de configurarlos.</p>
+
+  <div class="cta"><h3>¿Platicamos 15 minutos?</h3>Podemos visitarlos en el colegio o hacer una llamada. WhatsApp: 938 157 3988 · contacto@aionsite.com.mx</div>
+
+  <div class="foot"><span>AionSite · aionsite.com.mx</span><span>3 / 3</span></div>
+</section>
+</body>
+</html>
