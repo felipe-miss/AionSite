@@ -24,7 +24,7 @@ for (const nombre of readdirSync(base)) {
     "  RewriteRule ^ - [R=401,L]",
     "</IfModule>",
     "<IfModule mod_headers.c>",
-    '  Header always set WWW-Authenticate "Basic realm=' + BS + '"Propuesta ' + nombre + BS + '""' + ' "expr=%{REQUEST_STATUS} == 401"',
+    '  Header always set WWW-Authenticate ' + "'" + 'Basic realm="Propuesta ' + nombre + '"' + "'" + ' "expr=%{REQUEST_STATUS} == 401"',
     '  Header always set X-Robots-Tag "noindex, nofollow"',
     "</IfModule>",
     '<FilesMatch "' + BS + ".(md|bak)$" + '">',
