@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { StylePlayground } from "@/src/components/StylePlayground";
+import { ArkkheFooter, ArkkheHeader } from "@/src/components/styles/chrome/ArkkheChrome";
 
 const vectors = [
   ["01", "Sitios web", "Páginas web rápidas, claras y preparadas para convertir visitas en oportunidades.", "01.84"],
@@ -39,6 +40,7 @@ export default function ArkkheLanding() {
   return (
     <div className="arkkhe-shell">
       <DigitalBackdrop />
+      <ArkkheHeader />
       <main className="arkkhe-main">
         <section id="home" className="arkkhe-hero">
           <div className="arkkhe-kicker"><span>AIONSITE / DIGITAL STUDIO</span><span>SISTEMA EN LÍNEA / 2026</span></div>
@@ -72,6 +74,7 @@ export default function ArkkheLanding() {
 
         <section className="arkkhe-section arkkhe-closing"><Reveal><p className="arkkhe-overline">Tu siguiente proyecto / 2026</p><h2>Tu web<br /><em>empieza</em><br />hoy<span>.</span></h2><div className="arkkhe-stats"><span><b>01</b> estrategia</span><span><b>02</b> diseño + código</span><span><b>∞</b> posibilidades</span></div></Reveal></section>
       </main>
+      <ArkkheFooter />
       <StylePlayground rootSelector=".arkkhe-shell" accent="#2563eb" secondary="#7c3aed" background="#0f172a" surface="#1e293b" text="#ffffff" muted="#94a3b8" />
 
     </div>

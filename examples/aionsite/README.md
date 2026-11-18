@@ -40,3 +40,7 @@ Salen de los primeros v1 de dos colegios reales, pero son versiones genéricas p
 - **Propuesta 10 · Colegio: etapas y validez** (paleta guinda y marino, sin amarillo fuerte): hero con arco, validez oficial sin repetir la oferta, etapas en secuencia centrada por scroll con clave oficial por confirmar, slider de vida escolar, solicitud de visita y pie en columnas. La 10 es una exportación estática (Next) con ruta base `/style-examples/propuesta-10`; para cambiarla hay que regenerarla desde su fuente.
 
 Reglas al reutilizarlas: no copies nombres, cifras ni fotos de otro cliente; datos que falten van como espacio reservado «por confirmar»; fotografías de menores solo con autorización de las familias; la clave oficial de cada nivel y las certificaciones se piden al colegio. Aviso: el footer no repite lo que ya está en la sección de visita (dirección, horario, teléfono, correo).
+
+## Header y footer por propuesta
+
+Las propuestas 1–8 tienen su propio header (fijo, con menú móvil animado y sección activa) y footer, diseñados para cada estilo. La fuente vive en `scripts/proposal-chrome/propuesta-N/` (`header.html`, `footer.html`, `chrome.css` con prefijo `pN-`, `chrome.js` copiado de `chrome.template.js` y, si hace falta, `config.json` para indicar qué elemento reemplazar; la 8 reemplaza su `<nav class="main">`). Para aplicarlos a la copia editable y a `public/style-examples/` corre `node scripts/apply-proposal-chrome.mjs [propuesta-N ...]`; se puede repetir sin duplicar nada. Las 9 y 10 conservan el header y footer que ya traían de su sitio de origen.
