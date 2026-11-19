@@ -15,7 +15,7 @@
 <header class="cab">
   <div class="cab__tira"><div class="cont"><span>Desde 2021</span><span>Res · Cerdo · Pollo</span><span>Producto nacional</span></div></div>
   <div class="cont cab__barra">
-    <a class="cab__logo" href="#inicio" aria-label="Comercializadora VG, inicio"><img src="img/Mesa-de-trabajo-1-1.png" width="92" height="64" alt="Comercializadora VG"></a>
+    <a class="cab__logo" href="#inicio" aria-label="Comercializadora VG, inicio"><img src="img/logo-vg-solo.png?v=3" width="120" height="68" alt="Comercializadora VG"></a>
     <nav class="cab__nav" aria-label="Principal">
       <a href="#destacado">El producto</a>
       <a href="#lineas">Líneas</a>
@@ -39,6 +39,7 @@
 
 <section class="hero cont" id="inicio">
   <div class="hero__arriba"><span>Distribuidora de carnes</span><span>Para empresas que compran por volumen</span></div>
+  <img class="hero__logo" src="img/logo-vg-completo.png?v=3" width="200" height="131" alt="Comercializadora VG">
   <h1>
     <span class="cortina"><span>Carne para</span></span>
     <span class="cortina"><span>tu negocio.</span></span>
@@ -133,16 +134,30 @@
 
 <section class="clientes" id="clientes">
   <div class="cont">
-    <p class="sobre sobre--clara">Empresas que ya nos compran</p>
-    <ul>
-      <li>Super Pereyra</li>
-      <li>iFood México</li>
-      <li>Empresas Elizondo García</li>
-      <li>Nomar-Mex Chandlers</li>
-      <li>Taylors International Operations México</li>
-      <li>Naviera Lucero</li>
-      <li>Servicios y Alimentos Bistro</li>
-      <li>Veggies Health de México</li>
+    <h3 class="marcas__t">Marcas con las que trabajamos</h3>
+    <ul class="marcas">
+      <li><img src="img/marca-sukarne.png" width="212" height="79" alt="SuKarne" loading="lazy"></li>
+      <li><img src="img/marca-bachoco.png" width="215" height="73" alt="Bachoco" loading="lazy"></li>
+      <li><img src="img/marca-ayvi.png" width="215" height="125" alt="Ayvi" loading="lazy"></li>
+      <li><img src="img/marca-bafar.png" width="183" height="88" alt="Bafar" loading="lazy"></li>
+      <li><img src="img/marca-carnes-premium-xo.png" width="197" height="192" alt="Carnes Premium XO" loading="lazy"></li>
+      <li><img src="img/marca-crio.png" width="159" height="192" alt="Crío" loading="lazy"></li>
+      <li><img src="img/marca-praderas-huastecas.png" width="206" height="112" alt="Praderas Huastecas" loading="lazy"></li>
+      <li><img src="img/marca-carnes-san-antonio.png" width="202" height="202" alt="Carnes San Antonio" loading="lazy"></li>
+    </ul>
+  </div>
+</section>
+
+<section class="certs" id="certificados">
+  <div class="cont">
+    <p class="sobre">Calidad e higiene</p>
+    <h2>Certificaciones<br>y registros.</h2>
+    <p class="certs__intro">Posibles certificaciones del giro cárnico. Solo se publicarán las que la empresa confirme.</p>
+    <ul class="certs__lista">
+      <li><span class="cert__logo"><img src="img/logo-senasica.png" width="230" height="51" alt="SENASICA" loading="lazy"></span><h3>Establecimiento TIF</h3><p>Inspección federal de plantas cárnicas. Emite SENASICA.</p><span>Por confirmar</span></li>
+      <li><span class="cert__logo cert__logo--txt" aria-hidden="true">HACCP</span><h3>HACCP</h3><p>Plan de control de peligros en cada etapa del manejo de la carne.</p><span>Por confirmar</span></li>
+      <li><span class="cert__logo cert__logo--txt" aria-hidden="true">ISO 22000</span><h3>ISO 22000</h3><p>Norma internacional de inocuidad alimentaria. Emite un organismo certificador acreditado.</p><span>Por confirmar</span></li>
+      <li><span class="cert__logo"><img src="img/logo-cofepris.png" width="230" height="63" alt="COFEPRIS" loading="lazy"></span><h3>Aviso de funcionamiento</h3><p>Registro sanitario del establecimiento ante COFEPRIS.</p><span>Por confirmar</span></li>
     </ul>
   </div>
 </section>
@@ -152,20 +167,14 @@
     <div>
       <p class="sobre">Cómo pedir</p>
       <h2>Sabes qué sigue,<br><em>en cada paso.</em></h2>
-      <div class="pasos" data-pasos>
-        <details name="paso" data-i="0" open>
-          <summary><span>01</span> Nos cuentas tu pedido <b aria-hidden="true">+</b></summary>
-          <p>Línea, producto o corte, volumen aproximado y para qué empresa es.</p>
-        </details>
-        <details name="paso" data-i="1">
-          <summary><span>02</span> Confirmamos precios y fechas <b aria-hidden="true">+</b></summary>
-          <p>Un asesor te responde con la cotización y las fechas de entrega.</p>
-        </details>
-        <details name="paso" data-i="2">
-          <summary><span>03</span> Entregamos con cuidado <b aria-hidden="true">+</b></summary>
-          <p>Empaque cuidadoso y transporte propio para que llegue en perfectas condiciones.</p>
-        </details>
-      </div>
+      <p class="proceso__intro">Almacenamiento y transporte propios, con personal capacitado bajo normas de seguridad e higiene.</p>
+      <ol class="camino" data-camino>
+        <span class="camino__linea" aria-hidden="true"><i data-relleno></i></span>
+        <li data-i="0"><span class="camino__n">1</span><div><h3>Nos cuentas tu pedido</h3><p>Línea, producto o corte, volumen aproximado y para qué empresa es.</p></div></li>
+        <li data-i="1"><span class="camino__n">2</span><div><h3>Confirmamos precios y fechas</h3><p>Un asesor te responde con la cotización y las fechas de entrega.</p></div></li>
+        <li data-i="2"><span class="camino__n">3</span><div><h3>Almacenamos y transportamos</h3><p>Resguardo con control de higiene y traslado con unidades y personal de la empresa.</p></div></li>
+        <li data-i="3"><span class="camino__n">4</span><div><h3>Entregamos con cuidado</h3><p>Empaque cuidadoso para que tu pedido llegue en perfectas condiciones.</p></div></li>
+      </ol>
       <a class="enlace" href="#cotizar">Pedir cotización <span aria-hidden="true">↗</span></a>
     </div>
     <figure class="proceso__img">
@@ -173,6 +182,7 @@
         <img src="img/hero.jpg" width="1200" height="801" loading="lazy" alt="Cortes de carne de res sobre una tabla de madera" data-i="0" class="activa">
         <img src="img/pechugas.jpg" width="1280" height="852" loading="lazy" alt="Pechugas de pollo sobre una tabla de cortar" data-i="1" aria-hidden="true">
         <img src="img/hero.jpg" width="1200" height="801" loading="lazy" alt="Cortes de carne de res preparados para entrega" data-i="2" aria-hidden="true">
+        <img src="img/pechugas.jpg" width="1280" height="852" loading="lazy" alt="Pechugas de pollo empacadas para entrega" data-i="3" aria-hidden="true">
       </div>
       <span class="proceso__sello" aria-hidden="true">Producto<br>nacional.</span>
     </figure>
@@ -230,6 +240,10 @@
     <button type="button" class="pie__arriba" data-arriba>Volver al inicio ↑</button>
   </div>
 </footer>
+
+<a class="wa-flot" id="wa-flot" href="#cotizar" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
 
 <script src="app.js"></script>
 </body>

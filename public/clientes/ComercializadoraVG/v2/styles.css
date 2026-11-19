@@ -32,8 +32,10 @@ a{color:inherit}
 .pildora{position:fixed;inset:0 0 auto 0;z-index:40;padding:14px 20px;pointer-events:none}
 .pildora__in{pointer-events:auto;max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:20px;justify-content:space-between;min-height:60px;padding:6px 8px 6px 10px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(22,19,18,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
-.marca__logo{background:var(--papel);border-radius:999px;padding:4px 10px;display:grid;place-items:center}
-.marca__logo img{width:44px;height:auto}
+.marca__logo{display:grid;place-items:center;padding:0 8px}
+.marca__logo img{width:68px;height:auto}
+.hero__placa{display:inline-block;margin-bottom:22px;animation:entra .8s var(--curva) both}
+.hero__placa img{width:clamp(120px,14vw,170px);height:auto}
 .marca__txt{font:700 .98rem var(--serif)}
 .nav{display:flex;gap:26px;margin-left:auto}
 .nav a{text-decoration:none;font-weight:600;font-size:.94rem;padding:10px 2px;color:#E6DED4}
@@ -99,9 +101,27 @@ a{color:inherit}
 .nota--centro{text-align:center;margin-top:56px}
 
 /* Clientes */
-.nombres{list-style:none;margin:0 auto;padding:0;max-width:980px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 0}
-.nombres li{font:600 clamp(1.15rem,2.4vw,1.7rem)/1.3 var(--serif);color:#EDE6DD;padding:6px 0}
-.nombres li+li::before{content:"/";color:var(--dorado);margin:0 clamp(12px,2vw,26px)}
+.nombres{list-style:none;margin:0 auto;padding:0;max-width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.nombres li{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;min-height:150px;padding:20px 14px;border:1px solid #3a3330;border-radius:1.25rem;font:600 1.02rem/1.3 var(--serif);color:#EDE6DD}
+.logo-ph{display:grid;place-items:center;width:60px;height:60px;border:1.5px dashed #6b625c;border-radius:50%;font:700 .95rem var(--sans);letter-spacing:.04em;color:var(--dorado-cl)}
+.nombres li img{width:110px;height:60px;object-fit:contain;background:#fff;border-radius:12px;padding:8px 12px}
+.nombres__nota{margin-top:20px;text-align:center;font-size:.88rem;color:#A99F94}
+
+/* Certificaciones */
+.certs__t{text-align:center;font-size:clamp(1.6rem,3vw,2.2rem);margin-top:72px}
+.certs__n{margin-top:12px}
+.certs{list-style:none;margin:30px auto 0;padding:0;max-width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.certs li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:26px 16px 20px;border:1.5px dashed #A99F94;border-radius:1.25rem;min-height:230px}
+.certs svg{width:40px;height:48px;margin-bottom:10px;fill:none;stroke:var(--vino);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.certs h4{margin:0;font:700 1.1rem/1.2 var(--serif)}
+.certs p{color:var(--suave);font-size:.9rem}
+.certs span{margin-top:auto;padding-top:12px;font:700 .74rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--vino)}
+
+/* WhatsApp flotante */
+.wa-flot{position:fixed;right:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:10px;width:60px;height:60px;justify-content:center;border-radius:50%;background:#128C47;color:#fff;font:700 1rem var(--sans);text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:transform .2s var(--curva),background-color .15s ease}
+.wa-flot svg{width:28px;height:28px;fill:currentColor;flex:none}
+@media (hover:hover) and (pointer:fine){.wa-flot:hover{transform:translateY(-3px);background:#0E7A3D}}
+.wa-flot:focus-visible{outline-color:#fff}
 
 /* Cierre */
 .cierre{background:var(--noche);padding:0 20px 100px}
@@ -131,6 +151,7 @@ a{color:inherit}
   .renglon h3{grid-area:h}
   .renglon ul{grid-area:u}
   .bloque{grid-template-columns:1fr}
+  .nombres,.certs{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:680px){
   .pildora{padding:10px 12px}
@@ -158,14 +179,36 @@ a{color:inherit}
   .bloque{border-radius:1.5rem;padding:28px 18px}
   .form{padding:20px 16px}
   .form__acc .btn{width:100%}
-  .nombres{flex-direction:column;align-items:center}
-  .nombres li+li::before{display:none}
-  .nombres li{text-align:center;border-top:1px solid #3a3330;width:100%;padding:12px 0}
+  .nombres{grid-template-columns:1fr 1fr;gap:10px}
+  .nombres li{min-height:128px;padding:16px 8px;font-size:.92rem}
+  .certs{grid-template-columns:1fr}
+  .certs li{min-height:0}
+  .certs__t{margin-top:56px}
+  .wa-flot{right:14px;bottom:14px}
   .pie{padding:0 16px 32px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .hero__brillo{animation:none}
-  .hero__dato,.hero h1,.hero__txt,.hero__acc{animation:none}
+  .hero__placa,.hero__dato,.hero h1,.hero__txt,.hero__acc{animation:none}
+  .wa-flot{transition:none}
   .js [data-rev]{opacity:1;transform:none;transition:none}
 }
+
+/* Sellos de certificaciones (muestra) */
+.cert__logo{display:grid;place-items:center;height:72px;margin-bottom:14px;padding:10px 14px;background:#fff;border-radius:10px}
+.cert__logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05em;color:#2A2523}
+li span.cert__logo{margin-top:0;padding:10px 14px;margin-bottom:14px;font-size:inherit;letter-spacing:normal;text-transform:none;color:inherit}
+li span.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05em;color:#2A2523}
+
+/* Marcas con las que trabajamos */
+.marcas__t{margin:56px 0 24px;font:700 1.5rem/1.2 Georgia,"Palatino Linotype",serif}
+.marcas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.marcas li{display:grid;place-items:center;min-height:96px;padding:14px;background:#fff;border-radius:10px}
+.marcas img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain}
+.marca-ph{font:700 1.05rem/1.2 Georgia,"Palatino Linotype",serif;color:#2A2523;text-align:center}
+@media (max-width:1024px){.marcas{grid-template-columns:repeat(2,1fr)}}
+.marcas__t{color:#fff;text-align:center}
+
+#clientes .marcas__t{margin-top:0}

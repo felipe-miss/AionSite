@@ -30,9 +30,12 @@ paneles.forEach(panel => {
   });
 });
 
-// Proceso: la imagen sigue al paso abierto
-const pasos = [...document.querySelectorAll('[data-pasos] details')];
+// Proceso: la línea se llena y la imagen sigue al paso activo
+const camino = document.querySelector('[data-camino]');
+const relleno = document.querySelector('[data-relleno]');
+const pasos = [...camino.querySelectorAll('li')];
 const imgs = [...document.querySelectorAll('.proceso__marco img')];
+const reducir = matchMedia('(prefers-reduced-motion: reduce)');
 function mostrar(i) {
   imgs.forEach(img => {
     const on = img.dataset.i === String(i);
@@ -40,7 +43,40 @@ function mostrar(i) {
     img.setAttribute('aria-hidden', String(!on));
   });
 }
-pasos.forEach(d => d.addEventListener('toggle', () => { if (d.open) mostrar(d.dataset.i); }));
+let cuadro = 0, actual = -1;
+function pintar() {
+  cuadro = 0;
+  const r = camino.getBoundingClientRect();
+  const linea = innerHeight * 0.6;
+  const p = Math.max(0, Math.min(1, (linea - r.top) / r.height));
+  relleno.style.transform = 'scaleY(' + p.toFixed(3) + ')';
+  let n = 0;
+  pasos.forEach((li, i) => {
+    const on = li.getBoundingClientRect().top < linea;
+    li.classList.toggle('on', on);
+    if (on) n = i;
+  });
+  if (n !== actual) { actual = n; mostrar(n); }
+}
+if (reducir.matches) {
+  relleno.style.transform = 'scaleY(1)';
+  pasos.forEach(li => li.classList.add('on'));
+} else {
+  addEventListener('scroll', () => { if (!cuadro) cuadro = requestAnimationFrame(pintar); }, { passive: true });
+  addEventListener('resize', pintar);
+  pintar();
+}
+
+// WhatsApp flotante: se activa cuando se confirme el número de la empresa
+const waFlot = document.getElementById('wa-flot');
+function activarFlotante() {
+  const t = CONTACTO.whatsapp.replace(/\D/g, '');
+  if (/^\d{10,15}$/.test(t)) {
+    waFlot.href = 'https://wa.me/' + t + '?text=' + encodeURIComponent('Hola, quisiera una cotización de Comercializadora VG.');
+    waFlot.target = '_blank';
+    waFlot.rel = 'noopener';
+  }
+}
 
 // Volver arriba
 document.querySelector('[data-arriba]').addEventListener('click', () => {
@@ -49,6 +85,7 @@ document.querySelector('[data-arriba]').addEventListener('click', () => {
 
 // Cotizador: arma el mensaje. WhatsApp y correo se activan al confirmar los datos de la empresa.
 const CONTACTO = { whatsapp: '', correo: '' }; // por confirmar con la empresa
+activarFlotante();
 const campos = ['linea', 'producto', 'volumen', 'empresa'].map(id => document.getElementById(id));
 const msg = document.getElementById('msg');
 const wa = document.getElementById('wa');

@@ -19,6 +19,13 @@ matchMedia('(min-width:681px)').addEventListener('change', () => cerrar());
 
 // Cotizador: arma el mensaje. WhatsApp y correo se activan al confirmar los datos de la empresa.
 const CONTACTO = { whatsapp: '', correo: '' }; // por confirmar con la empresa
+const waFlot = document.getElementById('wa-flot');
+const telFlot = CONTACTO.whatsapp.replace(/\D/g, '');
+if (/^\d{10,15}$/.test(telFlot)) {
+  waFlot.href = 'https://wa.me/' + telFlot + '?text=' + encodeURIComponent('Hola, quisiera una cotización de Comercializadora VG.');
+  waFlot.target = '_blank';
+  waFlot.rel = 'noopener';
+}
 const campos = ['linea', 'producto', 'volumen', 'empresa'].map(id => document.getElementById(id));
 const msg = document.getElementById('msg');
 const wa = document.getElementById('wa');

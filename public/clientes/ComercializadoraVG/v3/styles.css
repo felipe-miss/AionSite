@@ -36,7 +36,7 @@ em{font-style:italic;color:var(--vino)}
 .cab__tira{background:var(--carbon);color:#E6DED4;font:600 .74rem var(--sans);letter-spacing:.12em;text-transform:uppercase}
 .cab__tira .cont{display:flex;gap:28px;justify-content:center;padding-top:7px;padding-bottom:7px}
 .cab__barra{display:flex;align-items:center;gap:24px;min-height:76px}
-.cab__logo img{width:92px;height:auto}
+.cab__logo img{width:120px;height:auto}
 .cab__nav{display:flex;gap:30px;margin:0 auto}
 .cab__nav a{text-decoration:none;font-weight:600;font-size:.95rem;padding:10px 2px}
 .cab__nav a:hover{color:var(--vino)}
@@ -49,7 +49,8 @@ em{font-style:italic;color:var(--vino)}
 /* Hero */
 .hero{padding-top:56px;padding-bottom:64px;text-align:center}
 .hero__arriba{display:flex;justify-content:space-between;gap:16px;font:700 .74rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--suave);border-bottom:1px solid var(--linea);padding-bottom:16px}
-.hero h1{font-size:clamp(3.2rem,11.5vw,9.4rem);letter-spacing:-.03em;margin:clamp(34px,6vw,70px) 0}
+.hero__logo{width:clamp(130px,16vw,200px);height:auto;margin:clamp(22px,3vw,36px) auto 0}
+.hero h1{font-size:clamp(3.2rem,11.5vw,9.4rem);letter-spacing:-.03em;margin:clamp(20px,4vw,44px) 0 clamp(34px,6vw,70px)}
 .cortina{display:block;overflow:hidden;padding:.04em 0}
 .cortina>span{display:block;animation:sube .9s var(--curva) both}
 .cortina:nth-child(2)>span{animation-delay:.12s}
@@ -115,19 +116,36 @@ em{font-style:italic;color:var(--vino)}
 .clientes ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.35);border-left:1px solid rgba(255,255,255,.35)}
 .clientes li{padding:26px 22px;border-right:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);font:600 1.08rem/1.3 var(--serif);min-height:96px;display:flex;align-items:center}
 
+/* Clientes: logos */
+.logo-ph{flex:none;display:grid;place-items:center;width:52px;height:52px;margin-right:14px;border:1.5px dashed rgba(255,255,255,.55);border-radius:50%;font:700 .9rem var(--sans);letter-spacing:.04em;color:#fff}
+.clientes li img{flex:none;width:100px;height:52px;object-fit:contain;margin-right:14px;background:#fff;border-radius:10px;padding:8px 10px}
+.clientes__nota{margin-top:18px;font-size:.88rem;color:rgba(255,255,255,.8)}
+
+/* Certificaciones */
+.certs{background:var(--papel2);padding:100px 0}
+.certs h2{font-size:clamp(2.1rem,4.4vw,3.4rem);letter-spacing:-.015em}
+.certs__intro{margin-top:16px;color:var(--suave);max-width:52ch}
+.certs__lista{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.certs__lista li{display:flex;flex-direction:column;gap:6px;padding:28px 22px 24px;border:1.5px dashed #A99F94;background:var(--papel);min-height:260px}
+.certs__lista svg{width:44px;height:52px;margin-bottom:14px;fill:none;stroke:var(--vino);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.certs__lista h3{font-size:1.3rem}
+.certs__lista p{color:var(--suave);font-size:.95rem}
+.certs__lista span{margin-top:auto;padding-top:14px;font:700 .78rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--vino)}
+
 /* Proceso */
 .proceso{padding:110px 0}
-.proceso__grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.proceso__grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
 .proceso h2{font-size:clamp(2.1rem,4.4vw,3.4rem);letter-spacing:-.015em}
-.pasos{margin-top:34px;border-top:1px solid var(--tinta)}
-.pasos details{border-bottom:1px solid var(--tinta)}
-.pasos summary{display:flex;align-items:center;gap:16px;min-height:64px;padding:12px 0;cursor:pointer;font:700 1.2rem var(--serif);list-style:none}
-.pasos summary::-webkit-details-marker{display:none}
-.pasos summary span{font:700 .85rem var(--sans);color:var(--vino)}
-.pasos summary b{margin-left:auto;font:400 1.6rem var(--sans);color:var(--vino);transition:transform .25s var(--curva)}
-.pasos details[open] summary b{transform:rotate(45deg)}
-.pasos details p{padding:0 0 22px 46px;color:var(--suave);max-width:46ch}
-.proceso__img{margin:0;position:relative}
+.proceso__intro{margin-top:18px;color:var(--suave);max-width:46ch}
+.camino{list-style:none;margin:40px 0 0;padding:0;position:relative;display:grid;gap:40px}
+.camino__linea{position:absolute;left:21px;top:10px;bottom:10px;width:2px;background:var(--linea)}
+.camino__linea i{position:absolute;inset:0;background:var(--vino);transform-origin:top;transform:scaleY(0)}
+.camino li{position:relative;padding-left:72px;min-height:44px}
+.camino__n{position:absolute;left:0;top:0;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--papel);border:2px solid var(--linea);font:700 1rem var(--sans);color:var(--suave);transition:background-color .3s ease,border-color .3s ease,color .3s ease}
+.camino li.on .camino__n{background:var(--vino);border-color:var(--vino);color:#fff}
+.camino h3{font-size:1.5rem;margin-bottom:6px;padding-top:6px}
+.camino p{color:var(--suave);max-width:42ch}
+.proceso__img{margin:0;position:sticky;top:150px}
 .proceso__marco{position:relative;aspect-ratio:4/3.3;overflow:hidden;background:var(--carbon)}
 .proceso__marco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .6s ease,transform .8s var(--curva)}
 .proceso__marco img.activa{opacity:1;transform:none}
@@ -151,6 +169,12 @@ em{font-style:italic;color:var(--vino)}
 .form__acc{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .estado{margin-top:10px;font-size:.88rem;color:var(--suave);min-height:2.6em}
 
+/* WhatsApp flotante */
+.wa-flot{position:fixed;right:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:10px;width:60px;height:60px;justify-content:center;border-radius:50%;background:#128C47;color:#fff;font:700 1rem var(--sans);text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .2s var(--curva),background-color .15s ease}
+.wa-flot svg{width:28px;height:28px;fill:currentColor;flex:none}
+@media (hover:hover) and (pointer:fine){.wa-flot:hover{transform:translateY(-3px);background:#0E7A3D}}
+.wa-flot:focus-visible{outline-color:#fff;box-shadow:0 0 0 3px #128C47,0 6px 18px rgba(0,0,0,.28)}
+
 .pie{background:var(--noche,#161312);color:#CFC6BC;padding:40px 0;border-top:1px solid #3a3330}
 .pie{background:#161312}
 .pie__in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
@@ -165,7 +189,9 @@ em{font-style:italic;color:var(--vino)}
   .collage{grid-template-columns:1fr;gap:56px;padding-top:80px;padding-bottom:80px}
   .collage__chica{right:0}
   .clientes ul{grid-template-columns:repeat(2,1fr)}
+  .certs__lista{grid-template-columns:repeat(2,1fr)}
   .proceso__grid{grid-template-columns:1fr;gap:56px}
+  .proceso__img{position:relative;top:auto}
   .cierre__cols{grid-template-columns:1fr;gap:40px}
   .paneles{height:440px}
   .panel__c{width:52%}
@@ -177,7 +203,12 @@ em{font-style:italic;color:var(--vino)}
   .cab__tira .cont{justify-content:flex-start;gap:16px;overflow:hidden}
   .cab__tira span:nth-child(3){display:none}
   .cab__barra{min-height:64px}
-  .cab__logo img{width:70px}
+  .cab__logo img{width:90px}
+  .wa-flot{right:14px;bottom:14px}
+  .certs{padding:70px 0}
+  .certs__lista{grid-template-columns:1fr}
+  .certs__lista li{min-height:0}
+  .camino{gap:32px}
   .cab__nav,.cab__cta{display:none}
   .cab__menu{display:inline-flex;align-items:center}
   .movil{padding:4px 16px 16px}
@@ -215,5 +246,24 @@ em{font-style:italic;color:var(--vino)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .cortina>span{animation:none}
-  .panel,.panel__c,.proceso__marco img,.circulo{transition:none}
+  .panel,.panel__c,.proceso__marco img,.circulo,.camino__n,.wa-flot{transition:none}
 }
+
+/* Sellos de certificaciones (muestra) */
+.cert__logo{display:grid;place-items:center;height:72px;margin-bottom:14px;padding:10px 14px;background:#fff;border-radius:10px}
+.cert__logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05em;color:#2A2523}
+li span.cert__logo{margin-top:0;padding:10px 14px;margin-bottom:14px;font-size:inherit;letter-spacing:normal;text-transform:none;color:inherit}
+li span.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05em;color:#2A2523}
+
+/* Marcas con las que trabajamos */
+.marcas__t{margin:56px 0 24px;font:700 1.5rem/1.2 Georgia,"Palatino Linotype",serif}
+.marcas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.marcas li{display:grid;place-items:center;min-height:96px;padding:14px;background:#fff;border-radius:10px}
+.marcas img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain}
+.marca-ph{font:700 1.05rem/1.2 Georgia,"Palatino Linotype",serif;color:#2A2523;text-align:center}
+@media (max-width:1024px){.marcas{grid-template-columns:repeat(2,1fr)}}
+.marcas__t{color:#fff;text-align:left}
+.marcas li img{width:auto;height:auto;max-width:100%;max-height:72px;padding:0;margin:0;border:0;background:none;border-radius:0}
+
+#clientes .marcas__t{margin-top:0}

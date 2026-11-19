@@ -31,7 +31,7 @@ a{color:inherit}
 .cabecera{position:sticky;top:0;z-index:30;background:var(--papel);border-bottom:1px solid var(--linea)}
 .cabecera__in{max-width:var(--ancho);margin:0 auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
-.marca img{width:72px;height:auto}
+.marca img{width:104px;height:auto}
 .marca__txt{display:flex;flex-direction:column;font:600 .78rem/1.1 var(--sans);letter-spacing:.04em;color:var(--suave)}
 .marca__txt strong{font:700 1.35rem/1 var(--serif);letter-spacing:0;color:var(--carbon)}
 .nav{display:flex;align-items:center;gap:26px}
@@ -45,6 +45,8 @@ a{color:inherit}
 .hero{position:relative;background:var(--carbon) url("img/vista-superior-carne-fresca-rebanadas-carne-cruda-escritorio-madera-redondo-cocina-alimentos-vaca-animal-frescura-alimentos-oscuros-1.jpg") right center/cover no-repeat;color:#fff;min-height:min(78vh,680px);display:flex;align-items:center}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,27,26,.94) 0%,rgba(31,27,26,.78) 45%,rgba(31,27,26,.1) 100%)}
 .hero__in{position:relative;max-width:var(--ancho);margin:0 auto;padding:72px 24px;width:100%}
+.hero__placa{display:inline-block;margin-bottom:22px}
+.hero__placa img{width:clamp(120px,14vw,170px);height:auto}
 .hero__dato{font:600 .9rem var(--sans);color:#E4C58A;margin-bottom:18px}
 .hero h1{font-size:clamp(2.1rem,4.6vw,3.7rem);max-width:15ch;letter-spacing:-.01em}
 .hero__txt{max-width:46ch;margin-top:20px;font-size:1.1rem;color:#EDE6DD}
@@ -108,7 +110,24 @@ a{color:inherit}
 
 /* Clientes */
 .clientes{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--linea);border-left:1px solid var(--linea)}
-.clientes li{padding:26px 20px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);font:600 1.02rem/1.3 var(--serif);min-height:92px;display:flex;align-items:center}
+.clientes li{padding:22px 20px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);font:600 1.02rem/1.3 var(--serif);min-height:104px;display:flex;align-items:center;gap:14px}
+.logo-ph{flex:none;display:grid;place-items:center;width:52px;height:52px;border:1.5px dashed #A99F94;border-radius:50%;font:700 .88rem var(--sans);letter-spacing:.04em;color:var(--vino)}
+.clientes li img{flex:none;width:100px;height:52px;object-fit:contain;background:#fff;border:1px solid var(--linea);border-radius:6px;padding:8px 10px}
+
+/* Certificaciones */
+.certs__t{margin-top:56px;font-size:1.6rem}
+.certs{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.certs li{display:flex;flex-direction:column;gap:6px;padding:24px 20px 20px;border:1.5px dashed #6b625c;min-height:230px}
+.certs svg{width:40px;height:48px;margin-bottom:10px;fill:none;stroke:#E4C58A;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.certs h4{margin:0;font:700 1.15rem/1.2 var(--serif)}
+.certs p{color:#CFC6BC;font-size:.92rem}
+.certs span{margin-top:auto;padding-top:12px;font:700 .74rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#E4C58A}
+
+/* WhatsApp flotante */
+.wa-flot{position:fixed;right:18px;bottom:18px;z-index:45;display:inline-flex;align-items:center;gap:10px;width:60px;height:60px;justify-content:center;border-radius:50%;background:#128C47;color:#fff;font:700 1rem var(--sans);text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:transform .2s cubic-bezier(.23,1,.32,1),background-color .15s ease}
+.wa-flot svg{width:28px;height:28px;fill:currentColor;flex:none}
+@media (hover:hover) and (pointer:fine){.wa-flot:hover{transform:translateY(-3px);background:#0E7A3D}}
+.wa-flot:focus-visible{outline-color:#fff;box-shadow:0 0 0 3px #128C47}
 
 /* Cotización */
 .cotiza{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
@@ -137,6 +156,7 @@ a{color:inherit}
   .pasos li:nth-child(3){padding-left:0;border-left:0}
   .pasos li:nth-child(n+3){border-top:1px solid #4a423e;margin-top:20px}
   .clientes{grid-template-columns:repeat(2,1fr)}
+  .certs{grid-template-columns:repeat(2,1fr)}
   .cotiza{grid-template-columns:1fr;gap:36px}
   .datos__in{grid-template-columns:1fr 1fr}
   .datos__in>div:nth-child(3){border-left:0;padding-left:0}
@@ -152,7 +172,10 @@ a{color:inherit}
   .nav.abierto{display:flex}
   .nav a{padding:14px 4px;border-bottom:1px solid var(--linea)}
   .nav__cta{text-align:center;margin-top:12px;border-bottom:0!important}
-  .marca img{width:56px}
+  .marca img{width:80px}
+  .wa-flot{right:14px;bottom:14px}
+  .certs{grid-template-columns:1fr}
+  .certs li{min-height:0}
   .hero{background-position:70% center;min-height:0}
   .hero::before{background:linear-gradient(180deg,rgba(31,27,26,.9),rgba(31,27,26,.8))}
   .hero__in{padding-top:56px;padding-bottom:56px}
@@ -174,4 +197,25 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .hero__dato,.hero h1,.hero__txt,.hero__acc{animation:none}
+  .wa-flot{transition:none}
 }
+
+/* Sellos de certificaciones (muestra) */
+.cert__logo{display:grid;place-items:center;height:72px;margin-bottom:14px;padding:10px 14px;background:#fff;border-radius:10px}
+.cert__logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05em;color:#2A2523}
+li span.cert__logo{margin-top:0;padding:10px 14px;margin-bottom:14px;font-size:inherit;letter-spacing:normal;text-transform:none;color:inherit}
+li span.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.05em;color:#2A2523}
+
+/* Marcas con las que trabajamos */
+.marcas__t{margin:56px 0 24px;font:700 1.5rem/1.2 Georgia,"Palatino Linotype",serif}
+.marcas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.marcas li{display:grid;place-items:center;min-height:96px;padding:14px;background:#fff;border-radius:10px}
+.marcas img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain}
+.marca-ph{font:700 1.05rem/1.2 Georgia,"Palatino Linotype",serif;color:#2A2523;text-align:center}
+@media (max-width:1024px){.marcas{grid-template-columns:repeat(2,1fr)}}
+
+.marcas li{border:1px solid var(--linea)}
+.marcas li img{width:auto;height:auto;max-width:100%;max-height:72px;padding:0;margin:0;border:0;background:none;border-radius:0}
+
+#clientes .marcas__t{margin-top:0}
