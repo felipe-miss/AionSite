@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clínica Dental Arco · Tratamientos y precios claros</title>
+<meta name="description" content="Propuesta de sitio para consultorio dental: tratamientos, paquetes con precio y pago a meses, y cita por WhatsApp. Concepto: la línea de la sonrisa.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blanco:#FBFCFC;--menta:#DDF3EE;--menta-2:#B8E6DC;--teal:#0E7C70;--teal-hondo:#0A4D46;--marino:#0D2230;--gris:#5A6B73;--linea:#E2EAEA;--coral:#F2735A;--f:"Onest",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blanco);color:var(--marino);font:17px/1.6 var(--f);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.025em;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:14px;font:600 16px var(--f);text-decoration:none;border:0;cursor:pointer}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal-hondo)}
+.btn-claro{background:#fff;color:var(--marino);border:1px solid var(--linea)}
+.sonrisa{display:block;width:100%;height:auto}
+
+/* Hero banner con nav dentro */
+.hero{padding:16px}
+.banner-hero{position:relative;border-radius:28px;overflow:hidden;min-height:min(86vh,760px);display:flex;flex-direction:column}
+.banner-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.banner-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,48,.35),transparent 30%)}
+.barra{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px 24px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:20px;text-decoration:none}
+.logo svg{width:34px;height:20px}
+.nav{display:flex;gap:6px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);padding:6px;border-radius:14px}
+.nav a{color:#fff;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:500}
+.nav a:hover{background:rgba(255,255,255,.2)}
+.menu-btn{display:none;background:rgba(255,255,255,.9);border:0;border-radius:10px;padding:9px 14px;font:600 15px var(--f)}
+.tarjeta{position:relative;z-index:2;margin-top:auto;background:var(--blanco);border-radius:24px 24px 24px 0;max-width:620px;padding:36px 36px 30px;margin-left:0}
+.tarjeta h1{font-size:clamp(36px,4.8vw,62px)}
+.tarjeta p{color:var(--gris);margin:14px 0 22px;max-width:46ch}
+.tarjeta .acciones{display:flex;gap:10px;flex-wrap:wrap}
+.dato{position:absolute;z-index:2;right:24px;bottom:24px;background:rgba(255,255,255,.95);border-radius:18px;padding:16px 20px;display:flex;gap:14px;align-items:center;max-width:300px}
+.dato b{font-size:15px}.dato span{display:block;font-size:14px;color:var(--gris)}
+.dato i{flex:none;width:42px;height:42px;border-radius:12px;background:var(--menta);display:grid;place-items:center;font-style:normal;color:var(--teal);font-weight:700}
+
+/* Marquee */
+.marquee{border-block:1px solid var(--linea);overflow:hidden;padding:20px 0;margin-top:40px;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.pista{display:flex;gap:56px;width:max-content;animation:correr 32s linear infinite}
+.pista span{white-space:nowrap;font-weight:600;color:var(--gris);display:flex;align-items:center;gap:56px}
+.pista span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--menta-2)}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* Tratamientos sobre gradiente */
+.trat{margin:90px 16px 0;border-radius:28px;background:radial-gradient(120% 80% at 0% 0%,var(--menta) 0%,transparent 60%),radial-gradient(90% 90% at 100% 100%,#E7F0FB 0%,transparent 55%),#F3F8F7;padding:84px 0}
+.trat-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px}
+.trat-head h2{font-size:clamp(34px,4.2vw,54px)}
+.trat-head p{color:var(--gris);margin:0}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.item{background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.9);border-radius:20px;padding:26px}
+.item svg{width:40px;height:40px;color:var(--teal);margin-bottom:18px}
+.item h3{font-size:21px;letter-spacing:-.01em;margin-bottom:6px}
+.item p{margin:0;color:var(--gris);font-size:15px}
+.item.ancho{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0;overflow:hidden}
+.item.ancho img{height:100%;width:100%;object-fit:cover;min-height:240px}
+.item.ancho div{padding:26px 26px 26px 0;align-self:center}
+
+/* Precios */
+.precios{padding:110px 0 90px}
+.precios-head{text-align:center;max-width:640px;margin:0 auto 34px}
+.precios-head h2{font-size:clamp(34px,4.2vw,54px)}
+.precios-head p{color:var(--gris)}
+.toggle{display:inline-flex;background:var(--menta);border-radius:12px;padding:4px;margin-top:6px}
+.toggle button{border:0;background:none;padding:9px 16px;border-radius:9px;font:600 15px var(--f);color:var(--teal-hondo);cursor:pointer}
+.toggle button[aria-pressed=true]{background:#fff;box-shadow:0 2px 8px rgba(10,77,70,.12)}
+.planes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{border:1px solid var(--linea);border-radius:24px;padding:30px;display:flex;flex-direction:column;background:#fff}
+.plan h3{font-size:22px}
+.plan .para{color:var(--gris);font-size:15px;margin:6px 0 22px;min-height:48px}
+.monto{font-size:46px;font-weight:700;letter-spacing:-.03em}
+.monto small{font-size:16px;font-weight:500;color:var(--gris);letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:10px;font-size:15px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--menta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E7C70' stroke-width='3'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
+.plan .btn{margin-top:auto}
+.plan.destacado{background:var(--teal-hondo);color:#fff;border-color:var(--teal-hondo);transform:translateY(-12px)}
+.plan.destacado .para,.plan.destacado .monto small{color:rgba(255,255,255,.7)}
+.plan.destacado li::before{background-color:rgba(255,255,255,.15)}
+.plan.destacado .btn{background:#fff;color:var(--teal-hondo)}
+.etiqueta{align-self:flex-start;background:var(--coral);color:#fff;font-size:13px;font-weight:600;padding:4px 10px;border-radius:8px;margin-bottom:14px}
+.nota{text-align:center;color:var(--gris);font-size:14px;margin-top:22px}
+
+/* Banner promo */
+.promo{margin:0 16px;border-radius:28px;background:var(--marino);color:#fff;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.promo div{padding:64px 56px;align-self:center}
+.promo h2{font-size:clamp(32px,4vw,50px)}
+.promo p{color:rgba(255,255,255,.75);margin:16px 0 26px}
+.promo img{width:100%;height:100%;object-fit:cover;min-height:380px}
+
+/* CTA */
+.cta{padding:110px 0 40px;text-align:center}
+.cta h2{font-size:clamp(34px,4.5vw,58px);max-width:16ch;margin:0 auto}
+.cta p{color:var(--gris);margin:14px auto 28px;max-width:46ch}
+.cta form{display:flex;max-width:520px;margin:0 auto;background:#fff;border:1px solid var(--linea);border-radius:18px;padding:6px;box-shadow:0 10px 30px -14px rgba(13,34,48,.25)}
+.cta input{flex:1;border:0;font:16px var(--f);padding:0 14px;background:none;min-width:0}
+.cta input:focus{outline:none}
+
+/* Footer con colinas */
+.pie{position:relative;margin-top:40px;color:#fff}
+.colinas{display:block;width:100%;height:180px}
+.pie-cuerpo{background:var(--teal-hondo);padding:10px 0 0}
+.pie-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;padding-bottom:44px}
+.pie h4{margin:0 0 10px;font-size:15px;color:var(--menta-2)}
+.pie p,.pie a{color:rgba(255,255,255,.8);font-size:15px;margin:0;text-decoration:none;display:block;line-height:1.9}
+.legal{border-top:1px solid rgba(255,255,255,.15);padding:18px 0;font-size:13px;color:rgba(255,255,255,.55);display:flex;justify-content:space-between}
+
+@media (max-width:900px){
+  .nav{display:none}.menu-btn{display:block}
+  .nav.abierto{display:flex;flex-direction:column;position:absolute;top:70px;right:16px;left:16px;background:rgba(13,34,48,.92)}
+  .hero{padding:10px}
+  .banner-hero{min-height:auto}
+  .banner-hero>img{position:relative;height:300px}
+  .banner-hero::after{height:300px}
+  .barra{position:absolute;top:0;left:0;right:0}
+  .tarjeta{border-radius:0;padding:26px 20px 24px;max-width:none}
+  .dato{display:none}
+  .trat{margin:60px 10px 0;padding:56px 0}
+  .trat-head{grid-template-columns:1fr;gap:12px}
+  .grid6{grid-template-columns:1fr}
+  .item.ancho{grid-column:auto;grid-template-columns:1fr}
+  .item.ancho div{padding:0 22px 24px}
+  .planes{grid-template-columns:1fr}
+  .plan.destacado{transform:none}
+  .promo{margin:0 10px;grid-template-columns:1fr}
+  .promo div{padding:40px 24px}
+  .promo img{min-height:240px}
+  .cta form{flex-direction:column;gap:6px}
+  .cta input{padding:14px}
+  .pie-grid{grid-template-columns:1fr 1fr}
+  .colinas{height:90px}
+  .legal{flex-direction:column;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){.pista{animation:none}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="banner-hero">
+    <img src="img/photo-1777331903190-341a3dd0441b.jpg" alt="Dentista platicando con una paciente en el consultorio">
+    <div class="barra">
+      <a class="logo" href="#"><svg viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M3 5c8 12 20 12 28 0"/></svg>Arco Dental</a>
+      <nav class="nav" id="nav"><a href="#tratamientos">Tratamientos</a><a href="#precios">Precios</a><a href="#cita">Agendar</a></nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');n.classList.toggle('abierto');this.setAttribute('aria-expanded',n.classList.contains('abierto'))">Menú</button>
+    </div>
+    <div class="tarjeta">
+      <h1>Sabes cuánto cuesta antes de sentarte en el sillón.</h1>
+      <p>Valoración, plan de tratamiento y presupuesto por escrito en la primera visita. Sin sorpresas al final.</p>
+      <div class="acciones"><a class="btn btn-teal" href="#cita">Agendar valoración</a><a class="btn btn-claro" href="#precios">Ver precios</a></div>
+    </div>
+    <div class="dato"><i>15</i><div><b>Lunes a sábado</b><span>Citas de 9:00 a 19:00, también el mismo día</span></div></div>
+  </div>
+</section>
+
+<div class="marquee" aria-label="Formas de pago">
+  <div class="pista">
+    <span>Hasta 12 meses sin intereses</span><span>Tarjeta de crédito y débito</span><span>Transferencia</span><span>Efectivo</span><span>Facturamos</span><span>Presupuesto por escrito</span>
+    <span aria-hidden="true">Hasta 12 meses sin intereses</span><span aria-hidden="true">Tarjeta de crédito y débito</span><span aria-hidden="true">Transferencia</span><span aria-hidden="true">Efectivo</span><span aria-hidden="true">Facturamos</span><span aria-hidden="true">Presupuesto por escrito</span>
+  </div>
+</div>
+
+<section class="trat" id="tratamientos">
+  <div class="wrap">
+    <div class="trat-head">
+      <h2>Todo el tratamiento en un mismo consultorio</h2>
+      <p>No te mandamos de un lugar a otro: radiografía, limpieza, ortodoncia e implantes se hacen aquí, con el mismo equipo siguiendo tu caso.</p>
+    </div>
+    <div class="grid6">
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3c-2 0-4 2-4 5 0 4 2 5 2.5 9S7 21 8 21s1.5-3 2-5 1-2 2-2 1.5 0 2 2 1 5 2 5 2.5-.5 2.5-4S21 12 21 8c0-3-2-5-4-5s-3 1-5 1-3-1-5-1z"/></svg><h3>Limpieza y revisión</h3><p>Limpieza con ultrasonido y revisión completa cada seis meses.</p></div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18M6 8v8M10 8v8M14 8v8M18 8v8"/></svg><h3>Ortodoncia</h3><p>Brackets metálicos, estéticos o alineadores transparentes.</p></div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg><h3>Blanqueamiento</h3><p>En consultorio en una sesión, o con guardas para casa.</p></div>
+      <div class="item ancho"><img src="img/photo-1588776814546-1ffcf47267a5.jpg" alt="Dentista revisando radiografías"><div><h3>Radiografía en el consultorio</h3><p>Ves tu radiografía en pantalla y te explicamos qué encontramos antes de proponer cualquier tratamiento.</p></div></div>
+      <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3h8l-1 7H9L8 3zM10 10l1 11h2l1-11"/></svg><h3>Implantes</h3><p>Reposición de piezas con implante y corona.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="precios" id="precios">
+  <div class="wrap">
+    <div class="precios-head">
+      <h2>Precios publicados, no "pregunta en recepción"</h2>
+      <p>Los tratamientos más comunes con su precio. Lo demás se cotiza en la valoración.</p>
+      <div class="toggle" role="group" aria-label="Forma de pago">
+        <button aria-pressed="true" data-modo="contado">Pago de contado</button>
+        <button aria-pressed="false" data-modo="meses">A 12 meses</button>
+      </div>
+    </div>
+    <div class="planes">
+      <article class="plan">
+        <h3>Revisión y limpieza</h3><p class="para">Para quien no va al dentista desde hace tiempo.</p>
+        <div class="monto" data-contado="$650" data-meses="—" data-u="una visita">$650 <small>una visita</small></div>
+        <ul><li>Valoración completa</li><li>Limpieza con ultrasonido</li><li>Radiografía panorámica</li><li>Plan de tratamiento por escrito</li></ul>
+        <a class="btn btn-claro" href="#cita">Agendar</a>
+      </article>
+      <article class="plan destacado">
+        <span class="etiqueta">El más pedido</span>
+        <h3>Blanqueamiento</h3><p class="para">Limpieza previa y blanqueamiento en consultorio.</p>
+        <div class="monto" data-contado="$3,900" data-meses="$325" data-u="una sesión">$3,900 <small>una sesión</small></div>
+        <ul><li>Limpieza incluida</li><li>Blanqueamiento LED en una sesión</li><li>Guardas para retoque en casa</li><li>Revisión a los 30 días</li></ul>
+        <a class="btn" href="#cita">Agendar</a>
+      </article>
+      <article class="plan">
+        <h3>Ortodoncia con brackets</h3><p class="para">Tratamiento completo con consultas de ajuste.</p>
+        <div class="monto" data-contado="$24,000" data-meses="$2,000" data-u="tratamiento">$24,000 <small>tratamiento</small></div>
+        <ul><li>Estudio de ortodoncia</li><li>Brackets metálicos</li><li>Ajustes mensuales incluidos</li><li>Retenedor al terminar</li></ul>
+        <a class="btn btn-claro" href="#cita">Agendar</a>
+      </article>
+    </div>
+    <p class="nota">Precios de ejemplo para la propuesta. Se reemplazan por los reales del consultorio.</p>
+  </div>
+</section>
+
+<section class="promo">
+  <div>
+    <h2>La primera valoración no tiene costo este mes</h2>
+    <p>Revisión, radiografía y presupuesto. Si decides no tratarte con nosotros, te llevas tu plan por escrito.</p>
+    <a class="btn btn-teal" href="#cita">Apartar mi valoración</a>
+  </div>
+  <img src="img/photo-1489278353717-f64c6ee8a4d2.jpg" alt="Mujer sonriendo">
+</section>
+
+<section class="cta" id="cita">
+  <div class="wrap">
+    <svg class="sonrisa" viewBox="0 0 200 40" style="width:120px;margin:0 auto 20px" fill="none" stroke="#0E7C70" stroke-width="5" stroke-linecap="round"><path d="M10 8c50 36 130 36 180 0"/></svg>
+    <h2>Escribe tu nombre y te mandamos horarios hoy</h2>
+    <p>Se abre WhatsApp con el mensaje listo. Respondemos de lunes a sábado.</p>
+    <form onsubmit="event.preventDefault();window.open('https://wa.me/520000000000?text='+encodeURIComponent('Hola, soy '+this.n.value+'. Quiero agendar una valoración.'),'_blank')">
+      <input name="n" placeholder="Tu nombre" required autocomplete="name" aria-label="Tu nombre">
+      <button class="btn btn-teal" type="submit">Pedir horarios</button>
+    </form>
+  </div>
+</section>
+
+<footer class="pie">
+  <svg class="colinas" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 120C240 40 420 40 720 110s520 50 720-30v100H0z" fill="#B8E6DC"/>
+    <path d="M0 150C300 70 560 90 760 140s460 20 680-40v80H0z" fill="#0E7C70"/>
+    <path d="M0 170C320 120 620 130 900 165s400 0 540-20v35H0z" fill="#0A4D46"/>
+  </svg>
+  <div class="pie-cuerpo">
+    <div class="wrap">
+      <div class="pie-grid">
+        <div><h4>Arco Dental</h4><p>Odontología general, ortodoncia e implantes. Responsable sanitario y cédula profesional se publican aquí.</p></div>
+        <div><h4>Horario</h4><p>Lunes a viernes 9:00 a 19:00</p><p>Sábado 9:00 a 14:00</p></div>
+        <div><h4>Ubicación</h4><p>Av. del Ejemplo 456</p><p>Tu ciudad</p></div>
+        <div><h4>Contacto</h4><a href="#cita">WhatsApp</a><a href="#">Instagram</a><a href="#">Facebook</a></div>
+      </div>
+      <div class="legal"><span>© Arco Dental</span><span>Propuesta de diseño · AionSite</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.toggle button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    const meses=b.dataset.modo==='meses';
+    document.querySelectorAll('.monto').forEach(m=>{
+      const v=meses?m.dataset.meses:m.dataset.contado;
+      m.innerHTML=v+' <small>'+(meses?(v==='—'?'pago único':'al mes'):m.dataset.u)+'</small>';
+    });
+  }));
+</script>
+</body>
+</html>

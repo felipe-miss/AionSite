@@ -1,0 +1,15 @@
+01-hero-responsive-banner https://21st.dev/@sensewood8/components/responsive-hero-banner
+02-features-gradient-bg https://21st.dev/@prebuiltui/components/feature-sections/features-section-with-gradient-bg
+03-feature-72 https://21st.dev/@shadcnblockscom/components/feature-72
+04-pricing-section-3 https://21st.dev/@uilayout.contact/components/pricing-section-3
+05-testimonials-3 https://21st.dev/@efferd/components/testimonials-3
+06-footer-wordmark https://21st.dev/@vilqor/components/wordmark-footer
+07-footer-meadow-rise https://21st.dev/@kedhareswer/components/meadow-rise-footer
+08-cta-mail-form https://21st.dev/@meschacirung/components/call-to-action/call-to-action-with-mail-form
+09-hero-10 https://21st.dev/@felipemenezes098/components/hero-10
+10-hero-04 https://21st.dev/@felipemenezes098/components/hero-04
+11-gallery-image-grid https://21st.dev/@prebuiltui/components/image-gallery/image-grid-gallery
+12-gallery-elastic https://21st.dev/@daiwiikharihar/components/elastic-gallery
+13-logo-cloud-2 https://21st.dev/@efferd/components/logo-cloud-2
+14-logo-marquee-scroller https://21st.dev/@ravikatiyar162/components/marquee-logo-scroller
+15-logo-cloud-cinematic https://21st.dev/@support_596fe4b8/components/cinematic-logo-cloud

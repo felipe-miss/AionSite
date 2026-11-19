@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller Ochoa · Mecánica general, frenos y afinación</title>
+<meta name="description" content="Afinación, frenos, suspensión, clutch, eléctrico y clima. Cotización por WhatsApp antes de tocar tu coche y garantía de 3 meses o 5,000 km.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;600&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tablero:#DCD8D0; --hoyo:#BDB7AC; --tinta:#17191C; --naranja:#FF5B14; --negro:#111214; --papel:#F5F4F1; --gris:#6B6F76;
+  --sans:"Archivo",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace; --mano:"Caveat Brush",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--tinta);background:var(--tablero);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;padding:8px 12px}
+.pegboard{background-color:var(--tablero);background-image:radial-gradient(circle at center,var(--hoyo) 0 3.2px,transparent 3.8px);background-size:30px 30px;background-position:15px 15px}
+.mono{font-family:var(--mono)}
+
+/* Header */
+.top{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px clamp(16px,3vw,36px);transition:background .3s,box-shadow .3s}
+.top.solid{background:rgba(220,216,208,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(23,25,28,.12)}
+.logo{text-decoration:none;line-height:.85}
+.logo b{display:block;font-weight:900;font-stretch:125%;font-size:28px;letter-spacing:-.02em}
+.logo span{font:600 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.abierto{font:600 12px/1 var(--mono);letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+.abierto i{width:8px;height:8px;border-radius:50%;background:#1DB954;box-shadow:0 0 0 4px rgba(29,185,84,.2)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;background:var(--naranja);color:#fff;font:800 14px/1 var(--sans);font-stretch:110%;letter-spacing:.02em;text-transform:uppercase;text-decoration:none;border:0;border-radius:4px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:4px 4px 0 var(--tinta)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tinta)}
+.btn.claro{background:var(--papel);color:var(--tinta)}
+
+/* Hero: el tablero que se reacomoda */
+.hero{height:260vh;position:relative}
+.hero .fijo{position:sticky;top:0;height:100vh;overflow:hidden}
+.centro{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:5;width:min(720px,92vw)}
+.centro .sup{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.centro h1{font-weight:900;font-stretch:80%;font-size:clamp(46px,6.4vw,104px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase}
+.mano{display:inline-block;font-family:var(--mano);font-weight:400;text-transform:none;color:var(--naranja);font-size:1.12em;letter-spacing:0;position:relative;min-width:4ch}
+.mano span{display:inline-block;transition:opacity .35s,transform .35s}
+.mano span.sale{opacity:0;transform:translateY(-30%) rotate(-4deg)}
+.mano svg{position:absolute;left:0;bottom:-.08em;width:100%;height:.3em;overflow:visible}
+.mano svg path{stroke:var(--naranja);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset .8s ease .2s}
+.mano.dibuja svg path{stroke-dashoffset:0}
+.centro p{font-size:17px;line-height:1.5;max-width:44ch;margin:20px auto 26px}
+.centro .acc{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.pieza{position:absolute;left:0;top:0;background:#fff;padding:8px 8px 30px;box-shadow:0 18px 30px -12px rgba(23,25,28,.45);will-change:transform;z-index:3}
+.pieza img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.pieza small{position:absolute;left:10px;bottom:9px;font:600 10px/1 var(--mono);letter-spacing:.12em}
+.pieza::before{content:"";position:absolute;left:50%;top:-12px;width:14px;height:22px;margin-left:-7px;border-radius:7px 7px 3px 3px;background:linear-gradient(#5b6067,#2a2d31);box-shadow:inset 0 2px 0 rgba(255,255,255,.25)}
+.pista{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font:600 11px/1 var(--mono);letter-spacing:.14em;z-index:5}
+
+/* Cifras en puntos */
+.cifras{background:var(--negro);color:var(--papel);padding:clamp(80px,10vw,140px) clamp(16px,5vw,72px)}
+.cifras .cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.cifras h2{font-weight:900;font-stretch:75%;font-size:clamp(42px,5.6vw,92px);line-height:.9;text-transform:uppercase;max-width:14ch}
+.cifras .nota{font:400 13px/1.6 var(--mono);color:#9a9ea5;max-width:36ch}
+.barras{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,3vw,48px);align-items:end}
+.col .puntos{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;direction:rtl;transform:scaleY(-1)}
+.col .puntos i{aspect-ratio:1;border-radius:50%;background:#2c2f34;transition:background .2s}
+.col .puntos i.on{background:#d8d6d0}
+.col.lider .puntos i.on{background:var(--naranja)}
+.col .num{font-weight:900;font-stretch:90%;font-size:clamp(30px,3.4vw,54px);margin-top:16px;font-variant-numeric:tabular-nums}
+.col .lab{font:600 11px/1.3 var(--mono);letter-spacing:.12em;color:#9a9ea5;margin-top:6px}
+
+/* Diagrama anotado */
+.diagrama{background:var(--papel);padding:clamp(80px,10vw,140px) clamp(16px,5vw,72px);background-image:linear-gradient(rgba(23,25,28,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(23,25,28,.06) 1px,transparent 1px);background-size:40px 40px}
+.diagrama h2{font-weight:900;font-stretch:75%;font-size:clamp(42px,5.6vw,92px);line-height:.9;text-transform:uppercase;max-width:16ch;margin-bottom:12px}
+.diagrama .sub{font:400 14px/1.6 var(--mono);color:var(--gris);margin-bottom:40px;max-width:60ch}
+.dg{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,64px);align-items:center}
+.coche svg{width:100%;height:auto;overflow:visible}
+.coche .linea{fill:none;stroke:var(--tinta);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:3000;stroke-dashoffset:3000;transition:stroke-dashoffset 2.4s ease}
+.coche.in .linea{stroke-dashoffset:0}
+.hot{cursor:pointer}
+.hot circle.p{fill:var(--papel);stroke:var(--tinta);stroke-width:2}
+.hot text{font:700 14px var(--mono);text-anchor:middle;dominant-baseline:central;fill:var(--tinta);pointer-events:none}
+.hot circle.halo{fill:none;stroke:var(--naranja);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.hot.on circle.p{fill:var(--naranja);stroke:var(--naranja)}
+.hot.on text{fill:#fff}
+.hot.on circle.halo{animation:halo 1.4s ease-out infinite}
+@keyframes halo{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(2.2)}}
+.servicios{list-style:none;border-top:2px solid var(--tinta)}
+.servicios li{border-bottom:1px solid rgba(23,25,28,.2);cursor:pointer}
+.servicios button{all:unset;display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:baseline;width:100%;padding:16px 0;cursor:pointer}
+.servicios .n{font:700 13px var(--mono);color:var(--gris)}
+.servicios .s{font-weight:800;font-stretch:90%;font-size:22px;text-transform:uppercase}
+.servicios .p{font:600 14px var(--mono);white-space:nowrap}
+.servicios .det{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.servicios .det>div{overflow:hidden;font-size:15px;line-height:1.55;color:#3d4148;padding-left:46px}
+.servicios .det>div p{padding-bottom:16px}
+.servicios li.on .det{grid-template-rows:1fr}
+.servicios li.on .s,.servicios li.on .n{color:var(--naranja)}
+
+/* Orden de servicio */
+.orden{overflow:hidden;padding:clamp(80px,10vw,140px) clamp(16px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
+.hoja{background:#FFFDF8;padding:34px clamp(20px,3vw,40px) 40px;box-shadow:0 30px 50px -24px rgba(23,25,28,.5);transform:rotate(-1.2deg);position:relative;font-family:var(--mono)}
+.hoja::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px;background:radial-gradient(circle at 10px 10px,transparent 5px,#FFFDF8 5.5px) 0 0/20px 20px repeat-x}
+.hoja .enc{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid var(--tinta);padding-bottom:12px;margin-bottom:16px}
+.hoja .enc b{font-family:var(--sans);font-weight:900;font-stretch:120%;font-size:22px}
+.hoja .enc span{font-size:12px;text-align:right}
+.hoja .enc em{font-style:normal;color:#C0392B;font-weight:600}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:12px;margin-bottom:22px}
+.campos div{border-bottom:1px dotted #9a9ea5;padding:4px 0}
+.campos small{color:var(--gris)}
+.campos .mano2{font-family:var(--mano);font-size:20px;color:#1F3A93;margin-left:6px}
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #e5e2da;font-size:14px;line-height:1.5}
+.checks .caja{width:22px;height:22px;border:2px solid var(--tinta);position:relative;margin-top:1px}
+.checks .caja svg{position:absolute;inset:-6px -2px 0 0;width:30px;height:30px;stroke:#1F3A93;stroke-width:4;fill:none;stroke-linecap:round;stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset .4s ease}
+.checks li.ok .caja svg{stroke-dashoffset:0}
+.checks b{font-family:var(--sans);font-weight:800;font-size:15px;display:block}
+.sello{position:absolute;right:24px;bottom:30px;border:3px solid #C0392B;color:#C0392B;font:900 20px/1 var(--sans);font-stretch:120%;padding:10px 14px;transform:rotate(-14deg) scale(1.6);opacity:0;transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s;letter-spacing:.06em}
+.sello.on{opacity:.85;transform:rotate(-14deg) scale(1)}
+.lado h2{font-weight:900;font-stretch:75%;font-size:clamp(42px,5.2vw,84px);line-height:.9;text-transform:uppercase;margin-bottom:20px}
+.lado p{font-size:17px;line-height:1.6;max-width:44ch;margin-bottom:28px}
+.fotos{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.fotos figure{background:#fff;padding:8px 8px 28px;box-shadow:0 16px 28px -14px rgba(23,25,28,.45);position:relative}
+.fotos figure:nth-child(1){transform:rotate(1.4deg)}
+.fotos figure:nth-child(2){transform:rotate(-2deg);margin-top:60px}
+.fotos img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.fotos figcaption{position:absolute;left:10px;bottom:8px;font:600 10px/1 var(--mono);letter-spacing:.12em}
+
+/* Preguntas */
+.faq{padding:0 clamp(16px,5vw,72px) clamp(80px,10vw,140px);max-width:1100px}
+.faq h2{font-weight:900;font-stretch:75%;font-size:clamp(36px,4vw,64px);text-transform:uppercase;margin-bottom:22px}
+.faq details{border-top:2px solid var(--tinta);background:rgba(245,244,241,.6)}
+.faq details:last-child{border-bottom:2px solid var(--tinta)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:20px 16px;font-weight:800;font-size:19px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:600 24px/1 var(--mono);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 16px 22px;font-size:16px;line-height:1.6;max-width:70ch}
+
+/* Footer */
+footer{background:var(--negro);color:var(--papel);padding:70px clamp(16px,5vw,72px) 26px;overflow:hidden}
+.f{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-bottom:50px;font-size:16px;line-height:1.6}
+.f h3{font:600 11px/1 var(--mono);letter-spacing:.14em;color:#9a9ea5;margin-bottom:12px}
+.gigante{font-weight:900;font-stretch:125%;font-size:clamp(70px,19.5vw,360px);line-height:.78;letter-spacing:-.04em;white-space:nowrap;margin-left:-.05em}
+.gigante span{color:var(--naranja)}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:400 12px var(--mono);color:#9a9ea5;margin-top:20px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .abierto{display:none}
+  .top .btn{padding:11px 12px;font-size:12px}
+  .centro{width:92vw}
+  .centro p{font-size:15px}
+  .barras{grid-template-columns:repeat(5,1fr);gap:8px}
+  .col .puntos{grid-template-columns:repeat(4,1fr);gap:2px}
+  .col .num{font-size:22px}
+  .col .lab{font-size:9px;letter-spacing:.04em}
+  .dg,.orden{grid-template-columns:1fr}
+  .f{grid-template-columns:1fr}
+  .hoja{transform:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#servicios">Ir a servicios y precios</a>
+<header class="top" id="top">
+  <a class="logo" href="#"><b>OCHOA</b><span>Taller mecánico</span></a>
+  <span class="abierto"><i></i>Lun a sáb · 8:00 a 18:30</span>
+  <a class="btn" href="https://wa.me/520000000000?text=Hola%2C%20quiero%20cotizar%20una%20reparaci%C3%B3n" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+</header>
+
+<main>
+<section class="hero pegboard" id="hero" aria-label="Taller Ochoa">
+  <div class="fijo">
+    <div id="piezas"></div>
+    <div class="centro">
+      <p class="sup">Calle Ochoa 00 · desde 1998</p>
+      <h1>Hoy <span class="mano dibuja" id="mano"><span>cambiamos frenos</span><svg viewBox="0 0 200 20" preserveAspectRatio="none"><path d="M2 14 C50 4 120 4 198 12"/></svg></span><br>en la calle Ochoa</h1>
+      <p>Mecánica general para coches y camionetas. Te mandamos la cotización por WhatsApp antes de tocar nada, y te enseñamos la pieza vieja.</p>
+      <div class="acc"><a class="btn" href="#servicios">Ver precios</a><a class="btn claro" href="#orden">Cómo trabajamos</a></div>
+    </div>
+    <span class="pista">↓ BAJA Y SE REACOMODA EL TABLERO</span>
+  </div>
+</section>
+
+<section class="cifras">
+  <div class="cab">
+    <h2 class="reveal">Lo que salió de este taller en 2025</h2>
+    <p class="nota reveal">Cada punto son 12 servicios. Datos de ejemplo para la propuesta; se reemplazan por los del taller.</p>
+  </div>
+  <div class="barras" id="barras">
+    <div class="col lider" data-n="1284"><div class="puntos"></div><div class="num">0</div><div class="lab">AFINACIONES</div></div>
+    <div class="col" data-n="856"><div class="puntos"></div><div class="num">0</div><div class="lab">FRENOS</div></div>
+    <div class="col" data-n="390"><div class="puntos"></div><div class="num">0</div><div class="lab">SUSPENSIÓN</div></div>
+    <div class="col" data-n="212"><div class="puntos"></div><div class="num">0</div><div class="lab">CLUTCH</div></div>
+    <div class="col" data-n="164"><div class="puntos"></div><div class="num">0</div><div class="lab">ELÉCTRICO</div></div>
+  </div>
+</section>
+
+<section class="diagrama" id="servicios">
+  <h2 class="reveal">Toca el coche donde suena</h2>
+  <p class="sub reveal">Cada número es un servicio con su precio desde. El precio final depende del modelo; te lo confirmamos por WhatsApp con foto.</p>
+  <div class="dg">
+    <div class="coche" id="coche">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Dibujo lateral de un coche con seis puntos de servicio">
+        <path class="linea" d="M40 228 H770"/>
+        <path class="linea" d="M58 206 L58 172 Q60 152 92 146 L226 132 Q266 88 332 77 L500 74 Q560 76 612 126 L716 140 Q750 146 754 176 L754 206 L670 206 M572 206 L240 206 M142 206 L58 206"/>
+        <path class="linea" d="M246 132 Q282 96 336 88 L418 86 L418 132 Z M436 86 L498 86 Q540 90 580 128 L436 130 Z"/>
+        <circle class="linea" cx="190" cy="208" r="44"/><circle class="linea" cx="190" cy="208" r="20"/>
+        <circle class="linea" cx="620" cy="208" r="44"/><circle class="linea" cx="620" cy="208" r="20"/>
+        <path class="linea" d="M418 140 V200 M700 160 H740"/>
+        <g class="hot on" data-i="0" tabindex="0"><circle class="halo" cx="668" cy="150" r="16"/><circle class="p" cx="668" cy="150" r="16"/><text x="668" y="150">1</text></g>
+        <g class="hot" data-i="1" tabindex="0"><circle class="halo" cx="620" cy="208" r="16"/><circle class="p" cx="620" cy="208" r="16"/><text x="620" y="208">2</text></g>
+        <g class="hot" data-i="2" tabindex="0"><circle class="halo" cx="190" cy="150" r="16"/><circle class="p" cx="190" cy="150" r="16"/><text x="190" y="150">3</text></g>
+        <g class="hot" data-i="3" tabindex="0"><circle class="halo" cx="420" cy="226" r="16"/><circle class="p" cx="420" cy="226" r="16"/><text x="420" y="226">4</text></g>
+        <g class="hot" data-i="4" tabindex="0"><circle class="halo" cx="740" cy="186" r="16"/><circle class="p" cx="740" cy="186" r="16"/><text x="740" y="186">5</text></g>
+        <g class="hot" data-i="5" tabindex="0"><circle class="halo" cx="470" cy="110" r="16"/><circle class="p" cx="470" cy="110" r="16"/><text x="470" y="110">6</text></g>
+      </svg>
+    </div>
+    <ul class="servicios" id="lista">
+      <li class="on"><button type="button"><span class="n">01</span><span class="s">Afinación</span><span class="p">desde $1,450</span></button><div class="det"><div><p>Bujías, filtros de aire, gasolina y aceite, limpieza de cuerpo de aceleración y escaneo. 4 cilindros, unas 3 horas.</p></div></div></li>
+      <li><button type="button"><span class="n">02</span><span class="s">Frenos</span><span class="p">$1,200 por eje</span></button><div class="det"><div><p>Balatas, rectificado de discos y purga de líquido. Si rechina o vibra al frenar, empieza aquí.</p></div></div></li>
+      <li><button type="button"><span class="n">03</span><span class="s">Suspensión</span><span class="p">revisión sin costo</span></button><div class="det"><div><p>Amortiguadores desde $2,800 el par, horquillas, rótulas y bujes. Alineación incluida al terminar.</p></div></div></li>
+      <li><button type="button"><span class="n">04</span><span class="s">Clutch</span><span class="p">desde $3,900</span></button><div class="det"><div><p>Kit de clutch con collarín y rectificado de volante. Normalmente se entrega al día siguiente.</p></div></div></li>
+      <li><button type="button"><span class="n">05</span><span class="s">Eléctrico</span><span class="p">diagnóstico $350</span></button><div class="det"><div><p>Batería, alternador, marcha, luces y fallas intermitentes. El diagnóstico se descuenta si haces la reparación.</p></div></div></li>
+      <li><button type="button"><span class="n">06</span><span class="s">Clima</span><span class="p">carga desde $950</span></button><div class="det"><div><p>Revisión de fugas con tinte, carga de gas y limpieza de evaporador para que no huela a humedad.</p></div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="orden pegboard" id="orden">
+  <div class="hoja reveal" id="hoja">
+    <div class="enc"><b>OCHOA</b><span>ORDEN DE SERVICIO<br>No. <em>004812</em></span></div>
+    <div class="campos">
+      <div><small>Vehículo</small><span class="mano2">Versa 2018</span></div>
+      <div><small>Placas</small><span class="mano2">ABC-000</span></div>
+      <div><small>Km</small><span class="mano2">84,210</span></div>
+      <div><small>Falla</small><span class="mano2">rechina al frenar</span></div>
+    </div>
+    <ol class="checks" id="checks">
+      <li><span class="caja"><svg viewBox="0 0 30 30"><path d="M5 16 L12 23 L27 4"/></svg></span><span><b>Recibimos y fotografiamos tu coche</b>Kilometraje, gasolina y golpes quedan en la orden.</span></li>
+      <li><span class="caja"><svg viewBox="0 0 30 30"><path d="M5 16 L12 23 L27 4"/></svg></span><span><b>Diagnóstico y cotización por WhatsApp</b>Con fotos de lo que encontramos y el precio por pieza.</span></li>
+      <li><span class="caja"><svg viewBox="0 0 30 30"><path d="M5 16 L12 23 L27 4"/></svg></span><span><b>Tú autorizas</b>Sin tu “sí” no se cambia nada.</span></li>
+      <li><span class="caja"><svg viewBox="0 0 30 30"><path d="M5 16 L12 23 L27 4"/></svg></span><span><b>Reparamos con refacción nueva</b>Y te guardamos la pieza vieja para que la veas.</span></li>
+      <li><span class="caja"><svg viewBox="0 0 30 30"><path d="M5 16 L12 23 L27 4"/></svg></span><span><b>Prueba de manejo y entrega</b>Garantía de 3 meses o 5,000 km en mano de obra.</span></li>
+    </ol>
+    <span class="sello" id="sello">ENTREGADO</span>
+  </div>
+  <div class="lado">
+    <h2 class="reveal">Nada se cambia sin tu sí</h2>
+    <p class="reveal">La orden es la misma que llenamos en el mostrador. Así sigue tu coche desde que entra hasta que te lo llevas.</p>
+    <div class="fotos">
+      <figure class="reveal"><img src="img/elevador.jpg" alt="Coche rojo con el cofre abierto sobre un elevador en el taller" loading="lazy"><figcaption>ELEVADOR 2</figcaption></figure>
+      <figure class="reveal"><img src="img/manos.jpg" alt="Manos con grasa apretando una tuerca del motor con llave" loading="lazy"><figcaption>MOTOR</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="faq pegboard" aria-label="Preguntas frecuentes">
+  <h2>Lo que nos preguntan en el mostrador</h2>
+  <details><summary>¿Cuánto cuesta revisar mi coche?</summary><p>La revisión visual y de suspensión no cuesta. El escaneo eléctrico cuesta $350 y se descuenta si haces la reparación con nosotros.</p></details>
+  <details><summary>¿Puedo llevar mis refacciones?</summary><p>Sí. En ese caso la garantía cubre solo la mano de obra, y te lo anotamos en la orden.</p></details>
+  <details><summary>¿Cuánto tarda una afinación?</summary><p>Unas 3 horas en un 4 cilindros. Si llegas antes de las 10:00, te lo entregamos el mismo día.</p></details>
+  <details><summary>¿Dan factura?</summary><p>Sí, con los datos que nos mandes por WhatsApp al autorizar la reparación.</p></details>
+</section>
+</main>
+
+<footer>
+  <div class="f">
+    <div><h3>DIRECCIÓN</h3>Calle Ochoa 00, Col. Centro<br>Ciudad, Estado<br><a href="#">Cómo llegar</a></div>
+    <div><h3>HORARIO</h3>Lunes a viernes 8:00 a 18:30<br>Sábado 8:00 a 14:00</div>
+    <div><h3>CONTACTO</h3><a href="https://wa.me/520000000000">WhatsApp 00 0000 0000</a><br>Grúa con convenio, pregúntanos</div>
+  </div>
+  <div class="gigante" aria-hidden="true">OCHOA<span>.</span></div>
+  <div class="legal"><span>© 2026 Taller Ochoa</span><span>Propuesta de diseño · AionSite</span></div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Piezas del tablero: tres acomodos que se mezclan con el scroll (x%, y%, ancho en vw, giro)
+  const piezas=[
+    ['mecanico','MECÁNICA'],['freno','FRENOS'],['llanta','LLANTAS'],['aceite','ACEITE'],
+    ['fusibles','ELÉCTRICO'],['motor','MOTOR'],['llaves','LLAVES'],['pinzas','HERRAMIENTA']
+  ];
+  const A=[[4,12,15,-6],[80,8,14,5],[2,60,13,4],[84,58,14,-5],[22,4,11,3],[62,76,12,-3],[66,4,10,-8],[18,76,11,7]];
+  const B=[[3,30,13,8],[83,30,13,-6],[10,5,12,-4],[74,6,12,6],[6,70,12,-9],[80,70,12,4],[28,80,10,5],[60,80,10,-6]];
+  const C=[[1,4,16,3],[80,44,15,-4],[2,46,13,-7],[83,4,13,8],[30,82,10,5],[24,2,11,-5],[62,2,10,6],[58,82,11,-2]];
+  const Am=[[-6,4,40,-6],[64,6,38,6],[-8,74,36,5],[66,76,38,-6],[30,-6,0,0],[30,92,0,0],[30,-6,0,0],[30,92,0,0]];
+  const cont=document.getElementById('piezas');
+  const els=piezas.map(([f,l])=>{const d=document.createElement('figure');d.className='pieza';d.innerHTML=`<img src="img/${f}.jpg" alt=""><small>${l}</small>`;cont.appendChild(d);return d});
+  const mix=(a,b,t)=>a+(b-a)*t, ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  const hero=document.getElementById('hero'), top=document.getElementById('top');
+  function pos(){
+    const r=hero.getBoundingClientRect(), p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));
+    const m=innerWidth<860;
+    els.forEach((el,i)=>{
+      let s;
+      if(m){ s=Am[i]; el.style.display=s[2]?'':'none'; }
+      else { const L=p<.5?[A[i],B[i],ease(p*2)]:[B[i],C[i],ease((p-.5)*2)]; s=L[0].map((v,k)=>mix(v,L[1][k],reduce?0:L[2])); }
+      const w=s[2]*innerWidth/100;
+      el.style.width=w+'px';
+      const extra=m&&!reduce?Math.sin(p*3+i)*16:0;
+      el.style.transform=`translate(${s[0]*innerWidth/100}px,${s[1]*innerHeight/100+extra}px) rotate(${s[3]+(m&&!reduce?p*8*(i%2?1:-1):0)}deg)`;
+    });
+    top.classList.toggle('solid',r.bottom<innerHeight*.6);
+  }
+  let tk=false;addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(()=>{tk=false;pos()})}},{passive:true});
+  addEventListener('resize',pos);pos();
+
+  // Palabra a mano que cambia
+  const mano=document.getElementById('mano'), txt=mano.querySelector('span');
+  const palabras=['cambiamos frenos','afinamos','alineamos','cargamos el clima','cambiamos el clutch'];let w=0;
+  if(!reduce) setInterval(()=>{txt.classList.add('sale');mano.classList.remove('dibuja');
+    setTimeout(()=>{w=(w+1)%palabras.length;txt.textContent=palabras[w];txt.classList.remove('sale');requestAnimationFrame(()=>mano.classList.add('dibuja'))},350)},2600);
+
+  // Barras de puntos
+  const cols=[...document.querySelectorAll('.col')];
+  cols.forEach(c=>{const n=+c.dataset.n,k=Math.round(n/12);c.querySelector('.puntos').innerHTML='<i></i>'.repeat(k)});
+  const llenar=c=>{const ds=[...c.querySelectorAll('i')],n=+c.dataset.n,num=c.querySelector('.num'),t0=performance.now(),dur=1400;
+    (function f(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);const on=Math.round(ds.length*e);ds.forEach((d,i)=>d.classList.toggle('on',i<on));num.textContent=Math.round(n*e).toLocaleString('es-MX');if(k<1)requestAnimationFrame(f)})(t0)};
+  const ioB=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cols.forEach((c,i)=>setTimeout(()=>llenar(c),reduce?0:i*160));ioB.disconnect()}}),{threshold:.35});
+  ioB.observe(document.getElementById('barras'));
+
+  // Diagrama: puntos y lista sincronizados
+  const hots=[...document.querySelectorAll('.hot')], lis=[...document.querySelectorAll('#lista li')];
+  const sel=i=>{hots.forEach((h,k)=>h.classList.toggle('on',k===i));lis.forEach((l,k)=>l.classList.toggle('on',k===i))};
+  hots.forEach((h,i)=>{h.addEventListener('mouseenter',()=>sel(i));h.addEventListener('click',()=>sel(i));h.addEventListener('focus',()=>sel(i))});
+  lis.forEach((l,i)=>{l.querySelector('button').addEventListener('click',()=>sel(i));l.addEventListener('mouseenter',()=>sel(i))});
+  const ioC=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ioC.disconnect()}}),{threshold:.3});
+  ioC.observe(document.getElementById('coche'));
+
+  // Orden: se palomea paso por paso
+  const checks=[...document.querySelectorAll('#checks li')], sello=document.getElementById('sello');
+  const ioO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;ioO.disconnect();
+    checks.forEach((c,i)=>setTimeout(()=>c.classList.add('ok'),reduce?0:400+i*450));
+    setTimeout(()=>sello.classList.add('on'),reduce?0:400+checks.length*450)}),{threshold:.45});
+  ioO.observe(document.getElementById('hoja'));
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>

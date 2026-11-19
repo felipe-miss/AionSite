@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cocina Talavera · Comida mexicana de fogón</title>
+<meta name="description" content="Propuesta de sitio para restaurante mexicano: carta de temporada, galería de platillos y reservación por WhatsApp. Concepto: la mesa de talavera.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cal:#F6F5F1; --cobalto:#1F3A93; --cobalto-hondo:#13245E; --ocre:#E0A526; --chile:#B8321F; --tinta:#16181D; --gris:#5B5F6A; --linea:#DCDAD3;
+  --serif:"Gloock",Georgia,serif; --sans:"Instrument Sans",system-ui,sans-serif;
+  --tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F6F5F1'/%3E%3Cg fill='none' stroke='%231F3A93' stroke-width='2'%3E%3Cpath d='M0 16A16 16 0 0 0 16 0M48 0a16 16 0 0 0 16 16M64 48a16 16 0 0 0-16 16M16 64A16 16 0 0 0 0 48'/%3E%3C/g%3E%3Cg fill='%231F3A93'%3E%3Cpath d='M32 14c4 7 4 11 0 18-4-7-4-11 0-18zM32 50c-4-7-4-11 0-18 4 7 4 11 0 18zM14 32c7-4 11-4 18 0-7 4-11 4-18 0zM50 32c-7 4-11 4-18 0 7-4 11-4 18 0z'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='3.5' fill='%23E0A526'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cal);color:var(--tinta);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:600 16px var(--sans)}
+.btn-ocre{background:var(--ocre);color:var(--tinta)}
+.btn-ocre:hover{background:#ecb53d}
+.btn-cob{background:var(--cobalto);color:#fff}
+.btn-cob:hover{background:var(--cobalto-hondo)}
+
+/* Header */
+.top{position:sticky;top:0;z-index:20;background:rgba(246,245,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:26px;text-decoration:none;color:var(--cobalto)}
+.logo span{display:inline-block;width:12px;height:12px;background:var(--ocre);border-radius:50%;margin-left:4px;vertical-align:middle}
+.nav{display:flex;gap:32px;align-items:center}
+.nav a{text-decoration:none;color:var(--gris);font-weight:500}
+.nav a:hover{color:var(--cobalto)}
+.nav a.btn{color:#fff}.nav a.btn:hover{color:#fff}
+.menu-btn{display:none;background:none;border:1px solid var(--linea);border-radius:10px;padding:8px 12px;font:600 15px var(--sans)}
+
+/* Hero: título a todo lo ancho, platos encimados sobre el azulejo */
+.hero{padding:64px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(52px,10.5vw,168px);color:var(--cobalto-hondo);max-width:12ch}
+.hero-row{display:grid;grid-template-columns:1fr 1.35fr;gap:40px;margin-top:-36px;align-items:end}
+.hero-copy{padding-bottom:72px;max-width:380px}
+.hero-copy p{color:var(--gris);margin:0 0 24px}
+.hero-copy .horario{font-size:15px;color:var(--tinta);border-top:1px solid var(--linea);padding-top:14px;margin-top:24px}
+.mesa{position:relative;height:560px;background:var(--tile);background-size:56px;border-radius:28px 28px 0 0}
+.mesa figure{position:absolute;margin:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(19,36,94,.45);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.mesa figure img{width:100%;height:100%;object-fit:cover}
+.p1{width:54%;height:70%;left:3%;top:10%;transform:rotate(-3deg)}
+.p2{width:38%;height:44%;right:3%;top:3%;transform:rotate(4deg)}
+.p3{width:40%;height:42%;right:8%;bottom:3%;transform:rotate(-2deg)}
+.mesa.inicio .p1{transform:rotate(0) translateY(40px)}
+.mesa.inicio .p2{transform:rotate(0) translateY(60px)}
+.mesa.inicio .p3{transform:rotate(0) translateY(80px)}
+
+/* Origen (logo cloud cinemático → productores) */
+.origen{background:var(--cobalto-hondo);color:#fff;padding:72px 0}
+.origen .wrap{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+.origen h2{font-size:34px;color:var(--ocre)}
+.origen ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.origen li{padding:20px 20px 20px 0;border-top:1px solid rgba(255,255,255,.18)}
+.origen b{display:block;font-family:var(--serif);font-weight:400;font-size:24px}
+.origen small{color:rgba(255,255,255,.65);font-size:15px}
+
+/* Carta (feature 72) */
+.carta{padding:110px 0 80px}
+.carta-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.carta-head h2{font-size:clamp(40px,5.5vw,72px);max-width:14ch}
+.carta-head p{max-width:360px;color:var(--gris);margin:0}
+.platos{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+.plato{background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.plato img{height:300px;width:100%;object-fit:cover}
+.plato:first-child img{height:420px}
+.plato div{padding:22px 24px 26px}
+.plato h3{font-size:28px;margin-bottom:6px}
+.plato p{margin:0;color:var(--gris);font-size:15px}
+.plato .precio{display:inline-block;margin-top:14px;font-weight:600;color:var(--chile)}
+
+/* Galería elástica */
+.galeria{padding:20px 0 110px}
+.galeria h2{font-size:clamp(34px,4vw,52px);margin-bottom:28px}
+.elastica{display:flex;gap:10px;height:520px}
+.elastica figure{position:relative;flex:1;margin:0;border-radius:20px;overflow:hidden;transition:flex .6s cubic-bezier(.2,.8,.2,1);cursor:pointer;min-width:0}
+.elastica figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.elastica figure:hover,.elastica figure.on{flex:4}
+.elastica figcaption{position:absolute;left:18px;bottom:16px;right:18px;color:#fff;font-family:var(--serif);font-size:24px;opacity:0;transform:translateY(8px);transition:.4s;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.elastica figure:hover figcaption,.elastica figure.on figcaption{opacity:1;transform:none}
+
+/* Banner (cita) */
+.banner{background:var(--tile);background-size:72px;padding:80px 0}
+.banner blockquote{margin:0 auto;max-width:900px;background:var(--cal);padding:56px 56px 48px;border-radius:24px;text-align:center}
+.banner p{font-family:var(--serif);font-size:clamp(28px,3.6vw,46px);line-height:1.15;margin:0 0 18px;color:var(--cobalto-hondo)}
+.banner cite{font-style:normal;color:var(--gris)}
+
+/* Reservar (CTA con formulario) */
+.reservar{padding:110px 0}
+.reservar .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.reservar h2{font-size:clamp(40px,5vw,68px);color:var(--cobalto-hondo)}
+.reservar p{color:var(--gris)}
+.form{background:#fff;border-radius:24px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form label{display:grid;gap:6px;font-size:14px;font-weight:600}
+.form input,.form select{font:16px var(--sans);padding:13px 14px;border:1px solid var(--linea);border-radius:12px;background:var(--cal)}
+.form .full{grid-column:1/-1}
+.form .btn{justify-content:center}
+
+/* Footer wordmark */
+.pie{background:var(--cobalto);color:#fff;padding:64px 0 0;overflow:hidden}
+.pie-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.2)}
+.pie h4{margin:0 0 10px;font:600 15px var(--sans);color:var(--ocre)}
+.pie p{margin:0;color:rgba(255,255,255,.8);font-size:15px}
+.wordmark{font-family:var(--serif);font-size:clamp(80px,21vw,330px);line-height:.8;letter-spacing:-.03em;margin:40px 0 -.12em;color:rgba(255,255,255,.95);white-space:nowrap}
+.legal{position:relative;z-index:2;font-size:13px;color:rgba(255,255,255,.6);background:var(--cobalto-hondo)}
+.legal .wrap{display:flex;justify-content:space-between;padding-block:18px}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .nav.abierto{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--cal);padding:20px;border-bottom:1px solid var(--linea)}
+  .hero-row{grid-template-columns:1fr;margin-top:16px}
+  .hero-copy{padding-bottom:8px}
+  .mesa{height:420px}
+  .origen .wrap{grid-template-columns:1fr;gap:20px}
+  .origen ul{grid-template-columns:1fr 1fr}
+  .platos{grid-template-columns:1fr}
+  .plato img,.plato:first-child img{height:260px}
+  .elastica{flex-direction:column;height:auto}
+  .elastica figure{flex:none;height:220px}
+  .elastica figure:hover,.elastica figure.on{flex:none}
+  .elastica figcaption{opacity:1;transform:none}
+  .banner blockquote{padding:32px 22px}
+  .reservar .wrap{grid-template-columns:1fr;gap:28px}
+  .form{grid-template-columns:1fr}
+  .pie-cols{grid-template-columns:1fr}
+  .legal .wrap{flex-direction:column;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">Talavera<span></span></a>
+    <nav class="nav" id="nav">
+      <a href="#carta">Carta</a>
+      <a href="#galeria">El lugar</a>
+      <a href="#origen">Origen</a>
+      <a class="btn btn-cob" href="#reservar">Reservar mesa</a>
+    </nav>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="const n=document.getElementById('nav');n.classList.toggle('abierto');this.setAttribute('aria-expanded',n.classList.contains('abierto'))">Menú</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Maíz, fuego y barro en la mesa.</h1>
+    <div class="hero-row">
+      <div class="hero-copy">
+        <p>Tortillas hechas al momento en comal, guisos de cazuela y salsas de molcajete. Cocina mexicana de fogón servida en loza de talavera.</p>
+        <a class="btn btn-ocre" href="#reservar">Reservar por WhatsApp</a>
+        <div class="horario">Martes a domingo · 13:00 a 23:00</div>
+      </div>
+      <div class="mesa inicio" id="mesa">
+        <figure class="p1"><img src="img/photo-1700625916627-16ad4fb0553c.jpg" alt="Tacos al pastor con salsas y guacamole sobre mesa de talavera"></figure>
+        <figure class="p2"><img src="img/photo-1700625914554-bbe8da256868.jpg" alt="Mesa con platillos mexicanos, totopos y guacamole"></figure>
+        <figure class="p3"><img src="img/photo-1683062332605-4e1209d75346.jpg" alt="Tres tacos servidos en plato de barro"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="origen" id="origen">
+  <div class="wrap">
+    <h2>De dónde viene lo que servimos</h2>
+    <ul>
+      <li><b>Maíz criollo</b><small>Nixtamalizado cada mañana en casa</small></li>
+      <li><b>Chiles secos</b><small>Ancho, pasilla y guajillo de mercado</small></li>
+      <li><b>Queso fresco</b><small>De productores de la región</small></li>
+      <li><b>Cacao</b><small>Para el mole negro de la casa</small></li>
+      <li><b>Barro y talavera</b><small>Cazuelas y loza de artesanos</small></li>
+      <li><b>Leña de encino</b><small>Para la brasa de las carnes</small></li>
+    </ul>
+  </div>
+</section>
+
+<section class="carta" id="carta">
+  <div class="wrap">
+    <div class="carta-head">
+      <h2>Lo que más se pide de la carta</h2>
+      <p>La carta cambia con la temporada. Estos tres platillos se quedan todo el año.</p>
+    </div>
+    <div class="platos">
+      <article class="plato">
+        <img src="img/photo-1666025954339-97a97468de17.jpg" alt="Fajitas de res y camarón en sartén de hierro">
+        <div><h3>Molcajete de la casa</h3><p>Res, camarón, nopal y queso asado en salsa de chile morita, servido hirviendo.</p><span class="precio">$385</span></div>
+      </article>
+      <article class="plato">
+        <img src="img/photo-1700629558822-9769c4f383e6.jpg" alt="Carne en mole servida sobre hoja de plátano">
+        <div><h3>Costilla en mole negro</h3><p>Cocida seis horas en cazuela de barro con mole de cacao.</p><span class="precio">$290</span></div>
+      </article>
+      <article class="plato">
+        <img src="img/photo-1730415136652-3044ec3db585.jpg" alt="Tamales oaxaqueños en hoja de plátano con salsa">
+        <div><h3>Tamal oaxaqueño</h3><p>En hoja de plátano, con salsa roja y pico de gallo.</p><span class="precio">$145</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <h2>Pasa el cursor: la cocina y el salón</h2>
+    <div class="elastica" id="elastica">
+      <figure class="on"><img src="img/photo-1606625736768-f521ab7e23fb.jpg" alt="Platos sobre el fogón de la cocina"><figcaption>El fogón, desde las 7 de la mañana</figcaption></figure>
+      <figure><img src="img/photo-1628394029760-0d7b0e083f90.jpg" alt="Chile relleno con arroz en terraza"><figcaption>Comida en la terraza</figcaption></figure>
+      <figure><img src="img/photo-1739792598744-3512897156e3.jpg" alt="Salón con mesas largas y muro de madera"><figcaption>Mesa larga para grupos de 12</figcaption></figure>
+      <figure><img src="img/photo-1700627976482-9d356eea645c.jpg" alt="Arrachera con chorizo a la brasa"><figcaption>Carnes a la leña</figcaption></figure>
+      <figure><img src="img/photo-1771574205963-0c1d84ac7354.jpg" alt="Salón de noche con luz cálida"><figcaption>El salón de noche</figcaption></figure>
+      <figure><img src="img/photo-1744776411221-702f2848b0b2.jpg" alt="Mesas puestas para la cena"><figcaption>Cenas privadas</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <div class="wrap">
+    <blockquote>
+      <p>“Las tortillas no se calientan: se hacen. Si llegas a las dos, todavía salen del comal mientras te sientas.”</p>
+      <cite>— La cocinera de la casa</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="reservar" id="reservar">
+  <div class="wrap">
+    <div>
+      <h2>Aparta tu mesa en un mensaje</h2>
+      <p>Elige el día y cuántos son. Te confirmamos por WhatsApp en menos de una hora durante el horario de servicio.</p>
+    </div>
+    <form class="form" onsubmit="event.preventDefault();const f=new FormData(this);window.open('https://wa.me/520000000000?text='+encodeURIComponent('Hola, quiero reservar para '+f.get('p')+' personas el '+f.get('d')+' a las '+f.get('h')+'. A nombre de '+f.get('n')),'_blank')">
+      <label class="full">Nombre<input name="n" required autocomplete="name"></label>
+      <label>Día<input type="date" name="d" required></label>
+      <label>Hora<select name="h"><option>14:00</option><option>16:00</option><option>19:00</option><option>21:00</option></select></label>
+      <label class="full">Personas<select name="p"><option>2</option><option>4</option><option>6</option><option>8 o más</option></select></label>
+      <button class="btn btn-ocre full" type="submit">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-cols">
+      <div><h4>Dirección</h4><p>Calle del Ejemplo 123, Centro<br>Tu ciudad</p></div>
+      <div><h4>Horario</h4><p>Martes a domingo<br>13:00 a 23:00</p></div>
+      <div><h4>Contacto</h4><p>WhatsApp 00 0000 0000<br>@cocinatalavera</p></div>
+    </div>
+    <div class="wordmark" aria-hidden="true">Talavera</div>
+  </div>
+  <div class="legal"><div class="wrap"><span>© Cocina Talavera</span><span>Propuesta de diseño · AionSite</span></div></div>
+</footer>
+
+<script>
+  requestAnimationFrame(()=>setTimeout(()=>document.getElementById('mesa').classList.remove('inicio'),150));
+  document.querySelectorAll('#elastica figure').forEach(f=>f.addEventListener('mouseenter',()=>{document.querySelectorAll('#elastica figure').forEach(x=>x.classList.remove('on'));f.classList.add('on')}));
+</script>
+</body>
+</html>

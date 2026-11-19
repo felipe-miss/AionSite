@@ -566,6 +566,353 @@
           "#F4F2EC"
         ]
       }
+    },
+    {
+      "id": "propuesta-11",
+      "number": 11,
+      "revision": 1,
+      "title": "Restaurante: mesa de talavera",
+      "description": "Hero editorial con platos encimados sobre azulejo, origen de ingredientes, carta destacada, galería elástica, reservación por WhatsApp y footer wordmark.",
+      "tags": [
+        "Restaurante",
+        "Galería",
+        "Reservación",
+        "CTA"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-giros-21st-2026-11-18/propuesta-11/proposal.html",
+      "thumbnail": "thumbnails/propuesta-11.png",
+      "sections": [
+        {
+          "family": "inicio",
+          "id": null,
+          "class": "hero"
+        },
+        {
+          "family": "origen",
+          "id": "origen",
+          "class": "origen"
+        },
+        {
+          "family": "carta",
+          "id": "carta",
+          "class": "carta"
+        },
+        {
+          "family": "galeria",
+          "id": "galeria",
+          "class": "galeria"
+        },
+        {
+          "family": "banner",
+          "id": null,
+          "class": "banner"
+        },
+        {
+          "family": "reservar",
+          "id": "reservar",
+          "class": "reservar"
+        },
+        {
+          "family": "pie",
+          "id": null,
+          "class": "pie"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-11/",
+      "palette": {
+        "name": "Talavera",
+        "colors": [
+          "#1F3A93",
+          "#E0A526",
+          "#F6F5F1"
+        ]
+      }
+    },
+    {
+      "id": "propuesta-12",
+      "number": 12,
+      "revision": 1,
+      "title": "Dentista: precios claros",
+      "description": "Hero banner con navegación integrada, marquee de formas de pago, tratamientos sobre gradiente, precios con selector contado/meses, promoción, cita por WhatsApp y footer de colinas.",
+      "tags": [
+        "Dentista",
+        "Precios",
+        "Servicios",
+        "CTA"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-giros-21st-2026-11-18/propuesta-12/proposal.html",
+      "thumbnail": "thumbnails/propuesta-12.png",
+      "sections": [
+        {
+          "family": "inicio",
+          "id": null,
+          "class": "hero"
+        },
+        {
+          "family": "pagos",
+          "id": null,
+          "class": "marquee"
+        },
+        {
+          "family": "tratamientos",
+          "id": "tratamientos",
+          "class": "trat"
+        },
+        {
+          "family": "precios",
+          "id": "precios",
+          "class": "precios"
+        },
+        {
+          "family": "banner",
+          "id": null,
+          "class": "promo"
+        },
+        {
+          "family": "cita",
+          "id": "cita",
+          "class": "cta"
+        },
+        {
+          "family": "pie",
+          "id": null,
+          "class": "pie"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-12/",
+      "palette": {
+        "name": "Menta clínica",
+        "colors": [
+          "#0E7C70",
+          "#0D2230",
+          "#DDF3EE"
+        ]
+      }
+    },
+    {
+      "id": "propuesta-13",
+      "number": 13,
+      "revision": 1,
+      "title": "Colegio: cuaderno de cuadrícula",
+      "description": "Hero con abanico de fotos, datos clave en celdas, un día en el colegio en galería, fichas de familias, puertas abiertas y footer con CTA y wordmark.",
+      "tags": [
+        "Colegio",
+        "Galería",
+        "Testimonios",
+        "CTA"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-giros-21st-2026-11-18/propuesta-13/proposal.html",
+      "thumbnail": "thumbnails/propuesta-13.png",
+      "sections": [
+        {
+          "family": "inicio",
+          "id": null,
+          "class": "hero"
+        },
+        {
+          "family": "respaldo",
+          "id": null,
+          "class": "respaldo"
+        },
+        {
+          "family": "dia",
+          "id": "dia",
+          "class": "dia"
+        },
+        {
+          "family": "familias",
+          "id": "familias",
+          "class": "familias"
+        },
+        {
+          "family": "visita",
+          "id": "visita",
+          "class": "puertas"
+        },
+        {
+          "family": "contacto",
+          "id": "contacto",
+          "class": "pie"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-13/",
+      "palette": {
+        "name": "Cuaderno",
+        "colors": [
+          "#1D2B53",
+          "#F2B705",
+          "#F4F2EC"
+        ]
+      }
+    },
+    {
+      "id": "propuesta-14",
+      "number": 14,
+      "revision": 1,
+      "title": "Panadería: la ventanilla del horno",
+      "description": "Ventanilla de horno fija mientras cambian el pan, el color, la palabra gigante y los ingredientes; la madrugada por horas, charola para apartar por WhatsApp y footer con wordmark.",
+      "tags": [
+        "Panadería",
+        "Producto",
+        "Scroll",
+        "Pedidos"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-sitios-2026-11-19/propuesta-14/proposal.html",
+      "thumbnail": "thumbnails/propuesta-14.png",
+      "sections": [
+        {
+          "family": "inicio",
+          "id": "recorrido",
+          "class": "stage"
+        },
+        {
+          "family": "proceso",
+          "id": "madrugada",
+          "class": "madrugada"
+        },
+        {
+          "family": "pedido",
+          "id": "pedido",
+          "class": "pedido"
+        },
+        {
+          "family": "contacto",
+          "id": null,
+          "class": "footer"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-14/",
+      "palette": {
+        "name": "Horno",
+        "colors": [
+          "#2A1B14",
+          "#F2C4C8",
+          "#E9731F"
+        ]
+      }
+    },
+    {
+      "id": "propuesta-15",
+      "number": 15,
+      "revision": 1,
+      "title": "Fisioterapia: la frase que se enciende",
+      "description": "Hero tipográfico con foto dentro del texto, manifiesto que se ilumina palabra por palabra, lista de padecimientos, sesión en tarjeta fija que crece, testimonios, horarios de la semana y cierre a pantalla completa.",
+      "tags": [
+        "Fisioterapia",
+        "Clínica",
+        "Tipografía",
+        "Horarios"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-sitios-2026-11-19/propuesta-15/proposal.html",
+      "thumbnail": "thumbnails/propuesta-15.png",
+      "sections": [
+        {
+          "family": "inicio",
+          "id": "inicio",
+          "class": "hero"
+        },
+        {
+          "family": "manifiesto",
+          "id": "manifiesto",
+          "class": "manifiesto"
+        },
+        {
+          "family": "servicios",
+          "id": "tratamos",
+          "class": "tratamos"
+        },
+        {
+          "family": "proceso",
+          "id": "sesion",
+          "class": "sesion"
+        },
+        {
+          "family": "testimonios",
+          "id": null,
+          "class": "voces"
+        },
+        {
+          "family": "agenda",
+          "id": "horarios",
+          "class": "horarios"
+        },
+        {
+          "family": "contacto",
+          "id": null,
+          "class": "cierre"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-15/",
+      "palette": {
+        "name": "Azul tinta",
+        "colors": [
+          "#0F1A2B",
+          "#FF6B4A",
+          "#E8EBEE"
+        ]
+      }
+    },
+    {
+      "id": "propuesta-16",
+      "number": 16,
+      "revision": 1,
+      "title": "Taller mecánico: tablero de herramientas",
+      "description": "Tablero de pegboard con fotos que se reacomodan al bajar, cifras del año en barras de puntos, coche dibujado con servicios y precios, orden de servicio que se palomea, preguntas y footer con wordmark.",
+      "tags": [
+        "Taller",
+        "Servicios",
+        "Precios",
+        "Scroll"
+      ],
+      "approvedDirection": false,
+      "entry": "collections/aionsite-sitios-2026-11-19/propuesta-16/proposal.html",
+      "thumbnail": "thumbnails/propuesta-16.png",
+      "sections": [
+        {
+          "family": "inicio",
+          "id": "hero",
+          "class": "hero"
+        },
+        {
+          "family": "respaldo",
+          "id": null,
+          "class": "cifras"
+        },
+        {
+          "family": "servicios",
+          "id": "servicios",
+          "class": "diagrama"
+        },
+        {
+          "family": "proceso",
+          "id": "orden",
+          "class": "orden"
+        },
+        {
+          "family": "preguntas",
+          "id": null,
+          "class": "faq"
+        },
+        {
+          "family": "contacto",
+          "id": null,
+          "class": "footer"
+        }
+      ],
+      "viewPath": "/estilos/propuesta-16/",
+      "palette": {
+        "name": "Pegboard",
+        "colors": [
+          "#DCD8D0",
+          "#17191C",
+          "#FF5B14"
+        ]
+      }
     }
   ]
 }

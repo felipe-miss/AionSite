@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andante Fisioterapia · Rodilla, espalda, hombro y deporte</title>
+<meta name="description" content="Fisioterapia y rehabilitación con valoración de 50 minutos, terapia manual y ejercicios para casa. Elige tu horario de esta semana y agenda por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#0F1A2B; --noche2:#16243A; --texto:#E8EBEE; --tenue:rgba(232,235,238,.6); --linea:rgba(232,235,238,.14);
+  --coral:#FF6B4A; --salvia:#9FB8AD;
+  --serif:"Newsreader",Georgia,serif; --sans:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--noche);color:var(--texto);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;color:#000;padding:8px 12px}
+
+/* Carga */
+.carga{position:fixed;inset:0;z-index:80;background:var(--noche);display:grid;place-items:center;transition:transform .9s cubic-bezier(.8,0,.2,1)}
+.carga.fuera{transform:translateY(-100%)}
+.carga p{font-family:var(--serif);font-size:30px;font-weight:300}
+.carga p span{color:var(--tenue)}
+.carga small{position:absolute;left:50%;top:calc(50% + 46px);transform:translateX(-50%);font:600 12px/1 var(--sans);letter-spacing:.12em;color:var(--tenue);font-variant-numeric:tabular-nums}
+
+/* Header */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:2px;padding:4px;border-radius:99px;background:rgba(15,26,43,.6);border:1px solid var(--linea);backdrop-filter:blur(14px)}
+.nav a{font:600 13px/1 var(--sans);text-decoration:none;padding:10px 14px;border-radius:99px;color:var(--tenue);position:relative;transition:color .2s}
+.nav a:hover,.nav a.on{color:var(--texto)}
+.nav a.on::after{content:"";position:absolute;left:50%;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--coral);transform:translateX(-50%)}
+.marca{position:fixed;left:clamp(16px,3vw,36px);top:26px;z-index:50;font-family:var(--serif);font-size:20px;text-decoration:none}
+.marca span{color:var(--tenue)}
+.agendar{position:fixed;right:clamp(16px,3vw,36px);top:16px;z-index:50}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:99px;background:var(--coral);color:#1A0E09;font:700 14px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#FF8466}
+.btn.ghost{background:transparent;color:var(--texto);border:1px solid var(--linea)}
+
+/* Hero */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:140px clamp(16px,6vw,96px) 80px;position:relative}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,6.6vw,108px);line-height:.98;letter-spacing:-.035em;margin:0 auto}
+@media (min-width:861px){.hero .linea{white-space:nowrap}}
+.pastilla{display:inline-block;vertical-align:middle;height:.78em;width:0;border-radius:99px;overflow:hidden;margin:0 .06em;transition:width 1.1s cubic-bezier(.2,.8,.2,1) .2s;position:relative;top:-.06em}
+.pastilla img{width:2.2em;height:100%;object-fit:cover}
+.listo .pastilla{width:1.9em}
+.hero .linea{display:block;overflow:hidden}
+.hero .linea>span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.listo .hero .linea>span{transform:none}
+.listo .hero .linea:nth-child(2)>span{transition-delay:.08s}
+.listo .hero .linea:nth-child(3)>span{transition-delay:.16s}
+.hero .bajo{margin-top:40px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center}
+.hero .dato{font-size:14px;color:var(--tenue);width:100%;margin-bottom:6px}
+.scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--tenue)}
+.scroll::after{content:"";display:block;width:1px;height:28px;background:var(--tenue);margin:10px auto 0;animation:pulso 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes pulso{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Manifiesto: palabras que se encienden */
+.manifiesto{height:240vh;position:relative}
+.manifiesto .fijo{position:sticky;top:0;height:100vh;display:grid;place-items:center;padding:0 clamp(16px,8vw,140px)}
+.etq{font:700 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--salvia);text-align:center;margin-bottom:28px}
+.manifiesto p{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.9vw,62px);line-height:1.08;letter-spacing:-.025em;max-width:22ch;text-align:center;margin:0 auto}
+.manifiesto p .w{opacity:.16;transition:opacity .25s linear}
+.manifiesto p .w.on{opacity:1}
+.bandera{position:absolute;font:700 12px/1 var(--sans);padding:7px 10px;border-radius:99px;color:#0F1A2B;white-space:nowrap;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.bandera::before{content:"";position:absolute;left:-10px;top:-12px;border:7px solid transparent;border-bottom-color:currentColor;border-right-color:currentColor;transform:rotate(-20deg);color:inherit}
+.bandera.b1{background:var(--coral);left:16%;top:26%}.bandera.b1::before{color:var(--coral)}
+.bandera.b2{background:var(--salvia);right:14%;top:32%}.bandera.b2::before{color:var(--salvia)}
+.bandera.b3{background:#E8EBEE;left:22%;bottom:22%}.bandera.b3::before{color:#E8EBEE}
+
+/* Lo que tratamos */
+.tratamos{padding:clamp(80px,10vw,150px) clamp(16px,6vw,96px)}
+.tratamos ol{list-style:none;max-width:1100px;margin:0 auto}
+.tratamos li{display:flex;align-items:baseline;gap:22px;justify-content:center;padding:14px 0;cursor:default}
+.tratamos li .n{font:600 12px/1 var(--sans);color:var(--salvia);width:24px;flex:none;text-align:right}
+.tratamos li .t{font-family:var(--serif);font-weight:300;font-size:clamp(34px,5vw,80px);letter-spacing:-.03em;line-height:1;color:var(--tenue);transition:color .3s;white-space:nowrap}
+.tratamos li .t .ph{display:inline-block;vertical-align:middle;width:0;height:.82em;border-radius:14px;overflow:hidden;transition:width .6s cubic-bezier(.2,.8,.2,1),margin .6s;position:relative;top:-.08em}
+.tratamos li .t .ph img{width:2.4em;height:100%;object-fit:cover}
+.tratamos li.on .t{color:var(--texto)}
+.tratamos li.on .t .ph{width:1.8em;margin:0 .14em}
+.tratamos li .d{font-size:14px;color:var(--tenue);max-width:22ch;opacity:0;transition:opacity .3s;flex:none}
+.tratamos li.on .d{opacity:1}
+
+/* Sesión: tarjeta fija que crece */
+.sesion{height:380vh;position:relative}
+.sesion .fijo{position:sticky;top:0;height:100vh;overflow:hidden}
+.tarjeta{position:absolute;inset:0;clip-path:inset(var(--iy,22%) var(--ix,26%) round var(--rr,28px));will-change:clip-path}
+.tarjeta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease;transform:scale(var(--sc,1.12))}
+.tarjeta img.on{opacity:1}
+.tarjeta::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,26,43,.85),rgba(15,26,43,.1) 55%)}
+.sesion .tit{position:absolute;top:13%;left:0;right:0;text-align:center;font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.2vw,48px);letter-spacing:-.02em;z-index:2;transition:opacity .4s}
+.pasos{position:absolute;z-index:3;left:clamp(16px,5vw,80px);right:clamp(16px,5vw,80px);bottom:clamp(32px,8vh,80px);display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.paso{border-top:1px solid rgba(232,235,238,.3);padding-top:16px;opacity:.38;transition:opacity .4s}
+.paso.on{opacity:1}
+.paso .min{font:700 12px/1 var(--sans);letter-spacing:.1em;color:var(--coral)}
+.paso h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.2vw,32px);margin:10px 0 6px;letter-spacing:-.02em}
+.paso p{font-size:14px;line-height:1.5;color:rgba(232,235,238,.8)}
+.paso .bar{height:2px;background:var(--coral);width:0;margin-top:-17px;margin-bottom:15px}
+
+/* Testimonios */
+.voces{padding:clamp(80px,10vw,150px) clamp(16px,6vw,96px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,100px);align-items:center;max-width:1300px;margin:0 auto}
+.voz{display:none}
+.voz.on{display:block;animation:entra .6s ease}
+@keyframes entra{from{opacity:0;transform:translateY(12px)}}
+.voz q{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3vw,46px);line-height:1.12;letter-spacing:-.02em;quotes:"“" "”"}
+.voz .quien{margin-top:26px;font:700 12px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--tenue)}
+.flechas{display:flex;gap:8px;margin-top:30px}
+.flechas button{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:transparent;color:var(--texto);font-size:18px;cursor:pointer}
+.flechas button:hover{border-color:var(--texto)}
+.cifras{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linea);border-radius:24px;overflow:hidden}
+.cifras div{background:var(--noche2);padding:30px 26px}
+.cifras b{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(44px,4.4vw,68px);letter-spacing:-.03em;line-height:1}
+.cifras span{font-size:14px;color:var(--tenue)}
+
+/* Horarios */
+.horarios{padding:clamp(80px,10vw,140px) clamp(16px,6vw,96px);background:var(--texto);color:var(--noche)}
+.horarios .cab{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;max-width:1300px;margin:0 auto 46px}
+.horarios h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5vw,76px);line-height:1;letter-spacing:-.035em;max-width:14ch}
+.precios{display:flex;gap:28px;flex-wrap:wrap}
+.precios div b{display:block;font-family:var(--serif);font-weight:400;font-size:32px;letter-spacing:-.02em}
+.precios div span{font-size:13px;color:#4a5566}
+.semana{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;max-width:1300px;margin:0 auto}
+.dia{background:#fff;border-radius:18px;padding:16px 12px 14px}
+.dia h3{font:700 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.dia small{display:block;font-size:12px;color:#6b7686;margin-bottom:14px}
+.dia button{display:block;width:100%;margin-bottom:6px;padding:10px 0;border-radius:10px;border:1px solid #cdd3dc;background:transparent;font:600 14px/1 var(--sans);color:var(--noche);cursor:pointer;font-variant-numeric:tabular-nums;transition:background .2s,border-color .2s,color .2s}
+.dia button:hover{border-color:var(--coral);background:#FFF0EC}
+.dia button:disabled{text-decoration:line-through;color:#a3abb7;border-style:dashed;cursor:not-allowed;background:transparent}
+.dia button.sel{background:var(--coral);border-color:var(--coral);color:#1A0E09}
+.confirma{max-width:1300px;margin:26px auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:15px}
+.confirma .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+
+/* Cierre */
+.cierre{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+.cierre img{position:absolute;inset:0;width:100%;height:120%;object-fit:cover;top:-10%;will-change:transform}
+.cierre::after{content:"";position:absolute;inset:0;background:rgba(15,26,43,.55)}
+.cierre div{position:relative;z-index:2;padding:0 16px}
+.cierre h2{font-family:var(--serif);font-weight:300;font-size:clamp(48px,8vw,136px);line-height:.95;letter-spacing:-.04em;margin-bottom:34px}
+footer{padding:30px clamp(16px,4vw,48px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--tenue);border-top:1px solid var(--linea)}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .nav{display:none}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:68px;z-index:49;background:rgba(15,26,43,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--linea)}
+  .marca{top:22px}
+  .agendar{top:14px}
+  .agendar .btn{padding:11px 14px}
+  .bandera{display:none}
+  .tratamos li{flex-wrap:wrap;justify-content:flex-start;gap:6px 12px}
+  .tratamos li .t{white-space:normal;font-size:38px}
+  .tratamos li .d{width:100%;padding-left:36px;display:none}
+  .tratamos li.on .d{display:block}
+  .pasos{grid-template-columns:1fr 1fr;gap:14px}
+  .paso p{display:none}
+  .sesion .tit{top:11%;padding:0 16px}
+  .voces{grid-template-columns:1fr}
+  .semana{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .manifiesto p .w{opacity:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#horarios">Ir a horarios</a>
+<div class="carga" id="carga" aria-hidden="true"><p>Andante <span>— fisioterapia</span></p><small id="pct">0%</small></div>
+
+<a class="marca" href="#">Andante <span>fisio</span></a>
+<nav class="nav" aria-label="Principal"><a href="#inicio" class="on">Inicio</a><a href="#tratamos">Qué tratamos</a><a href="#sesion">La sesión</a><a href="#horarios">Horarios</a></nav>
+<div class="agendar"><a class="btn" href="#horarios">Agendar</a></div>
+
+<main>
+<section class="hero" id="inicio">
+  <div>
+    <h1>
+      <span class="linea"><span>Volver a subir</span></span>
+      <span class="linea"><span><span class="pastilla"><img src="img/escaleras.jpg" alt="Persona subiendo escalones de concreto con tenis naranjas"></span> escaleras</span></span>
+      <span class="linea"><span>sin pensar en la rodilla.</span></span>
+    </h1>
+    <div class="bajo">
+      <p class="dato">Fisioterapia y rehabilitación · Valoración de 50 minutos con plan escrito</p>
+      <a class="btn" href="#horarios">Ver horarios de esta semana</a>
+      <a class="btn ghost" href="#tratamos">Qué tratamos</a>
+    </div>
+  </div>
+  <span class="scroll">Baja</span>
+</section>
+
+<section class="manifiesto" id="manifiesto" aria-label="Cómo trabajamos">
+  <div class="fijo">
+    <div>
+      <p class="etq">Cómo trabajamos</p>
+      <p id="frase">No te vamos a dar una hoja de ejercicios y despedirte. Medimos cómo te mueves hoy, tratamos con las manos lo que duele y te enseñamos cuatro ejercicios que sí vas a hacer en casa. Cuando subas escaleras sin pensarlo, te damos de alta.</p>
+    </div>
+    <span class="bandera b1">Lic. Paula · rodilla</span>
+    <span class="bandera b2">Mateo · deportiva</span>
+    <span class="bandera b3">Lic. Inés · columna</span>
+  </div>
+</section>
+
+<section class="tratamos" id="tratamos" aria-label="Qué tratamos">
+  <p class="etq">Qué tratamos</p>
+  <ol>
+    <li><span class="n">01</span><span class="t">Rodilla <span class="ph"><img src="img/rodilla.jpg" alt="" loading="lazy"></span> y cadera</span><span class="d">Meniscos, ligamentos, desgaste y prótesis.</span></li>
+    <li><span class="n">02</span><span class="t">Espalda <span class="ph"><img src="img/espalda.jpg" alt="" loading="lazy"></span> baja</span><span class="d">Lumbalgia, ciática y hernias que no requieren cirugía.</span></li>
+    <li><span class="n">03</span><span class="t">Cuello <span class="ph"><img src="img/hombro.jpg" alt="" loading="lazy"></span> y hombro</span><span class="d">Tensión de oficina, manguito rotador, hombro congelado.</span></li>
+    <li><span class="n">04</span><span class="t">Después <span class="ph"><img src="img/barra.jpg" alt="" loading="lazy"></span> de cirugía</span><span class="d">Plan coordinado con tu ortopedista desde la primera semana.</span></li>
+    <li><span class="n">05</span><span class="t">Lesión <span class="ph"><img src="img/estirar.jpg" alt="" loading="lazy"></span> deportiva</span><span class="d">Corredores, futbol, pádel y gimnasio; regreso por etapas.</span></li>
+    <li><span class="n">06</span><span class="t">Pie <span class="ph"><img src="img/pie.jpg" alt="" loading="lazy"></span> y tobillo</span><span class="d">Esguinces, fascitis plantar y tendón de Aquiles.</span></li>
+  </ol>
+</section>
+
+<section class="sesion" id="sesion" aria-label="Así es una sesión">
+  <div class="fijo">
+    <h2 class="tit">Así se van tus 50 minutos</h2>
+    <div class="tarjeta" id="tarjeta">
+      <img class="on" src="img/ultrasonido.jpg" alt="Fisioterapeuta revisando el antebrazo de un paciente con ultrasonido">
+      <img src="img/laser.jpg" alt="Equipo de terapia con luz colocado sobre una rodilla">
+      <img src="img/pesas.jpg" alt="Fisioterapeuta guiando un ejercicio con mancuernas ligeras">
+    </div>
+    <div class="pasos">
+      <div class="paso on"><div class="bar"></div><span class="min">0–10 MIN</span><h3>Valoración</h3><p>Medimos rango, fuerza y dolor. Lo anotamos para comparar cada semana.</p></div>
+      <div class="paso"><div class="bar"></div><span class="min">10–30 MIN</span><h3>Terapia</h3><p>Terapia manual y, si hace falta, ultrasonido, láser o electro.</p></div>
+      <div class="paso"><div class="bar"></div><span class="min">30–45 MIN</span><h3>Ejercicio</h3><p>Lo hacemos juntos hasta que te sale bien sin ayuda.</p></div>
+      <div class="paso"><div class="bar"></div><span class="min">45–50 MIN</span><h3>Plan para casa</h3><p>Cuatro ejercicios por WhatsApp, con video y repeticiones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="voces" aria-label="Pacientes">
+  <div>
+    <p class="etq" style="text-align:left">Pacientes</p>
+    <div class="voz on"><q>Llegué con la rodilla operada y sin poder bajar del coche. A las seis semanas ya caminaba al mercado.</q><p class="quien">Rosa M. · reconstrucción de ligamento</p></div>
+    <div class="voz"><q>Me explicaron qué tenía con un dibujo. Por primera vez entendí por qué me dolía la espalda en la oficina.</q><p class="quien">Jorge A. · lumbalgia</p></div>
+    <div class="voz"><q>Volví a correr mis 10 km sin vendaje. El plan de casa fue la diferencia.</q><p class="quien">Daniela R. · fascitis plantar</p></div>
+    <div class="flechas"><button type="button" id="prev" aria-label="Testimonio anterior">←</button><button type="button" id="next" aria-label="Testimonio siguiente">→</button></div>
+  </div>
+  <div class="cifras reveal">
+    <div><b data-n="6">0</b><span>sesiones en promedio para una alta</span></div>
+    <div><b data-n="50">0</b><span>minutos por sesión, uno a uno</span></div>
+    <div><b data-n="3">0</b><span>fisioterapeutas con cédula</span></div>
+    <div><b data-n="4">0</b><span>ejercicios para casa, no más</span></div>
+  </div>
+</section>
+
+<section class="horarios" id="horarios">
+  <div class="cab">
+    <h2 class="reveal">Elige tu hora de esta semana</h2>
+    <div class="precios reveal">
+      <div><b>$600</b><span>Valoración</span></div>
+      <div><b>$550</b><span>Sesión</span></div>
+      <div><b>$5,000</b><span>Paquete de 10</span></div>
+    </div>
+  </div>
+  <div class="semana" id="semana"></div>
+  <div class="confirma"><span id="eleccion">Toca un horario libre para apartarlo.</span><a class="btn" id="apartar" aria-disabled="true" href="#" target="_blank" rel="noopener">Apartar por WhatsApp</a></div>
+</section>
+
+<section class="cierre">
+  <img src="img/subir.jpg" alt="Mujer subiendo escalones de piedra en un jardín" id="cierreImg" loading="lazy">
+  <div><h2>Hasta que subas<br>sin pensarlo.</h2><a class="btn" href="#horarios">Agendar valoración</a></div>
+</section>
+</main>
+
+<footer>
+  <span>Andante Fisioterapia · Calle 00, Col. Centro, Ciudad</span>
+  <nav><a href="https://wa.me/520000000000">WhatsApp</a><a href="#">Instagram</a><a href="#">Cómo llegar</a></nav>
+  <span>© 2026 · Propuesta de diseño AionSite</span>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Carga con porcentaje
+  const carga=document.getElementById('carga'), pct=document.getElementById('pct');
+  const fin=()=>{carga.classList.add('fuera');document.body.classList.add('listo')};
+  if(reduce){fin()}else{let t0=performance.now();(function tick(t){const k=Math.min(1,(t-t0)/1100);pct.textContent=Math.round(k*100)+'%';k<1?requestAnimationFrame(tick):setTimeout(fin,150)})(t0)}
+
+  // Palabras del manifiesto
+  const frase=document.getElementById('frase');
+  frase.innerHTML=frase.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');
+  const ws=[...frase.querySelectorAll('.w')];
+  const man=document.getElementById('manifiesto');
+  const banderas=[...document.querySelectorAll('.bandera')];
+
+  // Sesión
+  const ses=document.getElementById('sesion'), tarjeta=document.getElementById('tarjeta');
+  const fotos=[...tarjeta.querySelectorAll('img')], pasos=[...document.querySelectorAll('.paso')];
+  const mobile=()=>innerWidth<860;
+
+  const prog=el=>{const r=el.getBoundingClientRect();return Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)))};
+  const cierre=document.getElementById('cierreImg');
+  function frame(){
+    // manifiesto
+    const pm=prog(man), on=Math.round(pm*1.15*ws.length);
+    ws.forEach((w,i)=>w.classList.toggle('on',i<on));
+    banderas.forEach((b,i)=>b.style.transform=`translate(${Math.sin(pm*6+i*2)*24}px,${Math.cos(pm*5+i)*18}px)`);
+    // tarjeta que crece
+    const ps=prog(ses), g=Math.min(1,ps/0.3), e=1-Math.pow(1-g,3);
+    const ix0=mobile()?6:26, iy0=mobile()?26:22;
+    tarjeta.style.setProperty('--ix',(ix0*(1-e))+'%'); tarjeta.style.setProperty('--iy',(iy0*(1-e))+'%');
+    tarjeta.style.setProperty('--rr',(28*(1-e))+'px'); tarjeta.style.setProperty('--sc',1.12-.12*e);
+    document.querySelector('.sesion .tit').style.opacity=1-e;
+    const step=ps<.3?0:Math.min(3,Math.floor((ps-.3)/.7*4));
+    fotos.forEach((f,i)=>f.classList.toggle('on',i===Math.min(step,2)||(step===3&&i===2)));
+    pasos.forEach((p,i)=>{p.classList.toggle('on',i===step);const loc=ps<.3?0:Math.max(0,Math.min(1,(ps-.3)/.7*4-i));p.querySelector('.bar').style.width=loc*100+'%'});
+    // parallax del cierre
+    const r=cierre.parentElement.getBoundingClientRect();
+    if(!reduce&&r.top<innerHeight&&r.bottom>0) cierre.style.transform=`translateY(${(r.top/innerHeight)*-8}%)`;
+    // nav activa
+    const secs=['inicio','tratamos','sesion','horarios'];let act='inicio';
+    secs.forEach(id=>{const el=document.getElementById(id);if(el.getBoundingClientRect().top<innerHeight*.5)act=id});
+    document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+act));
+  }
+  let tk=false;addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(()=>{tk=false;frame()})}},{passive:true});
+  addEventListener('resize',frame);frame();
+
+  // Lo que tratamos: se activa al pasar el mouse o al cruzar el centro
+  const lis=[...document.querySelectorAll('.tratamos li')];
+  const act=li=>lis.forEach(l=>l.classList.toggle('on',l===li));
+  lis.forEach(li=>li.addEventListener('mouseenter',()=>act(li)));
+  const ioC=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)act(e.target)}),{rootMargin:'-45% 0px -45% 0px'});
+  lis.forEach(li=>ioC.observe(li)); act(lis[0]);
+
+  // Testimonios
+  const voces=[...document.querySelectorAll('.voz')];let v=0;
+  const ver=k=>{v=(k+voces.length)%voces.length;voces.forEach((x,i)=>x.classList.toggle('on',i===v))};
+  document.getElementById('prev').onclick=()=>ver(v-1);document.getElementById('next').onclick=()=>ver(v+1);
+
+  // Cifras que cuentan + aparición
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+    e.target.querySelectorAll('[data-n]').forEach(b=>{const n=+b.dataset.n,t0=performance.now();(function c(t){const k=Math.min(1,(t-t0)/1200);b.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(c)})(t0)})}),{threshold:.2});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Semana con horarios
+  const dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const horas=['8:00','9:00','11:00','13:00','17:00','18:00','19:00'];
+  const ocupado=(d,h)=>((d*7+h*3)%5===0)||(d===5&&h>3);
+  const hoy=new Date(), lunes=new Date(hoy);lunes.setDate(hoy.getDate()-((hoy.getDay()+6)%7)+7);
+  const sem=document.getElementById('semana'), elec=document.getElementById('eleccion'), ap=document.getElementById('apartar');
+  dias.forEach((d,i)=>{const f=new Date(lunes);f.setDate(lunes.getDate()+i);
+    const col=document.createElement('div');col.className='dia';
+    col.innerHTML=`<h3>${d}</h3><small>${f.getDate()} de ${f.toLocaleDateString('es-MX',{month:'long'})}</small>`+
+      horas.map((h,j)=>(i===5&&j>3)?'':`<button type="button" ${ocupado(i,j)?'disabled aria-label="'+h+' ocupado"':''} data-d="${d} ${f.getDate()}" data-h="${h}">${h}</button>`).join('');
+    sem.appendChild(col)});
+  sem.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+    sem.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+    elec.textContent=`Elegiste ${b.dataset.d} a las ${b.dataset.h}.`;
+    ap.href='https://wa.me/520000000000?text='+encodeURIComponent(`Hola, quiero apartar una valoración el ${b.dataset.d} a las ${b.dataset.h}.`);
+    ap.setAttribute('aria-disabled','false')});
+})();
+</script>
+</body>
+</html>

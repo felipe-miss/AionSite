@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horno Santa Rita · Panadería de barrio, tres hornadas al día</title>
+<meta name="description" content="Conchas, pan de huevo, roles de canela y pan de muerto recién salidos del horno a las 6:30, 12:00 y 18:00. Aparta tu charola por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2A1B14; --ink:#FBEFE6; --soft:rgba(251,239,230,.72); --accent:#F08A24;
+  --metal:#2B2522; --harina:#EFEEEA; --cafe:#3A2418;
+  --display:"Bagel Fat One",system-ui,sans-serif; --sans:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);transition:background-color .7s ease,color .5s ease;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;color:#000;padding:8px 12px}
+
+/* Header */
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(16px,3vw,40px);pointer-events:none}
+.top>*{pointer-events:auto}
+.top{transition:background-color .4s ease,padding .3s ease}
+.top.solid{background:rgba(239,238,234,.92);backdrop-filter:blur(12px);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 rgba(58,36,24,.12)}
+.logo{font-family:var(--display);font-size:22px;letter-spacing:.01em;text-decoration:none;line-height:.9}
+.logo small{display:block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:4px}
+.pills{display:flex;gap:4px;padding:4px;border-radius:99px;background:color-mix(in srgb,var(--ink) 12%,transparent);backdrop-filter:blur(10px)}
+.pills a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:99px;transition:background .2s}
+.pills a:hover{background:color-mix(in srgb,var(--ink) 16%,transparent)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px/1 var(--sans);text-decoration:none;padding:14px 20px;border-radius:99px;background:var(--ink);color:var(--bg);border:0;cursor:pointer;transition:transform .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* Recorrido: la ventanilla fija y el mundo que cambia */
+#recorrido{position:relative;height:calc(var(--steps,5) * 100vh + 60vh)}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.word{position:absolute;left:50%;top:50%;font-family:var(--display);font-size:clamp(120px,24vw,400px);line-height:.8;white-space:nowrap;color:var(--accent);opacity:0;transform:translate(-50%,-40%) scale(.96);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1);pointer-events:none;user-select:none}
+.word.on{opacity:.9;transform:translate(-50%,-50%) scale(1)}
+.ventanilla{position:absolute;left:50%;top:50%;width:min(56vh,38vw);aspect-ratio:1;transform:translate(-50%,-50%);z-index:3}
+.aro{position:absolute;inset:-7%;border-radius:50%;background:
+  radial-gradient(circle at 30% 25%,#5a504b 0,#2b2522 45%,#16110f 100%);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.12);will-change:transform}
+.aro i{position:absolute;width:3.2%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d9cfc7,#6b625c 60%,#2b2522);left:50%;top:50%}
+.vidrio{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:#1a110c;box-shadow:inset 0 0 0 6px #120d0b, inset 0 0 40px rgba(0,0,0,.6)}
+.vidrio img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:circle(0% at 50% 100%);transition:clip-path 1s cubic-bezier(.7,0,.2,1)}
+.vidrio img.on{clip-path:circle(75% at 50% 50%)}
+.vidrio::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(140deg,rgba(255,255,255,.22) 0,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.08));pointer-events:none}
+.ingr{position:absolute;inset:0;z-index:4;pointer-events:none}
+.ingr span{position:absolute;opacity:0;transition:opacity .5s ease;will-change:transform}
+.ingr span.on{opacity:1}
+.ingr svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 12px rgba(0,0,0,.18))}
+.copy{position:absolute;z-index:5;left:clamp(16px,5vw,80px);bottom:clamp(40px,10vh,110px);width:min(380px,30vw)}
+.copy article{position:absolute;left:0;bottom:0;width:100%;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .6s ease;pointer-events:none}
+.copy article.on{opacity:1;transform:none;pointer-events:auto}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.copy h1,.copy h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,4.6vw,72px);line-height:.92;margin-bottom:16px}
+.copy p{font-size:16px;line-height:1.55;color:var(--soft)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.meta b{font-size:13px;font-weight:600;padding:7px 12px;border-radius:99px;border:1.5px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.precio{position:absolute;z-index:5;right:clamp(16px,5vw,80px);top:50%;transform:translateY(-50%);text-align:right}
+.precio div{opacity:0;transition:opacity .4s;position:absolute;right:0;top:0;white-space:nowrap}
+.precio div.on{opacity:1;position:relative}
+.precio strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(48px,6vw,96px);line-height:.9}
+.precio span{font-size:14px;font-weight:600;color:var(--soft)}
+.horas{position:absolute;z-index:5;right:clamp(16px,5vw,80px);bottom:clamp(40px,10vh,110px);display:flex;gap:6px}
+.horas b{font:700 13px/1 var(--sans);padding:9px 12px;border-radius:99px;background:color-mix(in srgb,var(--ink) 14%,transparent)}
+.prog{position:absolute;z-index:5;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:6px}
+.prog i{width:28px;height:3px;border-radius:3px;background:color-mix(in srgb,var(--ink) 25%,transparent);overflow:hidden}
+.prog i b{display:block;height:100%;width:0;background:var(--ink)}
+
+/* La madrugada */
+.madrugada{background:var(--harina);color:var(--cafe);padding:clamp(80px,12vw,160px) clamp(16px,5vw,80px);position:relative;z-index:6}
+.madrugada h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,7vw,112px);line-height:.9;max-width:12ch}
+.madrugada .intro{max-width:46ch;font-size:18px;line-height:1.6;margin:24px 0 72px;color:#5b4637}
+.reloj{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.hora{grid-column:span 4;border-top:2px solid var(--cafe);padding-top:18px}
+.hora .h{font-family:var(--display);font-size:clamp(56px,6vw,96px);line-height:.85;letter-spacing:-.01em}
+.hora .h small{font-size:.38em}
+.hora h3{font-size:20px;margin:14px 0 8px}
+.hora p{font-size:16px;line-height:1.55;color:#5b4637}
+.foto-a{grid-column:5 / span 5;grid-row:span 2;margin-top:60px;border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.foto-b{grid-column:10 / span 3;margin-top:180px;border-radius:999px 999px 24px 24px;overflow:hidden;aspect-ratio:3/4}
+.foto-a img,.foto-b img{width:100%;height:100%;object-fit:cover}
+.hora.h2-{grid-column:1 / span 4}
+.hora.h3-{grid-column:1 / span 4}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* Pedido */
+.pedido{background:#C7743E;color:#FFF4EA;padding:clamp(80px,10vw,140px) clamp(16px,5vw,80px);position:relative;z-index:6;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,80px);align-items:center}
+.pedido h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.9}
+.pedido .sub{font-size:18px;line-height:1.55;margin:18px 0 36px;max-width:42ch;color:rgba(255,244,234,.85)}
+.charola{background:#FFF4EA;color:var(--cafe);border-radius:28px;padding:10px 26px 26px;box-shadow:0 30px 60px -30px rgba(58,36,24,.6)}
+.fila{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:16px 0;border-bottom:1.5px dashed rgba(58,36,24,.25)}
+.fila b{font-size:18px}.fila small{display:block;font-size:14px;color:#8a6a55;margin-top:2px}
+.cnt{display:flex;align-items:center;gap:6px}
+.cnt button{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(58,36,24,.35);background:transparent;font:700 18px/1 var(--sans);color:var(--cafe);cursor:pointer}
+.cnt button:hover{background:rgba(58,36,24,.08)}
+.cnt output{min-width:26px;text-align:center;font-weight:700;font-size:18px}
+.sum{width:84px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:22px;flex-wrap:wrap}
+.total strong{font-family:var(--display);font-weight:400;font-size:40px}
+.total .btn{background:var(--cafe);color:#FFF4EA}
+.canasta{position:relative;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 14px rgba(255,244,234,.18)}
+.canasta img{width:100%;height:100%;object-fit:cover}
+.sello{position:absolute;right:-2%;top:6%;width:30%;aspect-ratio:1;border-radius:50%;background:#2A1B14;color:#FFF4EA;display:grid;place-items:center;text-align:center;font:700 13px/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-12deg);padding:12px}
+.sello b{display:block;font-family:var(--display);font-weight:400;font-size:2.2em;letter-spacing:0}
+
+/* Footer */
+footer{background:#F2C4C8;color:var(--cafe);padding:80px clamp(16px,5vw,80px) 28px;position:relative;z-index:6;overflow:hidden}
+.f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:60px}
+.f-grid h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;opacity:.7}
+.f-grid p{font-size:17px;line-height:1.6}
+.wordmark{font-family:var(--display);font-size:clamp(70px,17vw,300px);line-height:.8;white-space:nowrap;letter-spacing:-.01em;margin-left:-.04em}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;margin-top:22px;opacity:.75}
+
+@media (max-width:860px){
+  .pills{display:none}
+  .top .btn{padding:11px 14px;font-size:14px}
+  .ventanilla{width:min(68vw,40vh);top:36%}
+  .word{top:36%;font-size:34vw}
+  .copy{width:auto;right:16px;left:16px;bottom:30px}
+  .copy h1,.copy h2{font-size:44px}
+  .copy p{font-size:15px}
+  .precio{top:auto;bottom:auto;right:16px;top:64px;transform:none}
+  .precio strong{font-size:40px}
+  .horas{display:none}
+  .reloj{grid-template-columns:1fr;gap:28px}
+  .hora,.hora.h2-,.hora.h3-,.foto-a,.foto-b{grid-column:auto;grid-row:auto;margin-top:0}
+  .foto-b{width:70%;justify-self:end}
+  .pedido{grid-template-columns:1fr}
+  .canasta{width:78%;justify-self:center}
+  .f-grid{grid-template-columns:1fr}
+  .charola{padding:6px 16px 20px}
+  .fila{grid-template-columns:1fr auto;gap:4px 12px}
+  .fila .sum{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#pedido">Ir a pedidos</a>
+<header class="top">
+  <a class="logo" href="#">Santa Rita<small>Horno de barrio</small></a>
+  <nav class="pills" aria-label="Principal"><a href="#recorrido">Panes</a><a href="#madrugada">La madrugada</a><a href="#pedido">Apartar</a></nav>
+  <a class="btn" href="https://wa.me/520000000000?text=Hola%2C%20quiero%20apartar%20pan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Apartar pan</a>
+</header>
+
+<main>
+<section id="recorrido" aria-label="Nuestros panes">
+  <div class="stage">
+    <div class="word" data-i="0">HORNO</div>
+    <div class="word" data-i="1">CONCHA</div>
+    <div class="word" data-i="2">HUEVO</div>
+    <div class="word" data-i="3">CANELA</div>
+    <div class="word" data-i="4">MUERTO</div>
+
+    <div class="ventanilla" aria-hidden="true">
+      <div class="aro" id="aro"></div>
+      <div class="vidrio">
+        <img class="on" src="img/horno.jpg" alt="">
+        <img src="img/concha.jpg" alt="">
+        <img src="img/pan-huevo.jpg" alt="">
+        <img src="img/roles.jpg" alt="">
+        <img src="img/pan-muerto.jpg" alt="">
+      </div>
+    </div>
+    <div class="ingr" id="ingr" aria-hidden="true"></div>
+
+    <div class="copy">
+      <article class="on">
+        <p class="kicker">Calle Santa Rita · desde 1987</p>
+        <h1>Tres hornadas al día, y se nota.</h1>
+        <p>El horno se prende a las 4:30. A las 6:30 sale la primera charola; la segunda al mediodía y la última a las seis de la tarde.</p>
+        <div class="meta"><b>Baja para ver cada pan</b></div>
+      </article>
+      <article>
+        <p class="kicker">Sale a las 6:30 y 18:00</p>
+        <h2>La concha de siempre</h2>
+        <p>Costra de azúcar de vainilla o chocolate, rayada a mano una por una. Esponjosa por dentro hasta el día siguiente.</p>
+        <div class="meta"><b>Vainilla</b><b>Chocolate</b><b>Nata los domingos</b></div>
+      </article>
+      <article>
+        <p class="kicker">Sale a las 6:30</p>
+        <h2>Pan de huevo con ajonjolí</h2>
+        <p>Barnizado con huevo antes de entrar al horno, por eso brilla. El de la merienda con café de olla.</p>
+        <div class="meta"><b>Ajonjolí</b><b>Azúcar</b></div>
+      </article>
+      <article>
+        <p class="kicker">Sale a las 12:00</p>
+        <h2>Roles de canela</h2>
+        <p>Masa de mantequilla enrollada con canela molida en casa y piloncillo. Se acaban antes de la una.</p>
+        <div class="meta"><b>Con glaseado</b><b>Sin glaseado</b></div>
+      </article>
+      <article>
+        <p class="kicker">Temporada · octubre y noviembre</p>
+        <h2>Pan de muerto con azahar</h2>
+        <p>Huesitos y bolita a mano, agua de azahar y azúcar encima. Chico, mediano o de mesa para la ofrenda.</p>
+        <div class="meta"><b>Chico</b><b>Mediano</b><b>De mesa</b></div>
+      </article>
+    </div>
+
+    <div class="precio" aria-live="polite">
+      <div class="on"><strong>6:30</strong><span>primera hornada</span></div>
+      <div><strong>$16</strong><span>la pieza</span></div>
+      <div><strong>$14</strong><span>la pieza</span></div>
+      <div><strong>$28</strong><span>la pieza</span></div>
+      <div><strong>$65</strong><span>mediano</span></div>
+    </div>
+    <div class="horas" aria-hidden="true"><b>6:30</b><b>12:00</b><b>18:00</b></div>
+    <div class="prog" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+  </div>
+</section>
+
+<section class="madrugada" id="madrugada">
+  <h2 class="reveal">Lo que pasa mientras duermes</h2>
+  <p class="intro reveal">Cuatro panaderos, un horno de piso y la misma receta de masa madre desde hace casi cuarenta años. Así se reparte el día en la cocina.</p>
+  <div class="reloj">
+    <div class="hora reveal"><div class="h">4:30<small> am</small></div><h3>Se prende el horno</h3><p>Tarda una hora en tomar temperatura pareja. Mientras, se pesan harina, azúcar y mantequilla del día.</p></div>
+    <figure class="foto-a reveal"><img src="img/amasar.jpg" alt="Manos amasando una bola de masa sobre la mesa enharinada" loading="lazy"></figure>
+    <figure class="foto-b reveal"><img src="img/panadero.jpg" alt="Panadero metiendo una charola al horno de piedra" loading="lazy"></figure>
+    <div class="hora h2- reveal"><div class="h">5:00<small> am</small></div><h3>Se forma a mano</h3><p>Las conchas se rayan con molde de lámina; los huesitos del pan de muerto se ruedan uno por uno.</p></div>
+    <div class="hora h3- reveal"><div class="h">6:30<small> am</small></div><h3>Abre el mostrador</h3><p>La primera charola sale caliente. Si apartaste por WhatsApp, tu bolsa ya está con tu nombre.</p></div>
+  </div>
+</section>
+
+<section class="pedido" id="pedido">
+  <div>
+    <h2 class="reveal">Aparta tu charola antes de que se acabe</h2>
+    <p class="sub reveal">Elige cuántas piezas quieres y te las guardamos hasta la siguiente hornada. Pagas al recoger.</p>
+    <div class="charola reveal" id="charola">
+      <div class="fila" data-p="16" data-n="Concha"><div><b>Concha</b><small>$16 · vainilla o chocolate</small></div><div class="cnt"><button type="button" aria-label="Quitar concha">−</button><output>0</output><button type="button" aria-label="Agregar concha">+</button></div><div class="sum">$0</div></div>
+      <div class="fila" data-p="14" data-n="Pan de huevo"><div><b>Pan de huevo</b><small>$14 · con ajonjolí</small></div><div class="cnt"><button type="button" aria-label="Quitar pan de huevo">−</button><output>0</output><button type="button" aria-label="Agregar pan de huevo">+</button></div><div class="sum">$0</div></div>
+      <div class="fila" data-p="28" data-n="Rol de canela"><div><b>Rol de canela</b><small>$28 · sale a las 12:00</small></div><div class="cnt"><button type="button" aria-label="Quitar rol de canela">−</button><output>0</output><button type="button" aria-label="Agregar rol de canela">+</button></div><div class="sum">$0</div></div>
+      <div class="fila" data-p="65" data-n="Pan de muerto mediano"><div><b>Pan de muerto</b><small>$65 · mediano</small></div><div class="cnt"><button type="button" aria-label="Quitar pan de muerto">−</button><output>0</output><button type="button" aria-label="Agregar pan de muerto">+</button></div><div class="sum">$0</div></div>
+      <div class="total"><div><small>Total</small><br><strong id="total">$0</strong></div><a class="btn" id="enviar" href="https://wa.me/520000000000" target="_blank" rel="noopener">Apartar por WhatsApp</a></div>
+    </div>
+  </div>
+  <div class="canasta reveal">
+    <img src="img/canasta.jpg" alt="Canastas de mimbre con pan dulce recién horneado" loading="lazy">
+    <div class="sello"><span><b>3</b>hornadas<br>diarias</span></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="f-grid">
+    <div><h3>Dónde</h3><p>Calle Santa Rita 00, Col. Centro<br>Ciudad, Estado</p></div>
+    <div><h3>Mostrador</h3><p>Lunes a sábado 6:30 a 20:00<br>Domingo 7:00 a 14:00</p></div>
+    <div><h3>Pedidos</h3><p><a href="https://wa.me/520000000000">WhatsApp 00 0000 0000</a><br>Fiestas y ofrendas con 2 días de anticipación</p></div>
+  </div>
+  <div class="wordmark" aria-hidden="true">Santa Rita</div>
+  <div class="legal"><span>© 2026 Horno Santa Rita</span><span>Propuesta de diseño · AionSite</span></div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const temas = [
+    {bg:'#2A1B14', ink:'#FBEFE6', soft:'rgba(251,239,230,.72)', accent:'#5C2E14'},
+    {bg:'#F2C4C8', ink:'#3A1E22', soft:'rgba(58,30,34,.72)', accent:'#FBE3E5'},
+    {bg:'#F1D49A', ink:'#3B2610', soft:'rgba(59,38,16,.72)', accent:'#F8E6BF'},
+    {bg:'#C7743E', ink:'#FFF4EA', soft:'rgba(255,244,234,.82)', accent:'#D98A55'},
+    {bg:'#E9731F', ink:'#2A1206', soft:'rgba(42,18,6,.75)', accent:'#F49450'}
+  ];
+  // Ingredientes dibujados en SVG por pan
+  const S = {
+    chispa:c=>`<svg viewBox="0 0 40 40"><path d="M20 2 26 20 20 38 14 20Z" fill="${c}"/></svg>`,
+    azucar:c=>`<svg viewBox="0 0 30 30"><rect x="7" y="7" width="16" height="16" rx="3" fill="${c}" transform="rotate(20 15 15)"/></svg>`,
+    costra:c=>`<svg viewBox="0 0 80 60"><path d="M4 40C10 12 70 6 76 34 66 54 16 58 4 40Z" fill="${c}"/><path d="M20 22 30 46M36 16 44 48M54 18 58 44" stroke="rgba(0,0,0,.15)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+    huevo:()=>`<svg viewBox="0 0 70 80"><ellipse cx="35" cy="42" rx="30" ry="36" fill="#FFFDF6"/><circle cx="35" cy="48" r="15" fill="#F5B321"/></svg>`,
+    ajonjoli:()=>`<svg viewBox="0 0 20 30"><ellipse cx="10" cy="15" rx="6" ry="12" fill="#F6E7C6"/></svg>`,
+    canela:()=>`<svg viewBox="0 0 120 30"><rect x="2" y="4" width="116" height="22" rx="11" fill="#7A3E1B"/><path d="M8 10H112M8 20H112" stroke="#5A2B10" stroke-width="2.5"/><ellipse cx="114" cy="15" rx="5" ry="10" fill="#A65A2A"/></svg>`,
+    flor:()=>`<svg viewBox="0 0 80 80">${Array.from({length:12},(_,k)=>`<ellipse cx="40" cy="18" rx="9" ry="17" fill="${k%2?'#FFB000':'#FF8A00'}" transform="rotate(${k*30} 40 40)"/>`).join('')}<circle cx="40" cy="40" r="10" fill="#C2410C"/></svg>`,
+    petalo:()=>`<svg viewBox="0 0 30 40"><ellipse cx="15" cy="20" rx="10" ry="18" fill="#FFA21F"/></svg>`
+  };
+  // x, y en % del escenario; w en px; v = velocidad de parallax; r = giro
+  const sets = [
+    [],
+    [[18,14,110,'costra','#FFF7F2',1.4,-20],[70,10,46,'azucar','#FFFFFF',2.2,30],[82,62,90,'costra','#6B3B2A',1.1,35],[30,72,40,'azucar','#FFFFFF',2.6,10],[62,80,70,'costra','#FFF7F2',1.8,-40],[12,48,30,'chispa','#FFFFFF',3,0],[88,30,34,'azucar','#FFFFFF',2.8,-15]],
+    [[20,16,80,'huevo','',1.2,-14],[76,12,30,'ajonjoli','',2.6,20],[84,60,70,'huevo','',1.5,18],[26,70,26,'ajonjoli','',3,-30],[64,82,24,'ajonjoli','',2.2,60],[12,44,22,'ajonjoli','',2.8,10],[56,8,22,'ajonjoli','',3.2,-50]],
+    [[14,20,160,'canela','',1.1,-28],[72,14,130,'canela','',1.6,22],[80,70,150,'canela','',1.3,-12],[30,76,34,'azucar','#FFF4EA',2.6,0],[60,86,30,'azucar','#FFF4EA',2.9,30],[88,40,26,'azucar','#FFF4EA',3.1,0]],
+    [[16,16,110,'flor','',1.2,0],[78,10,80,'flor','',1.7,40],[84,64,120,'flor','',1.1,-20],[26,72,36,'petalo','',2.6,30],[60,84,30,'petalo','',3,-50],[10,46,28,'petalo','',2.8,70],[50,6,26,'petalo','',3.2,10],[92,36,32,'azucar','#FFFFFF',2.5,0]]
+  ];
+  const ingr = document.getElementById('ingr');
+  const nodes = sets.map((set,i)=>set.map(([x,y,w,f,c,v,r])=>{
+    const s=document.createElement('span');
+    s.style.left=x+'%'; s.style.top=y+'%'; s.style.width=w+'px';
+    s.dataset.v=v; s.dataset.r=r; s.dataset.i=i;
+    s.innerHTML=S[f](c); ingr.appendChild(s); return s;
+  }));
+
+  const sec = document.getElementById('recorrido');
+  const words=[...document.querySelectorAll('.word')];
+  const imgs=[...document.querySelectorAll('.vidrio img')];
+  const arts=[...document.querySelectorAll('.copy article')];
+  const precios=[...document.querySelectorAll('.precio div')];
+  const bars=[...document.querySelectorAll('.prog b')];
+  const aro=document.getElementById('aro');
+  const top=document.querySelector('.top');
+  sec.style.setProperty('--steps', temas.length);
+  // remaches del aro
+  for(let k=0;k<12;k++){const i=document.createElement('i');const a=k*30*Math.PI/180;i.style.transform=`translate(-50%,-50%) translate(${Math.cos(a)*46}%,0)`;i.style.left=(50+Math.cos(a)*45.5)+'%';i.style.top=(50+Math.sin(a)*45.5)+'%';i.style.transform='translate(-50%,-50%)';aro.appendChild(i);}
+
+  let cur=-1;
+  function set(i){
+    if(i===cur) return; cur=i;
+    const t=temas[i], root=document.documentElement.style;
+    root.setProperty('--ink',t.ink); root.setProperty('--soft',t.soft); root.setProperty('--accent',t.accent); root.setProperty('--bg',t.bg);
+    document.body.style.backgroundColor=t.bg; top.classList.remove('solid');
+    [words,imgs,arts,precios].forEach(list=>list.forEach((el,k)=>el.classList.toggle('on',k===i)));
+    nodes.forEach((set,k)=>set.forEach(n=>n.classList.toggle('on',k===i)));
+  }
+  let ticking=false;
+  function frame(){
+    ticking=false;
+    const r=sec.getBoundingClientRect(), vh=innerHeight;
+    const p=Math.max(0,Math.min(temas.length-1+.6,-r.top/vh));
+    const inside = r.bottom>vh*.5;
+    if(inside) set(Math.min(temas.length-1,Math.floor(p+.25)));
+    else if(cur!==-2){ // fuera del recorrido: tono neutro para las secciones de abajo
+      cur=-2; document.body.style.backgroundColor='#EFEEEA';
+      const root=document.documentElement.style; root.setProperty('--ink','#3A2418'); root.setProperty('--bg','#EFEEEA'); root.setProperty('--soft','rgba(58,36,24,.7)');
+      top.classList.add('solid');
+    }
+    bars.forEach((b,k)=>b.style.width=Math.max(0,Math.min(1,p-k+.25))*100+'%');
+    if(reduce) return;
+    aro.style.transform=`rotate(${p*24}deg)`;
+    nodes.forEach((set,k)=>{const local=p-k;set.forEach(n=>{
+      const v=+n.dataset.v, y=-local*v*120, rot=+n.dataset.r+local*v*25;
+      n.style.transform=`translate(-50%,-50%) translateY(${y}px) rotate(${rot}deg)`;
+    })});
+  }
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
+  addEventListener('resize',frame);
+  set(0); frame();
+
+  // Aparición de bloques
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Charola: contador y mensaje de WhatsApp
+  const filas=[...document.querySelectorAll('.fila')], total=document.getElementById('total'), enviar=document.getElementById('enviar');
+  const fmt=n=>'$'+n.toLocaleString('es-MX');
+  function calc(){
+    let t=0; const items=[];
+    filas.forEach(f=>{const n=+f.querySelector('output').value||0, s=n*f.dataset.p; t+=s; f.querySelector('.sum').textContent=fmt(s); if(n) items.push(n+' '+f.dataset.n);});
+    total.textContent=fmt(t);
+    const msg=items.length?`Hola, quiero apartar: ${items.join(', ')}. Total ${fmt(t)}.`:'Hola, quiero apartar pan.';
+    enviar.href='https://wa.me/520000000000?text='+encodeURIComponent(msg);
+  }
+  filas.forEach(f=>{const o=f.querySelector('output');o.value=0;const [menos,mas]=f.querySelectorAll('button');
+    menos.onclick=()=>{o.value=Math.max(0,(+o.value)-1);calc()}; mas.onclick=()=>{o.value=(+o.value)+1;calc()};});
+  calc();
+})();
+</script>
+</body>
+</html>

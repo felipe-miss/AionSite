@@ -3,7 +3,7 @@
 Biblioteca principal de referencia de `$aionsite-demo` en este proyecto.
 
 - Panel local: `/admin/ejemplos` (sesión de administrador).
-- `catalog.json`: propuestas 1–10, revisiones, rutas, familias y dirección aprobada.
+- `catalog.json`: propuestas 1–16, revisiones, rutas, familias y dirección aprobada.
 - `collections/`: archivos editables autocontenidos. Conserva las dos colecciones y sus revisiones; copia a una ejecución nueva para adaptar.
 - `thumbnails/`: capturas de las propuestas para el panel.
 - `collections/*/reference-map.json`, mapas individuales y verificaciones: evidencia disponible de cada estudio; no prueban otra implementación.
@@ -44,3 +44,19 @@ Reglas al reutilizarlas: no copies nombres, cifras ni fotos de otro cliente; dat
 ## Header y footer por propuesta
 
 Las propuestas 1–8 tienen su propio header (fijo, con menú móvil animado y sección activa) y footer, diseñados para cada estilo. La fuente vive en `scripts/proposal-chrome/propuesta-N/` (`header.html`, `footer.html`, `chrome.css` con prefijo `pN-`, `chrome.js` copiado de `chrome.template.js` y, si hace falta, `config.json` para indicar qué elemento reemplazar; la 8 reemplaza su `<nav class="main">`). Para aplicarlos a la copia editable y a `public/style-examples/` corre `node scripts/apply-proposal-chrome.mjs [propuesta-N ...]`; se puede repetir sin duplicar nada. Las 9 y 10 conservan el header y footer que ya traían de su sitio de origen.
+
+## Propuestas por giro (11, 12 y 13)
+
+Páginas completas armadas a partir de 15 secciones de 21st.dev (referencias en `examples/21st-dev/`), sin cliente específico. Usan nombres, precios, testimonios y WhatsApp de ejemplo y fotos de Unsplash. Editables en `collections/aionsite-giros-21st-2026-11-18/`; copia de visualización en `public/style-examples/propuesta-11/` a `propuesta-13/`. Son HTML estático autocontenido: si cambias uno, copia el cambio al otro.
+
+- **Propuesta 11 · Restaurante: mesa de talavera** (cobalto, ocre y blanco de cal).
+- **Propuesta 12 · Dentista: precios claros** (teal, menta y marino), con precios en selector contado/meses.
+- **Propuesta 13 · Colegio: cuaderno de cuadrícula** (marino, amarillo lápiz y arena).
+
+## Propuestas por patrón de movimiento (14, 15 y 16)
+
+Páginas completas armadas a partir de 8 sitios de referencia (capturas y notas en `examples/referencias-sitios-2026-11-18/`), sin cliente específico. Usan nombres, precios, horarios, testimonios y WhatsApp de ejemplo y fotos de Unsplash. Editables en `collections/aionsite-sitios-2026-11-19/`; copia de visualización en `public/style-examples/propuesta-14/` a `propuesta-16/`. Son HTML estático autocontenido: si cambias uno, copia el cambio al otro.
+
+- **Propuesta 14 · Panadería: la ventanilla del horno** (café, rosa concha y naranja cempasúchil). Producto fijo y mundo que cambia, como Brocksbushes.
+- **Propuesta 15 · Fisioterapia: la frase que se enciende** (azul tinta, coral y gris claro). Texto que se ilumina y tarjeta que crece, como Voy.
+- **Propuesta 16 · Taller mecánico: tablero de herramientas** (pegboard, negro y naranja de seguridad). Mesa que se reacomoda (Kern) y cifras en puntos (General Cherry).
