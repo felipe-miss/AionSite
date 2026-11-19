@@ -47,7 +47,7 @@ let cuadro = 0, actual = -1;
 function pintar() {
   cuadro = 0;
   const r = camino.getBoundingClientRect();
-  const linea = innerHeight * 0.6;
+  const linea = innerHeight * 0.5;
   const p = Math.max(0, Math.min(1, (linea - r.top) / r.height));
   relleno.style.transform = 'scaleY(' + p.toFixed(3) + ')';
   let n = 0;
@@ -56,11 +56,13 @@ function pintar() {
     li.classList.toggle('on', on);
     if (on) n = i;
   });
-  if (n !== actual) { actual = n; mostrar(n); }
+  pasos.forEach((li, i) => li.classList.toggle('now', i === n));
+  if (n !== actual) { actual = n; mostrar(n); if (cont) cont.textContent = 'Paso ' + (n + 1) + ' de ' + pasos.length; }
 }
+const cont = document.querySelector('[data-paso]');
 if (reducir.matches) {
   relleno.style.transform = 'scaleY(1)';
-  pasos.forEach(li => li.classList.add('on'));
+  pasos.forEach(li => li.classList.add('on', 'now'));
 } else {
   addEventListener('scroll', () => { if (!cuadro) cuadro = requestAnimationFrame(pintar); }, { passive: true });
   addEventListener('resize', pintar);

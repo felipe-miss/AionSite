@@ -267,3 +267,31 @@ li span.cert__logo--txt{font:800 1.3rem/1 system-ui,-apple-system,"Segoe UI",Rob
 .marcas li img{width:auto;height:auto;max-width:100%;max-height:72px;padding:0;margin:0;border:0;background:none;border-radius:0}
 
 #clientes .marcas__t{margin-top:0}
+
+/* Proceso: encabezado arriba, pasos junto a la imagen */
+.proceso__cab{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-bottom:56px}
+.proceso__cab .proceso__intro{margin:0;max-width:40ch}
+.proceso__grid{align-items:start}
+.camino{margin-top:0;gap:clamp(36px,5vh,56px)}
+@media (max-width:1024px){.proceso__cab{margin-bottom:36px}}
+
+/* Proceso: efecto de scroll mas marcado en escritorio */
+.camino li{transition:opacity .35s ease}
+.proceso__paso{position:absolute;left:0;top:0;z-index:2;background:var(--carbon);color:#fff;font:700 .8rem var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:10px 16px}
+@media (min-width:1025px){
+  .camino{gap:0}
+  .camino li{min-height:36vh;opacity:.32}
+  .camino li.on{opacity:.6}
+  .camino li.now{opacity:1}
+  .camino li:last-child{min-height:0}
+  .camino li.now .camino__n{box-shadow:0 0 0 6px rgba(140,29,44,.18)}
+  .camino li.now h3{font-size:1.85rem}
+  .camino h3{transition:font-size .3s var(--curva)}
+  .proceso__marco img{transform:scale(1.08)}
+  .proceso__marco img.activa{transform:none}
+}
+@media (prefers-reduced-motion:reduce){.camino li{opacity:1!important}.camino h3{transition:none}}
+/* Cada paso muestra un encuadre distinto */
+.proceso__marco img[data-i="2"].activa{transform:scale(1.45);transform-origin:88% 82%}
+.proceso__marco img[data-i="3"].activa{transform:scale(1.4);transform-origin:12% 45%}
+@media (prefers-reduced-motion:reduce){.proceso__marco img[data-i="2"].activa,.proceso__marco img[data-i="3"].activa{transform:none}}
