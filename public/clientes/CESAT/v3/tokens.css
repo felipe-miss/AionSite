@@ -1,0 +1,13 @@
+﻿:root{
+  --cafe:#884103;      /* logo, texto de marca y botones */
+  --cafe-hondo:#4A2508;/* fondos oscuros */
+  --ambar:#B96F0A;     /* acento, solo en elementos grandes o con texto oscuro */
+  --ambar-texto:#8A4F05;/* ambar para texto sobre claro */
+  --crema:#FBF6EE;     /* fondo principal */
+  --arena:#F3E6D0;     /* fondo de bloques */
+  --tinta:#2A1A0E;     /* texto */
+  --suave:#6B4A2E;     /* texto secundario */
+  --blanco:#FFFFFF;
+  --serif:"Marcellus",Georgia,serif;   /* titulos: romana con remates como el logo */
+  --sans:"Figtree",system-ui,sans-serif;/* cuerpo */
+}
