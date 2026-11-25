@@ -78,3 +78,14 @@ test('static export copies new URL and RSC payload and retains redirects for old
   assert.match(await readFile(path.join(root,'productos/index.html'),'utf8'),/location.replace\("\/presupuesto\/"\+location.search\+location.hash\)/);
   assert.match(await readFile(path.join(root,'quote/index.html'),'utf8'),/Página trasladada/);
 });
+
+
+test('client staging namespace cannot be assigned to a managed page', () => {
+  for (const reserved of ['/clientes', '/clientes/', '/clientes/demo/v1/']) {
+    assert.throws(() => normalizePagePath(reserved), /reservada/);
+    const changed = sitePages.map(page => page.id === 'quote' ? {...page, path: reserved} : page);
+    assert.throws(() => validateSitePages(changed, sitePages), /reservada/);
+  }
+  assert.equal(normalizePagePath('/clientes-potenciales/'), '/clientes-potenciales/');
+  assert.equal(managedRoute('/clientes/demo/v1/'), null);
+});

@@ -7,7 +7,7 @@ export function normalizePagePath(value: string) {
   const clean = value.trim();
   if (clean === "/") return "/";
   if (clean.length > 90 || !/^\/[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*\/?$/.test(clean)) throw new Error("Usa una URL como /estilos/mi-estilo/, sin espacios, parámetros ni dominios.");
-  if (/^\/(admin|api|demos|_next|404|500|sitemap|robots)(\/|$)/.test(clean)) throw new Error("Esa URL está reservada.");
+  if (/^\/(admin|api|clientes|demos|_next|404|500|sitemap|robots)(\/|$)/.test(clean)) throw new Error("Esa URL está reservada.");
   return `/${clean.split('/').filter(Boolean).join('/')}/`;
 }
 
