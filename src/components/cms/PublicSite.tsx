@@ -5,11 +5,8 @@ import {
   loadCmsContentFromFile,
   saveCmsContentToBrowser,
 } from "@/src/cms/browser-storage";
-import {
-  getRenderableSectionIds,
-  initialCmsContent,
-  renderCmsSection,
-} from "@/src/cms/site-content";
+import { initialCmsContent } from "@/src/cms/site-content";
+import { getRenderableSectionIds, renderCmsSection } from "@/src/cms/site-sections";
 import { DashboardPopup } from "@/src/components/ui/DashboardPopup";
 import type { CmsContent } from "@/src/cms/types";
 

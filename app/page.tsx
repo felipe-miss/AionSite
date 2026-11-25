@@ -211,7 +211,7 @@ export default function Home() {
               alt="Ilustración de Felipe Miss en su escritorio, con saco azul y lentes"
               width={1122}
               height={1402}
-              sizes="(max-width: 899px) 70vw, 30vw"
+              sizes="(max-width: 899px) calc(100vw - 32px), 30vw"
             />
           </figure>
           <div className="h3-about__copy">

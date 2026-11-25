@@ -221,6 +221,7 @@ export function BlogListPage() {
                               src={post.image ?? "/logo-aionsite.webp"}
                               alt={post.title}
                               fill
+                              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                               className="object-cover transition-transform duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 to-transparent" />
