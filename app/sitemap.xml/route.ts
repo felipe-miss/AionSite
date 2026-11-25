@@ -6,11 +6,11 @@ export const dynamic = "force-static";
 
 export function GET() {
   const siteUrl = getSiteUrl().replace(/\/$/, "");
-  const lastmod = new Date().toISOString();
   const pages = [
     ["/", "weekly", "1.0"],
     ["/proyectos/", "weekly", "0.9"],
     ["/cotizar-proyecto/", "weekly", "0.9"],
+    ["/solicitar-sitio/", "monthly", "0.7"],
     ["/blog/", "weekly", "0.8"],
     ["/conoceme/", "monthly", "0.7"],
     ["/diseno-web-ciudad-del-carmen/", "monthly", "0.8"],
@@ -22,7 +22,7 @@ export function GET() {
   ] as const;
   const urls = [
     ...pages.map(([path, changefreq, priority]) =>
-      `  <url>\n    <loc>${siteUrl}${resolvePageHref(path)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+      `  <url>\n    <loc>${siteUrl}${resolvePageHref(path)}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
     ),
     ...blogPosts.map((post) =>
       `  <url>\n    <loc>${siteUrl}${resolvePageHref(`/blog/${post.id}`)}</loc>\n    <lastmod>${new Date(post.dateISO).toISOString()}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,

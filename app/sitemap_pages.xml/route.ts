@@ -20,12 +20,11 @@ const pages = [
 
 export function GET() {
   const siteUrl = getSiteUrl().replace(/\/$/, "");
-  const lastmod = new Date().toISOString();
 
   const urls = pages
     .map(
       ({ path, changefreq, priority }) =>
-        `  <url>\n    <loc>${siteUrl}${resolvePageHref(path)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${siteUrl}${resolvePageHref(path)}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
     )
     .join("\n");
 
