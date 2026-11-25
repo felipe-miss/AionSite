@@ -1,0 +1,125 @@
+<title>Revisión diaria</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Epilogue:wght@400;500;600&display=swap">
+<style>
+/* Tablero sobrio: columna única, tarjetas solo donde hay acción */
+:root{--bg:#0f172a;--panel:#162036;--line:#243352;--fg:#e6ebf5;--mute:#93a1bd;--blue:#5b8cff;--violet:#a78bfa;--warn:#f5b84b;--ok:#4ade80;--h:'Bricolage Grotesque',system-ui,sans-serif;--b:'Epilogue',system-ui,sans-serif;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--b);padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+header{display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);font-weight:600}
+h1{font:700 clamp(30px,6vw,44px)/1.05 var(--h);margin:0;text-wrap:balance}
+h2{font:600 22px/1.2 var(--h);margin:0 0 12px;display:flex;align-items:baseline;gap:10px}
+h2 small{font:500 13px var(--b);color:var(--mute)}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.sum div{border-top:2px solid var(--blue);padding:8px 0}
+.sum b{display:block;font:700 28px var(--h);font-variant-numeric:tabular-nums}
+.sum span{color:var(--mute);font-size:13px}
+ol,ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.call{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;gap:6px;min-width:0}
+.top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;justify-content:space-between}
+.call strong{font:600 17px var(--h);overflow-wrap:anywhere}
+.meta{color:var(--mute);font-size:13px}
+.pill{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:#1e2d4d;color:var(--blue);white-space:nowrap}
+.pill.v{background:#2a2350;color:var(--violet)}
+.pill.w{background:#3b2f14;color:var(--warn)}
+.why{margin:0}
+.script{margin:0;padding-left:12px;border-left:2px solid var(--violet);color:#c9d3e6;font-size:14px}
+.empty{background:var(--panel);border:1px dashed var(--line);border-radius:8px;padding:14px 16px;color:var(--mute)}
+.alerts li{padding:10px 0;border-bottom:1px solid var(--line)}
+.alerts li:last-child{border:0}
+.alerts b{color:var(--warn)}
+p{margin:0}
+footer{color:var(--mute);font-size:13px}
+</style>
+<main>
+<header>
+<span class="eyebrow">AionSite · domingo 22 de noviembre de 2026</span>
+<h1>Revisión diaria</h1>
+<p class="meta">Correo, agenda y llamadas de hoy. Solo lectura: no se envió nada ni se cambió el CRM.</p>
+</header>
+
+<section class="sum" aria-label="Resumen">
+<div><b>8</b><span>llamadas propuestas</span></div>
+<div><b>0</b><span>correos nuevos desde ayer</span></div>
+<div><b>0</b><span>eventos hoy y mañana</span></div>
+<div><b>109</b><span>prospectos contactados</span></div>
+</section>
+
+<section>
+<h2>Llamar hoy <small>orden: seguimiento, aperturas, antigüedad</small></h2>
+<p class="meta" style="margin-bottom:12px">Las puntuaciones de estos prospectos están vacías en el CRM, así que el orden sale del estado y de las aperturas de correo.</p>
+<ol>
+<li class="call"><div class="top"><strong>1. Clínica Dental Integral J.R.</strong><span class="pill w">segundo intento</span></div>
+<span class="meta">Culiacán · web rota o vieja · calificación 3.2 · tiene sitio, correo y teléfono</span>
+<p class="why">Está en segundo intento y se le escribió hace 74 días (2 seguimientos). Es el que más tiempo lleva sin respuesta.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Le escribí hace un tiempo sobre su sitio, que hoy carga lento en celular. ¿Le puedo mostrar en 10 minutos cómo quedaría renovado?”</p></li>
+
+<li class="call"><div class="top"><strong>2. Afrodita Love Store</strong><span class="pill w">seguimiento</span></div>
+<span class="meta">Ciudad del Carmen · tienda · tiene sitio y teléfono, sin correo</span>
+<p class="why">En seguimiento hace 81 días y sin correo registrado: solo se le alcanza por teléfono o WhatsApp.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Ayudamos a tiendas de Carmen a vender más desde su sitio. ¿Tiene 5 minutos para que le cuente cómo?”</p></li>
+
+<li class="call"><div class="top"><strong>3. Clínica Dental Riviera Maya, Av. Kabah</strong><span class="pill w">seguimiento</span></div>
+<span class="meta">Cancún · sin página web · calificación 3.2 · sin correo</span>
+<p class="why">En seguimiento hace 81 días. No tiene sitio, así que el argumento de captación de pacientes aplica directo.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Vi que su clínica en Kabah no tiene página y los pacientes de Cancún buscan por Google. ¿Le muestro un ejemplo sencillo?”</p></li>
+
+<li class="call"><div class="top"><strong>4. Sports World</strong><span class="pill">2 aperturas</span></div>
+<span class="meta">Mérida · malas reseñas, buen tráfico · calificación 3.9 · tiene sitio</span>
+<p class="why">Abrió el correo 2 veces; último contacto hace 2 días (2 seguimientos). Está justo en el límite de 48 h, así que llámele solo si ya no le escribió nadie hoy.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Vi que abrieron mi correo sobre las reseñas de su sucursal. ¿Hablamos 5 minutos de cómo convertir ese tráfico en membresías?”</p></li>
+
+<li class="call"><div class="top"><strong>5. Fitsi Mérida</strong><span class="pill">2 aperturas</span></div>
+<span class="meta">Mérida · malas reseñas, buen tráfico · calificación 3.1 · tiene sitio</span>
+<p class="why">Abrió 2 veces, contactado hace 4 días con 2 seguimientos. Es el momento de caliente.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Notamos interés en mi correo. Su calificación de 3.1 frena nuevas altas y hay arreglos rápidos en su sitio. ¿Le explico?”</p></li>
+
+<li class="call"><div class="top"><strong>6. Hospital de Dientes</strong><span class="pill">1 apertura</span></div>
+<span class="meta">Aguascalientes · malas reseñas, buen tráfico · calificación 4.2 · tiene sitio</span>
+<p class="why">Abrió el correo, pero pasaron 52 días sin otro contacto.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Le escribí hace unas semanas y vi que lo leyó. Su calificación es buena, pero el sitio no la aprovecha. ¿Le muestro cómo?”</p></li>
+
+<li class="call"><div class="top"><strong>7. Despacho Jurídico Chávez Cleto &amp; Asociados</strong><span class="pill">1 apertura</span></div>
+<span class="meta">Ciudad de México · web vieja · calificación 4.9 · tiene sitio</span>
+<p class="why">Abrió el correo hace 58 días. Tiene reputación excelente y un sitio atrasado.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Con una calificación de 4.9 su despacho merece un sitio a la altura. ¿Podemos platicar 10 minutos?”</p></li>
+
+<li class="call"><div class="top"><strong>8. Estevez Verduzco</strong><span class="pill">1 apertura</span></div>
+<span class="meta">Guadalajara · malas reseñas, buen tráfico · calificación 4.3 · tiene sitio</span>
+<p class="why">Abrió el correo hace 58 días y no hubo más contacto.</p>
+<p class="script">“Hola, soy Felipe de AionSite. Vi que leyó mi correo sobre su presencia en línea. ¿Le comparto un par de mejoras concretas?”</p></li>
+</ol>
+</section>
+
+<section>
+<h2>Siguientes en la lista <small>nunca contactados, puntuación alta</small></h2>
+<ul>
+<li class="call"><div class="top"><strong>Centro Médico Valle Hebrón</strong><span class="pill v">99 pts</span></div><span class="meta">Monterrey · web vieja · solo teléfono · oferta: conversión y reputación</span></li>
+<li class="call"><div class="top"><strong>Centro Médico Caucel</strong><span class="pill v">99 pts</span></div><span class="meta">Mérida · tiene sitio · solo teléfono · oferta: presencia local y captación</span></li>
+<li class="call"><div class="top"><strong>Centro de Especialidades Dentales</strong><span class="pill v">97 pts</span></div><span class="meta">Monterrey · sin página web · solo teléfono · oferta: sitio local de captación</span></li>
+</ul>
+</section>
+
+<section>
+<h2>Correo <small>ventas@aionsite.com.mx</small></h2>
+<div class="empty">No hay correos nuevos en la bandeja desde ayer (21 de noviembre). Ninguna respuesta de prospectos ni solicitudes pendientes.</div>
+</section>
+
+<section>
+<h2>Agenda <small>hoy y mañana</small></h2>
+<div class="empty">Google Calendar no tiene eventos hoy ni mañana. Calendly no tiene reuniones agendadas de hoy en adelante.</div>
+</section>
+
+<section class="alerts">
+<h2>Alertas</h2>
+<ul>
+<li><b>Embudo:</b> 109 contactados, 7 aperturas registradas, 0 respuestas en el CRM y 16 rebotes reales. Los 6 contactados en las últimas 48 h quedan fuera de las llamadas.</li>
+<li><b>Mercado:</b> los prospectos mejor puntuados con correo listo son de Madrid y Barcelona. España es solo eventual, por eso no están en las llamadas de hoy.</li>
+<li><b>Datos:</b> los 1,867 eventos invalid_email son históricos del error ya corregido. No son rebotes.</li>
+<li><b>Puntuaciones vacías:</b> los prospectos con aperturas y seguimiento no tienen fit, urgencia ni contactabilidad calculados. Conviene recalcularlos.</li>
+</ul>
+</section>
+
+<footer>Datos del CRM (consulta de solo lectura), Hostinger mail, Google Calendar y Calendly, al 22 de noviembre de 2026.</footer>
+</main>
