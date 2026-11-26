@@ -160,7 +160,7 @@ footer{background:var(--negro);color:var(--papel);padding:70px clamp(16px,5vw,72
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-</head>
+<style>/* Pantallas muy anchas: el contenido no pasa de 1440px; fondos a todo lo ancho. */@media (min-width:1500px){header#top{padding-inline:max(36px,calc((100% - 1440px) / 2))}#hero .fijo{max-width:1440px;margin-inline:auto}section.cifras,#servicios,#orden,body>footer{padding-inline:max(72px,calc((100% - 1440px) / 2))}}</style></head>
 <body>
 <a class="skip" href="#servicios">Ir a servicios y precios</a>
 <header class="top" id="top">

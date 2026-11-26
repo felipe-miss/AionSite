@@ -8,7 +8,10 @@
   --sc-blue-hi: #3b82f6;
   --sc-sky: #60a5fa;
   --sc-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --sc-gutter: clamp(1rem, 4vw, 3.5rem);
+  /* Content column tops out at 90rem (1440px); past that the gutter grows so
+     header and footer line up with the page content on very wide screens. */
+  --sc-content-max: 90rem;
+  --sc-gutter: max(clamp(1rem, 4vw, 3.5rem), calc((100vw - var(--sc-content-max)) / 2));
 
   color: var(--sc-ink);
   font-family: var(--font-epilogue), system-ui, sans-serif;

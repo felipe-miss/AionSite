@@ -45,3 +45,6 @@ header img[src*="logo"],footer img[src*="logo"]{filter:brightness(0) invert(1)}
 @keyframes step-in{from{opacity:0;transform:translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){.process-image-frame img{transition:none}.process-steps details[open] p{animation:none}}
 .motion-paused .process-image-frame img{transition:none}.motion-paused .process-steps details[open] p{animation:none}
+
+/* Pantallas muy anchas: el contenido no pasa de 1440px; fondos a todo lo ancho. */
+@media (min-width:1500px){.review{padding-inline:max(24px,calc((100% - 1440px) / 2))}}

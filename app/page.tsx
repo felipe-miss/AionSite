@@ -162,7 +162,7 @@ export default function Home() {
                       alt={`Página de inicio de ${p.title}`}
                       width={1440}
                       height={795}
-                      sizes="(max-width: 700px) 85vw, 40vw"
+                      sizes="(max-width: 700px) 85vw, min(40vw, 576px)"
                       priority={i < 2}
                     />
                   </span>
@@ -211,7 +211,7 @@ export default function Home() {
               alt="Ilustración de Felipe Miss en su escritorio, con saco azul y lentes"
               width={1122}
               height={1402}
-              sizes="(max-width: 899px) calc(100vw - 32px), 30vw"
+              sizes="(max-width: 899px) calc(100vw - 32px), min(30vw, 432px)"
             />
           </figure>
           <div className="h3-about__copy">

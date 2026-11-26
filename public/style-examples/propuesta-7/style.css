@@ -37,3 +37,6 @@ header img[src*="logo"],footer img[src*="logo"]{filter:brightness(0) invert(1)}
 .diagram-line{background:rgba(17,18,15,.35)}
 .diagram-block{border-color:rgba(17,18,15,.55);transition-duration:.4s!important;transition-timing-function:cubic-bezier(.23,1,.32,1)!important}
 .chapter-tabs button[aria-selected=true]{border-color:var(--ink)}
+
+/* Pantallas muy anchas: el contenido no pasa de 1440px; fondos a todo lo ancho. */
+@media (min-width:1500px){.review{padding-inline:max(24px,calc((100% - 1440px) / 2))}.p7-hd-grid{padding-inline:max(0px,calc((100% - 1440px) / 2))}}

@@ -42,3 +42,6 @@ header img[src*="logo"],footer img[src*="logo"]{filter:brightness(0) invert(1)}
 .magnet-disc{transition:transform .3s cubic-bezier(.23,1,.32,1)!important}
 /* The card stack and journey track never widen the page. */
 html,body{overflow-x:clip}
+
+/* Pantallas muy anchas: el contenido no pasa de 1440px; fondos a todo lo ancho. */
+@media (min-width:1500px){.review{padding-inline:max(24px,calc((100% - 1440px) / 2))}.scroll-caption{padding-inline:max(40px,calc((100% - 1440px) / 2))}}
