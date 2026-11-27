@@ -25,6 +25,11 @@
   text-decoration: none;
 }
 
+.sc ::selection {
+  background: var(--sc-blue);
+  color: #fff;
+}
+
 .sc :focus-visible {
   outline: 2px solid var(--sc-sky);
   outline-offset: 3px;
@@ -333,7 +338,20 @@
   }
 }
 
+/* Touch: grow footer links' hit area into the gap between them without moving the layout */
+@media (pointer: coarse) {
+  .sc-footer__col a {
+    padding-block: 0.3rem;
+    margin-block: -0.3rem;
+  }
+  .sc-footer__bottom nav a {
+    padding-block: 0.6rem;
+    margin-block: -0.6rem;
+  }
+}
+
 /* Anchored sections land below the sticky header on every page */
 html {
   scroll-padding-top: 5rem;
+  scrollbar-color: rgb(148 163 184 / 0.35) #020617;
 }

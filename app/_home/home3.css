@@ -363,6 +363,10 @@
 }
 
 .h3-textlink {
+  /* Taller hit area for touch, with no change to the layout */
+  display: inline-block;
+  padding-block: 0.75rem;
+  margin-block: -0.75rem;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
@@ -516,7 +520,7 @@
   }
   .h3-js [data-reveal="steps"] .h3-steps__n {
     transform: scale(0.6);
-    transition: transform 500ms cubic-bezier(0.34, 1.4, 0.64, 1) calc(var(--d) + 240ms);
+    transition: transform 500ms var(--ease-out) calc(var(--d) + 240ms);
   }
 
   /* Revealed */

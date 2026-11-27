@@ -37,7 +37,18 @@ export function GlobalFooter() {
 
         <div className="sc-footer__col">
           <p className="sc-footer__title">Contacto</p>
-          <a href={`mailto:${email}`}>{email}</a>
+          {/* Break after the @ instead of mid-domain when the column is narrow */}
+          <a href={`mailto:${email}`}>
+            {email.includes("@") ? (
+              <>
+                {email.slice(0, email.indexOf("@") + 1)}
+                <wbr />
+                {email.slice(email.indexOf("@") + 1)}
+              </>
+            ) : (
+              email
+            )}
+          </a>
           <a href={whatsapp} target="_blank" rel="noopener noreferrer">
             WhatsApp
           </a>
